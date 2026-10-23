@@ -1,0 +1,12 @@
+name: 'VVJ Core AI stub provider'
+type: module
+description: 'Test only. Answers the views drafter with a fixed document from state, so a test can drive the whole form without calling an AI.'
+package: Testing
+hidden: true
+dependencies:
+  - vvj_core:vvj_core_ai
+
+# Information added by Drupal.org packaging script on 2026-10-12
+version: '2.0.2'
+project: 'vvj_core'
+datestamp: 1791767996

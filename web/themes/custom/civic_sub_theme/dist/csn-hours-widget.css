@@ -1,0 +1,377 @@
+/*
+  Theme variables and layout for the Drupal widget version.
+  Grouping the tokens together makes future color updates a single, predictable change.
+*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.hours-widget {
+  container-name: hours-widget;
+  container-type: inline-size;
+  --hours-surface: var(--ct-navigation-card-light-background-color, #ffffff);
+  --hours-border: var(--ct-color-light-border-light, #adafb0);
+  --hours-text: #1d2a36;
+  --hours-muted: #5b6877;
+  --hours-primary: #214d7f;
+  --hours-primary-soft: #edf4fb;
+  --hours-success: #1f7d5f;
+  --hours-success-soft: #ebfaf3;
+  --hours-danger: #b34a4a;
+  --hours-danger-soft: #fdf0ee;
+  --hours-focus: var(--ct-color-focus, #005fcc);
+  --hours-shadow: var(--ct-shadow-card, 0 0.25rem 0.75rem rgba(0, 0, 0, 0.12));
+
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  width: calc(100% - 1.5rem);
+  min-height: 270px;
+  margin: 0.75rem;
+  overflow: hidden;
+  color: var(--hours-text);
+  background: var(--hours-surface);
+  border: 1px solid var(--hours-border);
+  border-radius: var(--ct-radius, 4px);
+  box-shadow: var(--hours-shadow);
+  font-family: var(--ct-font-family-body, 'Poppins', sans-serif);
+}
+
+/* Header layout keeps the action buttons on the sides and the title centered */
+.hours-widget__header {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr) max-content;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 1rem;
+  background: var(--hours-surface);
+  border-bottom: 1px solid var(--hours-border);
+}
+
+.hours-widget__title-wrap {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hours-widget__header h1,
+.hours-widget__header h2 {
+  margin: 0;
+  font-family: var(--ct-font-family-heading, var(--ct-font-family-body, 'Poppins', sans-serif));
+  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* Action buttons for moving between current day and next day */
+.hours-widget__today,
+.hours-widget__next-day {
+  box-sizing: border-box;
+  appearance: none;
+  justify-self: center;
+  min-height: auto;
+  padding: 0.45rem 0.65rem;
+  color: var(--hours-primary);
+  background: var(--hours-primary-soft);
+  border: 1px solid var(--hours-primary);
+  border-radius: var(--ct-radius-button, 4px);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease, box-shadow 150ms ease;
+}
+
+.hours-widget__today:hover,
+.hours-widget__next-day:hover,
+.hours-widget__today:focus-visible,
+.hours-widget__next-day:focus-visible {
+  color: #ffffff;
+  background: var(--hours-primary);
+  border-color: var(--hours-primary);
+  box-shadow: 0 0 0 2px rgba(33, 77, 127, 0.12);
+  outline: none;
+}
+
+.hours-widget__today:focus-visible,
+.hours-widget__next-day:focus-visible {
+  box-shadow: 0 0 0 3px var(--hours-focus), 0 0 0 5px rgba(0, 95, 204, 0.15);
+}
+
+.hours-widget__date {
+  margin: 0.2rem 0 0;
+  color: var(--hours-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Campus rows are listed in a vertical stack with badges and times */
+.hours-list {
+  flex: 0 0 auto;
+  min-height: auto;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  list-style: none;
+}
+
+.hours-list__item {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr) max-content;
+  grid-template-areas: "badge campus time";
+  align-items: center;
+  min-width: 0;
+  gap: 0.55rem 0.75rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(29, 42, 54, 0.12);
+  transition: background-color 150ms ease, box-shadow 150ms ease;
+}
+
+.hours-list__item:last-child {
+  border-bottom: 0;
+}
+
+.hours-list__item:hover,
+.hours-list__item:focus-within {
+  background: var(--ct-color-light-background-color, #f8fafc);
+}
+
+/* The badge communicates whether the campus is OPEN or CLOSED */
+.hours-badge {
+  display: inline-flex;
+  grid-area: badge;
+  min-width: 64px;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.45rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.hours-badge--open {
+  color: var(--hours-success);
+  background: var(--hours-success-soft);
+  border-color: rgba(31, 125, 95, 0.18);
+}
+
+.hours-badge--closed {
+  color: var(--hours-danger);
+  background: var(--hours-danger-soft);
+  border-color: rgba(179, 74, 74, 0.16);
+}
+
+.hours-campus {
+  grid-area: campus;
+  min-width: 0;
+  color: var(--hours-text);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.hours-campus a {
+  color: inherit;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+  border-radius: var(--ct-radius-button, 4px);
+}
+
+.hours-campus a:hover,
+.hours-campus a:focus-visible {
+  color: var(--hours-primary);
+  text-decoration: underline;
+  text-decoration-color: currentColor;
+  text-underline-offset: 0.18em;
+  outline: none;
+}
+
+.hours-campus a:focus-visible,
+.hours-widget__footer a:focus-visible {
+  box-shadow: 0 0 0 3px var(--hours-focus), 0 0 0 5px rgba(0, 95, 204, 0.15);
+}
+
+.hours-time {
+  grid-area: time;
+  min-width: 0;
+  color: var(--hours-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: right;
+}
+
+/* Narrow-layout adjustments keep the grid readable on smaller screens */
+@media (max-width: 520px) {
+  .hours-widget__header {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas: "title title" "today next";
+    gap: 0.4rem;
+    padding: 0.55rem 0.7rem;
+  }
+
+  .hours-widget__today {
+    grid-area: today;
+    width: 100%;
+  }
+
+  .hours-widget__title-wrap {
+    grid-area: title;
+  }
+
+  .hours-widget__next-day {
+    grid-area: next;
+    width: 100%;
+  }
+
+  .hours-widget__header h1,
+  .hours-widget__header h2 {
+    font-size: 1.25rem;
+  }
+
+  .hours-list__item {
+    grid-template-columns: max-content minmax(0, 1fr) max-content;
+    grid-template-areas: "badge campus time";
+    gap: 0.35rem 0.45rem;
+    padding: 0.5rem 0.85rem;
+  }
+
+  .hours-time {
+    padding-left: 0;
+    font-size: 0.72rem;
+    text-align: right;
+  }
+
+  .hours-badge {
+    min-width: 58px;
+    padding: 0.2rem 0.35rem;
+    font-size: 0.58rem;
+  }
+
+  .hours-campus {
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .hours-widget__header {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas: "title title" "today next";
+    gap: 0.35rem;
+    padding: 0.45rem 0.55rem;
+  }
+
+  .hours-widget__today,
+  .hours-widget__next-day {
+    width: 100%;
+    padding-right: 0.35rem;
+    padding-left: 0.35rem;
+  }
+
+  .hours-list__item {
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-areas: "badge campus" "time time";
+    gap: 0.25rem 0.45rem;
+    padding: 0.3rem 0.55rem;
+  }
+
+  .hours-badge {
+    min-width: 52px;
+    padding-right: 0.3rem;
+    padding-left: 0.3rem;
+  }
+
+  .hours-campus {
+    font-size: 0.76rem;
+  }
+
+  .hours-time {
+    grid-column: 1 / -1;
+    grid-area: time;
+    font-size: 0.68rem;
+    text-align: left;
+  }
+}
+
+/* Footer action link to the full library hours page */
+.hours-widget__footer {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  padding: 0.45rem 1rem;
+  background: var(--hours-surface);
+  border-top: 1px solid var(--hours-border);
+}
+
+.hours-widget__footer a {
+  color: var(--hours-primary);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: var(--ct-radius-button, 4px);
+}
+
+.hours-widget__footer a:hover,
+.hours-widget__footer a:focus-visible {
+  color: var(--hours-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  outline: none;
+}
+
+@media (max-width: 540px) {
+  .hours-widget {
+    width: calc(100% - 1rem);
+    min-height: 312px;
+    margin: 0.5rem;
+  }
+
+  .hours-widget__header {
+    gap: 0.4rem;
+    padding: 0.5rem 0.7rem;
+  }
+
+  .hours-widget__today,
+  .hours-widget__next-day {
+    padding: 0.33rem 0.45rem;
+    font-size: 0.68rem;
+  }
+
+  .hours-widget__header h1,
+  .hours-widget__header h2 {
+    font-size: 1.05rem;
+  }
+
+  .hours-widget__date {
+    font-size: 0.68rem;
+  }
+
+  .hours-list__item {
+    gap: 0.35rem 0.5rem;
+    padding: 0.45rem 0.75rem;
+  }
+
+  .hours-badge {
+    min-width: 54px;
+    padding: 0.18rem 0.3rem;
+    font-size: 0.56rem;
+  }
+
+  .hours-campus {
+    font-size: 0.78rem;
+  }
+
+  .hours-time {
+    font-size: 0.7rem;
+  }
+
+  .hours-widget__footer {
+    padding: 0.3rem 0.75rem;
+  }
+}

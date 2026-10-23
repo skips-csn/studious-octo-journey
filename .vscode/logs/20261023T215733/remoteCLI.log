@@ -1,0 +1,9 @@
+2026-10-23 21:57:33.249 [info] Started initializing default profile extensions in extensions installation folder. file:///var/www/html/.vscode/extensions
+2026-10-23 21:57:33.314 [info] Completed initializing default profile extensions in extensions installation folder. file:///var/www/html/.vscode/extensions
+2026-10-23 21:57:34.417 [info] Getting Manifest... streetsidesoftware.code-spell-checker
+2026-10-23 21:57:34.661 [info] Installing extension: streetsidesoftware.code-spell-checker {"isMachineScoped":false,"installPreReleaseVersion":false,"donotIncludePackAndDependencies":false,"isBuiltin":false,"installGivenVersion":false,"isApplicationScoped":false,"profileLocation":{"$mid":1,"fsPath":"/var/www/html/.vscode/extensions/extensions.json","external":"file:///var/www/html/.vscode/extensions/extensions.json","path":"/var/www/html/.vscode/extensions/extensions.json","scheme":"file"},"productVersion":{"version":"1.99.3","date":"2025-04-24T19:29:01.118Z"}}
+2026-10-23 21:57:35.776 [error] Could not load vsce-sign module Cannot find package '@vscode/vsce-sign' imported from /usr/lib/code-server/lib/vscode/out/server-main.js
+2026-10-23 21:57:35.776 [info] Extension signature verification is not done: streetsidesoftware.code-spell-checker
+2026-10-23 21:57:35.995 [info] Extracted extension to file:///var/www/html/.vscode/extensions/streetsidesoftware.code-spell-checker-4.2.6-universal: streetsidesoftware.code-spell-checker
+2026-10-23 21:57:36.028 [info] Renamed to /var/www/html/.vscode/extensions/streetsidesoftware.code-spell-checker-4.2.6-universal
+2026-10-23 21:57:36.038 [info] Extension installed successfully: streetsidesoftware.code-spell-checker file:///var/www/html/.vscode/extensions/extensions.json

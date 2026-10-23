@@ -1,0 +1,81 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Table
+status: stable
+description: Table component for tabular data with styling options
+props:
+  type: object
+  properties:
+    theme:
+      type: string
+      title: Theme
+      description: Theme variation (light or dark).
+      enum:
+      - light
+      - dark
+      default: light
+    caption:
+      type: [string, 'null']
+      title: Caption
+      description: Table caption.
+    caption_position:
+      type: string
+      title: Caption position
+      description: Caption position (before, after).
+      enum:
+      - before
+      - after
+      default: before
+    header:
+      type: array
+      title: Header
+      description: Header cells.
+      items:
+        type: [string, 'null', integer, object]
+    header_sanitized:
+      type: array
+      title: Header
+      description: Provide no-HTML header column names. Used for mobile header labels.
+      items:
+        type: [string, 'null', integer, object]
+    rows:
+      type: array
+      title: Rows
+      description: Table rows.
+      items:
+        oneOf:
+          - type: array
+            items:
+              type: [string, 'null', integer, object]
+          - type: object
+            properties:
+              cols:
+                type: array
+                items:
+                  oneOf:
+                    - type: [string, 'null', integer]
+                    - type: object
+                      properties:
+                        content:
+                          type: [string, 'null', integer, object]
+                        attributes:
+                          type: object
+              attributes:
+                type: object
+    footer:
+      type: array
+      title: Footer
+      description: Footer cells.
+      items:
+        type: [string, 'null', integer, object]
+    is_striped:
+      type: [boolean, 'null']
+      title: Striped
+      description: Whether to show table with striped rows.
+    is_data_table:
+      type: [boolean, 'null']
+      title: Data table
+      description: Whether to show as a data table.
+    modifier_class:
+      type: string
+      title: Modifier classes
+      description: Additional CSS classes.

@@ -1,0 +1,14 @@
+2026-10-23 21:57:39.605 [info] Getting Manifest... cweijan.vscode-mysql-client2
+2026-10-23 21:57:39.658 [info] Installing extension: cweijan.vscode-mysql-client2 {"isMachineScoped":false,"installPreReleaseVersion":false,"donotIncludePackAndDependencies":false,"isBuiltin":false,"installGivenVersion":false,"isApplicationScoped":false,"profileLocation":{"$mid":1,"fsPath":"/var/www/html/.vscode/extensions/extensions.json","external":"file:///var/www/html/.vscode/extensions/extensions.json","path":"/var/www/html/.vscode/extensions/extensions.json","scheme":"file"},"productVersion":{"version":"1.99.3","date":"2025-04-24T19:29:01.118Z"}}
+2026-10-23 21:57:39.860 [info] Getting Manifest... cweijan.dbclient-jdbc
+2026-10-23 21:57:40.123 [info] Installing extension: cweijan.dbclient-jdbc {"isMachineScoped":false,"installPreReleaseVersion":false,"donotIncludePackAndDependencies":false,"isBuiltin":false,"installGivenVersion":false,"isApplicationScoped":false,"profileLocation":{"$mid":1,"fsPath":"/var/www/html/.vscode/extensions/extensions.json","external":"file:///var/www/html/.vscode/extensions/extensions.json","path":"/var/www/html/.vscode/extensions/extensions.json","scheme":"file"},"productVersion":{"version":"1.99.3","date":"2025-04-24T19:29:01.118Z"},"context":{"dependecyOrPackExtensionInstall":true}}
+2026-10-23 21:57:42.168 [error] Could not load vsce-sign module Cannot find package '@vscode/vsce-sign' imported from /usr/lib/code-server/lib/vscode/out/server-main.js
+2026-10-23 21:57:42.168 [info] Extension signature verification is not done: cweijan.vscode-mysql-client2
+2026-10-23 21:57:42.499 [info] Extracted extension to file:///var/www/html/.vscode/extensions/cweijan.vscode-mysql-client2-9.0.2-universal: cweijan.vscode-mysql-client2
+2026-10-23 21:57:42.514 [info] Renamed to /var/www/html/.vscode/extensions/cweijan.vscode-mysql-client2-9.0.2-universal
+2026-10-23 21:57:42.847 [error] Could not load vsce-sign module Cannot find package '@vscode/vsce-sign' imported from /usr/lib/code-server/lib/vscode/out/server-main.js
+2026-10-23 21:57:42.847 [info] Extension signature verification is not done: cweijan.dbclient-jdbc
+2026-10-23 21:57:43.009 [info] Extracted extension to file:///var/www/html/.vscode/extensions/cweijan.dbclient-jdbc-1.4.2-universal: cweijan.dbclient-jdbc
+2026-10-23 21:57:43.014 [info] Renamed to /var/www/html/.vscode/extensions/cweijan.dbclient-jdbc-1.4.2-universal
+2026-10-23 21:57:43.027 [info] Extension installed successfully: cweijan.vscode-mysql-client2 file:///var/www/html/.vscode/extensions/extensions.json
+2026-10-23 21:57:43.027 [info] Extension installed successfully: cweijan.dbclient-jdbc file:///var/www/html/.vscode/extensions/extensions.json

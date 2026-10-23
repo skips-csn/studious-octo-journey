@@ -1,0 +1,55 @@
+{
+  "name": "civictheme-starter-kit-theme",
+  "private": true,
+  "description": "CivicTheme Starter Kit consumer Drupal sub-theme of CivicTheme Drupal theme",
+  "license": "proprietary",
+  "type": "module",
+  "engines": {
+    "node": ">=22.6.0"
+  },
+  "os": [
+    "darwin",
+    "linux",
+    "win32"
+  ],
+  "cpu": [
+    "x64",
+    "arm",
+    "arm64",
+    "ia32"
+  ],
+  "scripts": {
+    "add-lint-exclusions": "node build.js lintex",
+    "build": "npm run dist && storybook build && npm run add-lint-exclusions",
+    "dist": "node build.js",
+    "dist:dev": "npm run dist",
+    "dist:watch": "node build.js build watch",
+    "lint": "eslint --no-error-on-unmatched-pattern ./components ./.storybook && stylelint 'components/**/*.scss'",
+    "lint-fix": "eslint ./components ./.storybook --fix && stylelint 'components/**/*.scss' --fix",
+    "storybook": "npm run dist && node build.js cli \"dist:watch\" \"storybook-dev\"",
+    "storybook-dev": "storybook dev -p 6006"
+  },
+  "devDependencies": {
+    "@civictheme/scss-variables-extractor": "^0.2.1",
+    "@storybook/addon-docs": "10.2.13",
+    "@storybook/addon-links": "10.2.13",
+    "@storybook/html-vite": "10.2.13",
+    "@whitespace/storybook-addon-html": "^9.0.0",
+    "@eslint/js": "^10.0.1",
+    "@stylistic/stylelint-plugin": "^5.0.1",
+    "eslint": "^10.0.3",
+    "eslint-plugin-import-newlines": "^2.0.0",
+    "globals": "^17.4.0",
+    "glob": "^11.0.1",
+    "sass-embedded": "1.77.5",
+    "storybook": "10.2.13",
+    "stylelint": "^17.4.0",
+    "stylelint-config-standard": "^40.0.0",
+    "stylelint-config-standard-scss": "^17.0.0",
+    "vite": "^6.4.2",
+    "vite-plugin-twig-drupal": "^1.6.0"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8"
+  }
+}

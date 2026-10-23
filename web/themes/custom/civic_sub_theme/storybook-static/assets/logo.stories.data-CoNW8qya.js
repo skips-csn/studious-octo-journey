@@ -1,0 +1,2 @@
+// phpcs:ignoreFile
+import{C as t}from"./constants-CRqfzfsz.js";const a={args:(o="light")=>({theme:o,type:"default",logos:{primary:{mobile:{url:t.LOGOS[o].primary.mobile,alt:"Primary logo mobile alt text"},desktop:{url:t.LOGOS[o].primary.desktop,alt:"Primary logo desktop alt text"}},secondary:{mobile:{url:t.LOGOS[o].secondary.mobile,alt:"Secondary logo mobile alt text"},desktop:{url:t.LOGOS[o].secondary.desktop,alt:"Secondary logo desktop alt text"}}},url:"https://example.com",title:"Logo title",attributes:"",modifier_class:""})};export{a as L};

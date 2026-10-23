@@ -1,0 +1,15 @@
+name: 'Views Vanilla Javascript Tabs - VVJT'
+type: module
+description: 'Accessible tabbed display format for Views.'
+core_version_requirement: ^11.3 || ^12
+package: VVJ
+php: 8.3
+dependencies:
+  - drupal:views
+  - drupal:filter
+  - vvj_core:vvj_core
+
+# Information added by Drupal.org packaging script on 2026-10-06
+version: '2.0.1'
+project: 'vvjt'
+datestamp: 1791260090

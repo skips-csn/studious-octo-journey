@@ -1,0 +1,70 @@
+vvjt:
+  css:
+    theme:
+      css/vvjt.css: { }
+  js:
+    js/vvjt-tabs-element.js: {}
+    js/vvjt.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupal.ajax
+    - core/drupalSettings
+    - core/once
+    - vvj_core/tokens
+    - vvj_core/base
+    - vvj_core/a11y
+    - vvj_core/element-base
+    - vvj_core/keyboard-nav
+    - vvj_core/deeplink-bridge
+
+vvjt-admin:
+  css:
+    theme:
+      css/vvjt-admin.css: {}
+  js:
+    js/vvjt-admin.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupal.ajax
+    - core/drupalSettings
+    - core/once
+
+vvjt-horizontal:
+  css:
+    theme:
+      css/vvjt-horizontal.css: { }
+
+vvjt-vertical:
+  css:
+    theme:
+      css/vvjt-vertical.css: { }
+
+vvjt-style:
+  css:
+    theme:
+      css/vvjt-style.css: { }
+
+vvjt__576:
+  css:
+    theme:
+      css/vvjt-576.css: { }
+
+vvjt__768:
+  css:
+    theme:
+      css/vvjt-768.css: { }
+
+vvjt__992:
+  css:
+    theme:
+      css/vvjt-992.css: { }
+
+vvjt__1200:
+  css:
+    theme:
+      css/vvjt-1200.css: { }
+
+vvjt__1400:
+  css:
+    theme:
+      css/vvjt-1400.css: { }

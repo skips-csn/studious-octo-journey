@@ -1,0 +1,94 @@
+/**
+ * @file
+ * VVJ Core — base reset + cascade-layer ladder.
+ *
+ * The cascade-layer ladder lets pattern modules and themes layer
+ * their CSS at the right specificity level without selector hacks.
+ * Order (lowest to highest priority within layered rules):
+ *
+ *   vvj.foundation  — universal box-sizing, container queries
+ *   vvj.tokens      — design-token definitions (vvj-tokens.css)
+ *   vvj.base        — reduced-motion baseline, accessibility primitives
+ *   vvj.pattern     — per-pattern layout (vvja.css, vvjs.css, etc.)
+ *   vvj.theme       — site theme overrides — always wins (themes layer
+ *                     into this from their own CSS)
+ *
+ * Unlayered CSS still beats layered CSS, so site themes can drop
+ * unlayered overrides if they want to win against everything.
+ *
+ * Filename:     vvj-base.css
+ * Website:      https://www.flashwebcenter.com
+ * Developer:    Alaa Haddad https://www.alaahaddad.com.
+ */
+
+/* stylelint-disable layer-name-pattern -- These are NESTED cascade layer
+   names. `vvj.base` is a sublayer of `vvj`, which is valid CSS and is the
+   point: a site theme can order every VVJ layer as a group by writing
+   `@layer vvj, theme;`. stylelint's kebab-case pattern for this rule does not
+   allow the dot, so satisfying it would mean flattening the hierarchy to
+   `vvj-base` and taking that capability away for a naming preference. */
+@layer vvj.foundation, vvj.tokens, vvj.base, vvj.pattern, vvj.theme;
+
+@layer vvj.foundation {
+  /* Container-query setup for every VVJ custom element.
+     Pattern stylesheets can use @container queries against `vvj-region`
+     to respond to their parent's size, not the viewport. */
+  .vvj-component,
+  vvja-accordion,
+  vvjb-carousel,
+  vvjc-carousel-3d,
+  vvjf-flipbox,
+  vvjh-hero,
+  vvjl-lightbox,
+  vvjp-parallax,
+  vvjr-reveal,
+  vvjs-slideshow,
+  vvjt-tabs {
+    display: block;
+    box-sizing: border-box;
+    container-name: vvj-region;
+    container-type: inline-size;
+  }
+
+  .vvj-component *,
+  .vvj-component *::before,
+  .vvj-component *::after,
+  vvja-accordion *,
+  vvjb-carousel *,
+  vvjc-carousel-3d *,
+  vvjf-flipbox *,
+  vvjh-hero *,
+  vvjl-lightbox *,
+  vvjp-parallax *,
+  vvjr-reveal *,
+  vvjs-slideshow *,
+  vvjt-tabs * {
+    box-sizing: inherit;
+  }
+
+  /* Note on `<X>:not(:defined)` FOUC-hiding:
+   * We deliberately do NOT hide unupgraded custom elements. If the
+   * JS module fails to load (network error, blocked by extension,
+   * etc.), users would see nothing forever. Instead the markup
+   * inside each custom element is structured so that, without JS,
+   * a sensible static representation renders — inner `.vvja-inner`
+   * etc. divs are the visual elements; the custom element itself is
+   * a thin behavior wrapper.
+   */
+}
+
+@layer vvj.base {
+  /* Reduced-motion baseline — applies to every VVJ component.
+     Pattern-specific motion overrides also respect this query, but
+     this is the cross-cutting safety net. */
+  @media (prefers-reduced-motion: reduce) {
+    .vvj-component *,
+    .vvj-component *::before,
+    .vvj-component *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}

@@ -1,0 +1,297 @@
+/**
+ * @file
+ * VVj Tabs - Global Foundation
+ *
+ * Filename:     vvjt.css
+ * Website:      https://www.flashwebcenter.com
+ * Developer:    Alaa Haddad https://www.alaahaddad.com.
+ *
+ * Purpose:      Core structure and animations for all tab layouts
+ * Scope:        Universal - Always loaded
+ * Rules:        Complete spacing and typography - NO colors/backgrounds/shadows
+ */
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+.vvj-tabs .visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ============================================
+   GLOBAL BOX MODEL
+   ============================================ */
+
+.vvj-tabs,
+.vvj-tabs * {
+  box-sizing: border-box;
+}
+
+.vvj-tabs,
+.vvj-tabs .view-content {
+  display: block !important;
+  width: 100%;
+  min-width: 100%;
+}
+
+/* ============================================
+   CONTAINER STRUCTURE
+   ============================================ */
+
+.vvjt {
+  display: grid;
+  grid-template-columns: 1fr;
+  box-sizing: border-box;
+}
+
+.vvjt .vvjt-inner {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* ============================================
+   TAB PANES STRUCTURE
+   ============================================ */
+
+.vvjt .vvjt-inner .tab-panes {
+  display: grid;
+  overflow: hidden;
+  grid-template-columns: 1fr;
+  width: 100%;
+  transition: width 0.3s ease;
+  background-color: var(--bg-panes);
+}
+
+.vvjt .vvjt-inner .tab-panes > * {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.vvjt .tab-panes .vvjt-pane {
+  display: none;
+  overflow: hidden;
+}
+
+.vvjt .tab-panes > div.vvjt-pane:first-child {
+  display: block;
+}
+
+/* ============================================
+   TAB BUTTONS STRUCTURE
+   ============================================ */
+
+.vvjt .vvjt-inner .tab-buttons {
+  transition: width 0.3s ease;
+  background-color: var(--bg-buttons);
+}
+
+.vvjt .tab-buttons .vvjt-button {
+  position: relative;
+  display: inline-block;
+  height: auto;
+  margin: 0;
+  padding: 12px;
+  cursor: pointer;
+  transition:
+    padding 0.3s ease,
+    background-color 0.3s ease;
+  text-align: start;
+  white-space: normal;
+  text-overflow: ellipsis;
+  border: none;
+  background-color: transparent;
+  font-weight: normal;
+  line-height: normal;
+}
+
+.vvjt .vvjt-inner .tab-buttons .vvjt-button:hover,
+.vvjt .vvjt-inner .tab-buttons .vvjt-button:focus {
+  opacity: 0.8;
+  border: none;
+  outline: none;
+  font-weight: normal;
+}
+
+.vvjt .vvjt-inner .tab-buttons .vvjt-button:focus-visible {
+  z-index: 1;
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* ============================================
+   TAB PANES - Content Area Spacing
+   ============================================ */
+
+.vvjt .tab-panes {
+  padding: 1rem;
+}
+
+/* ============================================
+   VERTICAL TABS - Spacing
+   ============================================ */
+
+.vvjt.vertical .vvjt-inner {
+  gap: 12px;
+}
+
+/* ============================================
+   UTILITY
+   ============================================ */
+
+.vvj-tabs {
+  display: block;
+  margin: 1rem auto;
+}
+
+.vvj-tabs .vvjt-pane a {
+  height: auto;
+}
+
+/* ============================================
+   IMAGE BUTTONS
+   ============================================ */
+
+.vvjt .tab-buttons .vvjt-button img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.vvjt .tab-buttons .vvjt-button:hover img {
+  transform: scale(1.1);
+}
+
+/* ============================================
+   ANIMATIONS - Pane Transitions
+   ============================================ */
+
+/* Continuous Fading (Slideshow Mode) */
+.vvjt.vvjt__animate-fading .vvjt-pane {
+  animation: fading 5s ease-in-out infinite;
+}
+
+@keyframes fading {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Opacity Fade In */
+.vvjt.a-opacity .vvjt-pane {
+  animation: opac 0.8s ease-out;
+}
+
+@keyframes opac {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Slide From Top */
+.vvjt.a-top .vvjt-pane {
+  position: relative;
+  animation: animatetop 0.6s ease-out;
+}
+
+@keyframes animatetop {
+  from {
+    top: -100px;
+    opacity: 0;
+  }
+
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+/* Slide From Left */
+.vvjt.a-left .vvjt-pane {
+  position: relative;
+  animation: animateleft 0.6s ease-out;
+}
+
+@keyframes animateleft {
+  from {
+    inset-inline-start: -100px;
+    opacity: 0;
+  }
+
+  to {
+    inset-inline-start: 0;
+    opacity: 1;
+  }
+}
+
+/* Slide From Right */
+.vvjt.a-right .vvjt-pane {
+  position: relative;
+  animation: animateright 0.6s ease-out;
+}
+
+@keyframes animateright {
+  from {
+    inset-inline-end: -100px;
+    opacity: 0;
+  }
+
+  to {
+    inset-inline-end: 0;
+    opacity: 1;
+  }
+}
+
+/* Slide From Bottom */
+.vvjt.a-bottom .vvjt-pane {
+  position: relative;
+  animation: animatebottom 0.6s ease-out;
+}
+
+@keyframes animatebottom {
+  from {
+    bottom: -100px;
+    opacity: 0;
+  }
+
+  to {
+    bottom: 0;
+    opacity: 1;
+  }
+}
+
+/* Zoom/Scale In */
+.vvjt.a-zoom .vvjt-pane {
+  animation: animatezoom 0.6s ease-out;
+}
+
+@keyframes animatezoom {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1.05);
+  }
+}

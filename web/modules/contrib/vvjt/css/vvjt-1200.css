@@ -1,0 +1,103 @@
+/**
+ * @file
+ * Views Tabs
+ *
+ * Filename:     vvjt-1200.css
+ * Website:      https://www.flashwebcenter.com
+ * Developer:    Alaa Haddad https://www.alaahaddad.com.
+ */
+@media (min-width: 75rem) {
+  .vvjt.br-1200.vertical .vvjt-inner {
+    flex-direction: row;
+  }
+
+  .vvjt.br-1200.vertical.right .vvjt-inner {
+    flex-direction: row-reverse;
+  }
+
+  .vvjt.br-1200.vertical .vvjt-inner .tab-panes {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .vvjt.br-1200.vertical .vvjt-inner .tab-buttons {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+  }
+
+  .vvjt.br-1200.vertical .vvjt-inner .tab-buttons:not(.vvjt.max-w .tab-buttons) {
+    width: auto;
+  }
+
+  .vvjt.br-1200.vertical.max-h .tab-buttons {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .vvjt.br-1200.vertical.max-h .tab-buttons > * {
+    flex: 0 0 auto;
+  }
+}
+
+@media (max-width: 74.99875rem) {
+  /* Images in Vertical-to-Horizontal Transformation */
+  .vvjt.br-1400.vertical .vvjt-inner .vvjt-button img {
+    width: auto;
+    max-width: none;
+    height: auto;
+  }
+
+  /* Vertical Tabs Become Horizontal Scrolling */
+  .vvjt.br-1400.vertical .tab-buttons {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .vvjt.br-1400.vertical .tab-buttons .vvjt-button {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  /* Wrap Mode for Vertical-to-Horizontal */
+  .vvjt.br-1400.vertical.wrap-tabs .tab-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    white-space: normal;
+  }
+
+  .vvjt.br-1400.vertical.wrap-tabs .tab-buttons .vvjt-button {
+    overflow-x: visible;
+    white-space: normal;
+  }
+
+  /* Reset Max-Height on Mobile */
+  .vvjt.br-1400.vertical.max-h .tab-buttons {
+    overflow-y: initial;
+    flex-direction: initial;
+    height: auto !important;
+    max-height: initial !important;
+  }
+
+  /* Reset Max-Width on Mobile */
+  .vvjt.br-1400.vertical.max-w .tab-buttons {
+    width: initial !important;
+    max-width: initial !important;
+  }
+
+  .vvjt.br-1400.vertical.max-h .tab-buttons > * {
+    flex: initial;
+  }
+
+  /* Horizontal Tabs - Mobile Optimizations */
+  .vvjt.horizontal .tab-buttons {
+    gap: 0.25rem;
+  }
+
+  .vvjt.horizontal .vvjt-button {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+  }
+}

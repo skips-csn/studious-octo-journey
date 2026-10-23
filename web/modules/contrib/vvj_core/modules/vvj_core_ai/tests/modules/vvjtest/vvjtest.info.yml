@@ -1,0 +1,13 @@
+name: 'VVJ test format'
+type: module
+description: 'Test fixture. Provides one VVJ display format so the vvj_core_ai tests do not depend on a separate drupal.org project.'
+package: Testing
+core_version_requirement: ^11.3 || ^12
+dependencies:
+  - drupal:views
+  - vvj_core:vvj_core
+
+# Information added by Drupal.org packaging script on 2026-10-12
+version: '2.0.2'
+project: 'vvj_core'
+datestamp: 1791767996

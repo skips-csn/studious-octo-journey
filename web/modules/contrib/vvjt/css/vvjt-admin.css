@@ -1,0 +1,17 @@
+/**
+ * @file
+ * Admin styles for VVJT Views configuration form.
+ *
+ * Filename:     vvjt-admin.css
+ * Website:      https://www.flashwebcenter.com
+ * Developer:    Alaa Haddad https://www.alaahaddad.com.
+ */
+
+/* Hide deep link identifier field by default */
+[data-vvjt-deeplink-field="true"] {
+  display: none;
+}
+
+[data-vvjt-deeplink-field="true"]:not(.hidden-element) {
+  display: block;
+}

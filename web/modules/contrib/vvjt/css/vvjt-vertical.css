@@ -1,0 +1,48 @@
+/**
+ * @file
+ * VVj Tabs - Vertical Layout
+ *
+ * Filename:     vvjt-vertical.css
+ * Website:      https://www.flashwebcenter.com
+ * Developer:    Alaa Haddad https://www.alaahaddad.com.
+ *
+ * Purpose:      Vertical tabs layout structure
+ * Scope:        Loaded when orientation = vertical
+ * Rules:        Complete spacing and structure - NO colors/backgrounds/shadows
+ */
+
+/* ============================================
+   CONTAINER FLEXBOX
+   ============================================ */
+
+.vvjt.vertical .vvjt-inner {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================
+   BASE SIZING
+   ============================================ */
+
+.vvjt.vertical .tab-buttons,
+.vvjt.vertical .tab-panes {
+  width: 100%;
+}
+
+/* ============================================
+   MAX-WIDTH MODE - Button Container Width
+   ============================================ */
+
+.vvjt.vertical.max-w .vvjt-inner .tab-buttons {
+  width: 100%;
+  max-width: calc(var(--vertical-width, 300) * 1px);
+}
+
+/* ============================================
+   MAX-HEIGHT MODE - Scrollable Buttons
+   ============================================ */
+
+.vvjt.vertical.max-h .vvjt-inner .tab-buttons {
+  height: 100%;
+  max-height: calc(var(--vertical-height) * 1px);
+}

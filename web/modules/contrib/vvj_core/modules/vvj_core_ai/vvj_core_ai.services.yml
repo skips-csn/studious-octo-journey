@@ -1,0 +1,114 @@
+services:
+  # The registry is a service, not logic inside a tool plugin, so it can be
+  # tested without the AI stack present — the same reason paragraphs_bundles_ai
+  # separates its resolver. It holds a plugin manager and nothing it could
+  # write with; see docs/VVJ-AI-BRIEF.md section 5.
+  vvj_core_ai.format_registry:
+    class: Drupal\vvj_core_ai\Service\FormatRegistry
+    arguments:
+      - '@plugin.manager.views.style'
+
+  Drupal\vvj_core_ai\Service\FormatRegistryInterface: '@vvj_core_ai.format_registry'
+
+  # Reads a format's settings from its own settings form. Takes the registry
+  # so an unknown format is refused before any form is built, and holds no
+  # storage — the view it constructs is in-memory and never saved.
+  # Builds a format's plugin against a throwaway view that is never saved. One
+  # owner, because reading a settings form and asking which row a format needs
+  # both construct the plugin the way Views does.
+  vvj_core_ai.format_probe:
+    class: Drupal\vvj_core_ai\Service\FormatProbe
+    arguments:
+      - '@plugin.manager.views.style'
+
+  Drupal\vvj_core_ai\Service\FormatProbeInterface: '@vvj_core_ai.format_probe'
+
+  # Which row a format keeps: fields, or whole items in a view mode. Asked of
+  # the format itself, never a copied list.
+  vvj_core_ai.row_rules:
+    class: Drupal\vvj_core_ai\Service\RowRules
+    arguments:
+      - '@vvj_core_ai.format_probe'
+
+  Drupal\vvj_core_ai\Service\RowRulesInterface: '@vvj_core_ai.row_rules'
+
+  vvj_core_ai.settings_reader:
+    class: Drupal\vvj_core_ai\Service\SettingsReader
+    arguments:
+      - '@vvj_core_ai.format_probe'
+      - '@vvj_core_ai.format_registry'
+      - '@logger.channel.vvj_core_ai'
+
+  Drupal\vvj_core_ai\Service\SettingsReaderInterface: '@vvj_core_ai.settings_reader'
+
+  # Its own channel, so a site builder can see why a settings read failed
+  # without wading through every other module's log.
+  logger.channel.vvj_core_ai:
+    parent: logger.channel_base
+    arguments: ['vvj_core_ai']
+
+  # Negotiates what a view needs before anything is written. Reads only; the
+  # creator calls it again rather than trusting it ran.
+  vvj_core_ai.view_planner:
+    class: Drupal\vvj_core_ai\Service\ViewPlanner
+    arguments:
+      - '@entity_type.manager'
+      - '@entity_type.bundle.info'
+      - '@entity_field.manager'
+      - '@vvj_core_ai.format_registry'
+      - '@current_user'
+
+  Drupal\vvj_core_ai\Service\ViewPlannerInterface: '@vvj_core_ai.view_planner'
+
+  # The only service here that writes, and it only creates. It takes the
+  # planner and re-runs it, so a model that skips vvj_resolve_view cannot
+  # cause a bad write — the redundancy IS the safety model.
+  vvj_core_ai.view_creator:
+    class: Drupal\vvj_core_ai\Service\ViewCreator
+    calls:
+      - [setStringTranslation, ['@string_translation']]
+    arguments:
+      - '@entity_type.manager'
+      - '@entity_field.manager'
+      - '@vvj_core_ai.view_planner'
+      - '@vvj_core_ai.row_rules'
+      - '@path.validator'
+
+  Drupal\vvj_core_ai\Service\ViewCreatorInterface: '@vvj_core_ai.view_creator'
+
+  # The per-format briefs: advice, example prompts, count and features. Reads
+  # config a person wrote; translates nothing itself.
+  vvj_core_ai.briefs:
+    class: Drupal\vvj_core_ai\Service\Briefs
+    arguments:
+      - '@config.factory'
+
+  Drupal\vvj_core_ai\Service\BriefsInterface: '@vvj_core_ai.briefs'
+
+  # The format settings a new view is switched on with, held to each format's
+  # own settings form, and the sentence that names them.
+  vvj_core_ai.view_features:
+    class: Drupal\vvj_core_ai\Service\ViewFeatures
+    calls:
+      - [setStringTranslation, ['@string_translation']]
+    arguments:
+      - '@vvj_core_ai.briefs'
+      - '@vvj_core_ai.settings_reader'
+
+  Drupal\vvj_core_ai\Service\ViewFeaturesInterface: '@vvj_core_ai.view_features'
+
+  # Asks the model for a view's name, fields and sort, inside a schema built
+  # from this site's own fields. Never a format, a content type or a count.
+  vvj_core_ai.view_drafter:
+    class: Drupal\vvj_core_ai\Service\ViewDrafter
+    calls:
+      - [setStringTranslation, ['@string_translation']]
+    arguments:
+      - '@config.factory'
+      - '@ai.provider'
+      - '@vvj_core_ai.view_planner'
+      - '@entity_field.manager'
+      - '@vvj_core_ai.briefs'
+      - '@vvj_core_ai.format_registry'
+
+  Drupal\vvj_core_ai\Service\ViewDrafterInterface: '@vvj_core_ai.view_drafter'

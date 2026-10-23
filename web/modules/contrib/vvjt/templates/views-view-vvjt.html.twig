@@ -1,0 +1,134 @@
+{#
+  @file
+  Template for rendering a Views Vanilla Javascript Tabs.
+
+  Available variables:
+  - options: The options array containing settings for the tabs.
+  - rows: An array of row items to be displayed in the tabs.
+  - attributes: A list of HTML attributes for the wrapper div.
+
+  Options settings:
+  - unique_id: A unique identifier for the tabs instance.
+  - animation: Animation type for the tabs.
+  - max_width: Maximum width for the tabs.
+  - available_breakpoints: Breakpoints for responsive design.
+  - vertical_tabs: Whether to display tabs vertically.
+#}
+
+{% set unique_id = options.unique_id %}
+{% set vvjt_id = 'vvjt-' ~ unique_id %}
+{% set tab_inner_id = 'vvjt-inner-' ~ unique_id %}
+{% set tab_layout = options.tabs_position in ['top', 'bottom'] ? 'horizontal' : 'vertical' %}
+
+{# Deep linking configuration #}
+{% set deeplink_config = {
+  enabled: options.enable_deeplink|default(false),
+  identifier: options.deeplink_identifier|default(''),
+} %}
+
+{% set classes = [
+  'vvjt',
+  vvjt_id,
+  tab_layout,
+  options.tabs_position,
+  options.max_width != 0 ? 'max-w' : '',
+  options.max_height != 0 ? 'max-h' : '',
+  options.tabs_position in ['left', 'right'] ? 'br-' ~ options.available_breakpoints : '',
+  options.animation != 'none' ? options.animation : '',
+  options.wrap_tabs ? 'wrap-tabs' : '',
+] %}
+
+{# Set CSS variables for specific elements #}
+{% set background_buttons = '' %}
+{% set background_panes = '' %}
+{% set max_height = '' %}
+{% set vertical_width = '' %}
+{% set horizontal_width = '' %}
+
+{% if options.background_buttons and not options.disable_background %}
+  {% set background_buttons = options.background_buttons %}
+{% endif %}
+
+{% if options.background_panes and not options.disable_background %}
+  {% set background_panes = options.background_panes %}
+{% endif %}
+
+{% if options.max_height > 0 and tab_layout == 'vertical' %}
+  {% set max_height = options.max_height %}
+{% endif %}
+
+{% if options.max_width > 0 %}
+  {% if tab_layout == 'vertical' %}
+    {% set vertical_width = options.max_width %}
+  {% elseif tab_layout == 'horizontal' %}
+    {% set horizontal_width = options.max_width %}
+  {% endif %}
+{% endif %}
+
+<vvjt-tabs {{ attributes.addClass(classes).setAttribute('id', vvjt_id) }}>
+  <div id="{{ tab_inner_id }}" class="vvjt-inner"
+    data-deeplink-enabled="{{ deeplink_config.enabled and deeplink_config.identifier ? 'true' : 'false' }}"
+    {% if deeplink_config.enabled and deeplink_config.identifier %}
+    data-deeplink-id="{{ deeplink_config.identifier }}"
+    {% endif %}>
+
+    {# Initialize variables to hold the buttons and panes #}
+    {% set buttons = '' %}
+    {% set panes = '' %}
+
+    {# Capture the buttons and panes from each row #}
+    {% for key, row in rows %}
+      {% set row_content = row.content|render %}
+
+      {# Use the unique tag or CSS class to split the content #}
+      {% set split_content = row_content|split('<div class="vvjt-separator"></div>') %}
+      {% set button_content = split_content[0] %}
+      {% set pane_content = split_content[1]|default('') %}
+
+      {# Define a valid ID for the pane controlled by the button #}
+      {% set pane_id = 'vvjt-pane-' ~ unique_id ~ '-' ~ (key + 1) %}
+
+      {# Render the button #}
+      {% set button %}
+      {% if deeplink_config.enabled and deeplink_config.identifier %}
+        {# Deep linking enabled - use anchor link #}
+        {% set tab_link = '#tabs-' ~ deeplink_config.identifier ~ '-' ~ (key + 1) %}
+        <a id="vvjt-button-{{ unique_id }}-{{ key + 1 }}" href="{{ tab_link }}" class="button vvjt-button" aria-label="{{ button_content|striptags|trim|t }}" aria-selected="{{ key == 0 ? 'true' : 'false' }}" aria-controls="{{ pane_id }}" aria-expanded="{{ key == 0 ? 'true' : 'false' }}" role="tab" {% if key != 0 %}tabindex="-1"{% endif %}{% if horizontal_width %} style="--horizontal-width: {{ horizontal_width }};"{% endif %}>
+          {{ button_content|safe_html }}
+        </a>
+      {% else %}
+        {# Default button #}
+        <button id="vvjt-button-{{ unique_id }}-{{ key + 1 }}" class="button vvjt-button" aria-label="{{ button_content|striptags|trim|t }}" aria-selected="{{ key == 0 ? 'true' : 'false' }}" aria-controls="{{ pane_id }}" aria-expanded="{{ key == 0 ? 'true' : 'false' }}" type="button" role="tab" {% if key != 0 %}tabindex="-1"{% endif %}{% if horizontal_width %} style="--horizontal-width: {{ horizontal_width }};"{% endif %}>
+          {{ button_content|safe_html }}
+        </button>
+      {% endif %}
+      {% endset %}
+
+      {# Render the pane #}
+      {% set pane %}
+      <div id="{{ pane_id }}" role="tabpanel" data-index="{{ key + 1 }}" aria-hidden="{{ key == 0 ? 'false' : 'true' }}" aria-labelledby="vvjt-button-{{ unique_id }}-{{ key + 1 }}" class="vvjt-pane" {% if key == 0 %} aria-live="polite"{% endif %}>
+        {{ pane_content|safe_html }}
+      </div>
+      {% endset %}
+
+      {# Collect the buttons and panes #}
+      {% set buttons = buttons ~ button %}
+      {% set panes = panes ~ pane %}
+    {% endfor %}
+
+    {# Render the tab buttons with specific styles. #}
+    <div class="tab-buttons" role="tablist" aria-label="{{ 'Tab List'|t }}"{% if background_buttons or max_height or vertical_width %} style="{% if background_buttons %} --bg-buttons: {{ background_buttons }};{% endif %}{% if max_height %} --vertical-height: {{ max_height }};{% endif %}{% if vertical_width %} --vertical-width: {{ vertical_width }};{% endif %}"{% endif %}>
+      <span class="visually-hidden">{{ 'Use the arrow keys to navigate between tabs'|t }}</span>
+      {{ buttons|safe_html }}
+    </div>
+
+    {# Render the tab content with specific styles. #}
+    <div class="tab-panes"
+         {% if background_panes %}
+           style="--bg-panes: {{ background_panes }};"
+         {% endif %}>
+      {{ panes|safe_html }}
+    </div>
+
+  </div> {# End of vvjt-inner #}
+</vvjt-tabs>

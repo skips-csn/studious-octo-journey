@@ -1,0 +1,16 @@
+{
+  "name": "drupal/layout_builder_backgrounds",
+  "description": "Adds a background field to Layout Builder layouts.",
+  "type": "drupal-module",
+  "authors": [{
+    "name": "Chris Komlenic (komlenic)",
+    "homepage": "https://www.drupal.org/u/komlenic",
+    "role": "Maintainer"
+  }],
+  "license": "GPL-2.0-or-later",
+  "minimum-stability": "dev",
+  "require": {
+    "drupal/media_library_form_element": "^2.0",
+    "drupal/layout_builder_styles": "^2.0"
+  }
+}

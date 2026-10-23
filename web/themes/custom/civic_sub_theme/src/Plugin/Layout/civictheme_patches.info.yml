@@ -1,0 +1,5 @@
+name: CivicTheme Autoload Patches
+type: module
+description: 'Fixes theme layout plugin autoloading issues.'
+core_version_requirement: ^10 || ^11
+package: Custom

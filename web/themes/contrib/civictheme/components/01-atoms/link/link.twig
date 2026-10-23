@@ -1,0 +1,62 @@
+{#
+/**
+ * @file
+ * CivicTheme Link component.
+ *
+ * Props:
+ * - theme: [string] Theme variation (light or dark).
+ * - text: [string,null] Link text.
+ * - url: [string,null] Link URL.
+ * - title: [string,null] Title attribute for the link.
+ * - is_new_window: [boolean,null] Open link in a new window.
+ * - is_external: [boolean,null] Indicates if the link is external.
+ * - is_active: [boolean,null] Indicates if the link is active
+ * - is_disabled: [boolean,null] Indicates if the link is disabled.
+ * - icon: [string,null] Icon name.
+ * - icon_placement: [string,null] Icon position (before or after).
+ * - icon_group_disabled: [boolean,null] Disable icon and last word grouping.
+ * - icon_single_only: [boolean,null] Only show 1 icon (if both icon and is_external are present, external takes preference).
+ * - modifier_class: [string] Additional CSS classes.
+ * - attributes: [Drupal\Core\Template\Attribute] Additional HTML attributes.
+ */
+#}
+
+{%- set text = text|default('') -%}
+{%- set only_icon_class = icon is not empty and text is empty ? 'ct-link--only-icon' : '' -%}
+{%- set icon_placement = icon_placement in ['before', 'after'] ? icon_placement : 'after' -%}
+{%- set is_external_class = is_external ? 'ct-link--external' : '' -%}
+{%- set is_active_class = is_active ? 'ct-link--active' : '' -%}
+{%- set is_disabled_class = is_disabled ? 'ct-link--disabled' : '' -%}
+{%- set is_new_window = is_new_window is same as(true) -%}
+{%- set theme_class = 'ct-theme-%s'|format(theme|default('light')) -%}
+{%- set modifier_class = '%s %s %s %s %s %s'|format(theme_class, is_external_class, is_active_class, is_disabled_class, only_icon_class, modifier_class|default(''))|trim -%}
+{%- set attributes = attributes is defined and attributes is not null ? attributes : create_attribute({}) -%}
+{%- if is_disabled -%}
+  {%- do attributes.setAttribute('disabled', '') -%}
+{%- endif -%}
+
+{%- if text is not empty or icon is not empty -%}
+  {%- set link_content -%}
+    {%- include 'civictheme:text-icon' with {
+      text: text,
+      is_new_window: is_new_window,
+      is_external: is_external,
+      icon: icon,
+      icon_placement: icon_placement,
+      icon_class: 'ct-link__icon',
+      icon_group_disabled: icon_group_disabled is defined ? icon_group_disabled : false,
+      icon_single_only: icon_single_only is defined ? icon_single_only : false,
+    } only -%}
+  {%- endset -%}
+
+  <a
+    class="ct-link {{ modifier_class -}}"
+    {% if url is not empty %}href="{{ url }}"{% endif %}
+    {% if title is not empty %}title="{{ title }}"{% endif %}
+    {% if is_new_window %}target="_blank"{% endif %}
+    {% if is_disabled %}disabled{% endif %}
+    {% if attributes is defined and attributes is not null %}{{- attributes -}}{% endif %}
+  >
+    {{- link_content -}}
+  </a>
+{%- endif -%}

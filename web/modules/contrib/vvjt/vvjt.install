@@ -1,0 +1,80 @@
+<?php
+
+/**
+ * @file
+ * Install + update hooks for vvjt.
+ *
+ * Vvjt v2.0 introduces a new module dependency: `vvj_core`. Existing
+ * v1 sites won't have it enabled — composer pulls the files but
+ * Drupal doesn't auto-enable new deps on upgrade. The update hook
+ * below does that for the user, so the standard upgrade workflow
+ * stays a single command:
+ *
+ *   composer update drupal/vvjt
+ *   drush updb
+ *   drush cr
+ *
+ * @license SPDX-License-Identifier: GPL-2.0-or-later
+ */
+
+declare(strict_types=1);
+
+use Drupal\Core\Utility\UpdateException;
+
+/**
+ * Auto-enable vvj_core (new dependency for vvjt v2).
+ *
+ * @return string
+ *   Status message reported by drush updb.
+ */
+function vvjt_update_10001(): string {
+  $module_handler = \Drupal::moduleHandler();
+  if ($module_handler->moduleExists('vvj_core')) {
+    return 'vvj_core was already enabled — no action needed.';
+  }
+  // Composer installs vvj_core automatically; manual/tarball upgraders must
+  // place it on disk first. Convert a missing-module installer failure into
+  // an actionable message rather than a raw stack trace.
+  try {
+    /** @var \Drupal\Core\Extension\ModuleInstallerInterface $module_installer */
+    $module_installer = \Drupal::service('module_installer');
+    $module_installer->install(['vvj_core']);
+  }
+  catch (\Exception $e) {
+    throw new UpdateException(
+      "This module's 2.x release requires the vvj_core module, which could "
+      . 'not be enabled — it is most likely not on disk. Composer installs '
+      . 'it automatically. For a manual install, download drupal/vvj_core to '
+      . 'modules/contrib/vvj_core and run "drush updb" again.',
+      0,
+      $e,
+    );
+  }
+  return 'Enabled vvj_core (new foundation dependency for vvjt v2).';
+}
+
+/**
+ * Convert this module's views from the v1 option shape to v2.
+ */
+function vvjt_update_10002(): string {
+  // A v1 view keeps the options exactly as v1 stored them: numbers as strings
+  // ('500'), booleans as integers (1), and any key a later release renamed.
+  // v2's schema declares integer/boolean/float, so the stored view fails
+  // validation, and a renamed option (vvja `first_toggle`, vvjh 1.0
+  // `min_height`) silently stops working.
+  //
+  // The conversion lives in vvj_core's VvjUpgradeAuditor::normalize() and in
+  // this module's style plugin (upgradeLegacyOptions()), so `drush updb` and
+  // `drush vvj:upgrade` run the same code. Idempotent.
+  //
+  // vvj_core is enabled by vvjt_update_10001, which runs first.
+  if (!\Drupal::hasService('vvj_core.upgrade_auditor')) {
+    return 'vvj_core is not enabled yet; run the updates again to convert vvjt views.';
+  }
+  /** @var \Drupal\vvj_core\Service\VvjUpgradeAuditor $auditor */
+  $auditor = \Drupal::service('vvj_core.upgrade_auditor');
+  $changed = $auditor->normalizeAll(['vvjt']);
+  return $changed === []
+    ? 'All vvjt views already use the v2 option shape.'
+    : sprintf('Converted %d vvjt view(s) to the v2 option shape: %s.', count($changed), implode(', ', $changed));
+}

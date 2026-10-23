@@ -1,0 +1,182 @@
+<?php
+
+/**
+ * @file
+ * Contains layout_builder_backgrounds.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\media\Entity\Media;
+use Drupal\file\Entity\File;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Modify the configuration form for layout builder sections (layouts).
+ */
+function layout_builder_backgrounds_form_layout_builder_configure_section_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  /** @var Drupal\layout_builder_styles\Form\ConfigureSectionForm $form_object */
+  $form_object = $form_state->getFormObject();
+  $config = $form_object->getLayout()->getConfiguration();
+
+  $selected_color = $config['layout_builder_backgrounds']['color'] ?? NULL;
+  $selected_media = $config['layout_builder_backgrounds']['media'] ?? NULL;
+  $selected_position = $config['layout_builder_backgrounds']['position'] ?? 'center center';
+
+  $form['actions']['#weight'] = 100;
+
+  $form['background'] = [
+    '#type'  => 'details',
+    '#title' => t('Background'),
+    '#open' => TRUE,
+    '#weight' => 95,
+  ];
+  $form['background']['color'] = [
+    '#type'  => 'textfield',
+    '#title' => t('Color'),
+    '#default_value' => $selected_color,
+    '#description' => t('A valid <a href="https://developer.mozilla.org/docs/Web/CSS/color_value">CSS color</a> (Ex: "#336699", "red", "rgba(0,0,0,.5)", etc.'),
+  ];
+  $form['background']['media'] = [
+    '#type' => 'media_library',
+    '#allowed_bundles' => ['image'],
+    '#title' => t('Image'),
+    '#default_value' => $selected_media,
+    '#description' => t('Upload or select a background image.'),
+  ];
+  $form['background']['position'] = [
+    '#type' => 'select',
+    '#title' => t('Background position'),
+    '#options' => [
+      'left top' => t('left top'),
+      'left center' => t('left center'),
+      'left bottom' => t('left bottom'),
+      'center top' => t('center top'),
+      'center center' => t('center center'),
+      'center bottom' => t('center bottom'),
+      'right top' => t('right top'),
+      'right center' => t('right center'),
+      'right bottom' => t('right bottom'),
+    ],
+    '#default_value' => $selected_position,
+  ];
+
+  // Our submit handler must execute before the default one, because the
+  // default handler stores the section & component data in the tempstore
+  // and we need to update those objects before that happens.
+  array_unshift($form['#submit'], '_layout_builder_backgrounds_section_form_submit');
+}
+
+/**
+ * Custom submit handler for submitting Layout Builder section forms.
+ *
+ * This is used to persist the selected media item to the layout configuration
+ * array, which layout builder's ConfigureSectionForm will persist to section
+ * storage.
+ */
+function _layout_builder_backgrounds_section_form_submit(array $form, FormStateInterface $form_state) {
+
+  /** @var Drupal\layout_builder_styles\Form\ConfigureSectionForm $form_object */
+  $form_object = $form_state->getFormObject();
+  $config = $form_object->getLayout()->getConfiguration();
+  if (!$config) {
+    $config = [];
+  }
+
+  $color = $form_state->getValue(['background', 'color']) ?? NULL;
+  $media = $form_state->getValue(['background', 'media']) ?? NULL;
+  $position = $form_state->getValue(['background', 'position']) ?? NULL;
+
+  // Only set this module's settings if a background is set.
+  if ($color || $media) {
+    $layout_builder_backgrounds_config = [
+      'layout_builder_backgrounds' => [
+        'color' => $color,
+        'media' => $media,
+        'position' => $position,
+      ],
+    ];
+    $config = array_merge($config, $layout_builder_backgrounds_config);
+  }
+
+  // Otherwise, remove settings if they exist. This would occur in the case
+  // where a section previously had background settings but they were removed.
+  else {
+    unset($config['layout_builder_backgrounds']);
+  }
+
+  $form_object
+    ->getLayout()
+    ->setConfiguration($config);
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function layout_builder_backgrounds_preprocess_layout(&$variables) {
+
+  // Apply a background to a layout by adding inline CSS if one is set.
+  if (isset($variables['settings']['layout_builder_backgrounds'])) {
+
+    $config = $variables['settings']['layout_builder_backgrounds'];
+    $color = $config['color'] ?? NULL;
+    $media = $config['media'] ?? NULL;
+    $position = $config['position'] ?? NULL;
+    $new_classes = [];
+    $new_styles = [];
+
+    // Add a generic class to indicate a background is specified.
+    $new_classes[] = 'layout-builder-backgrounds';
+
+    if ($color) {
+      $new_styles[] = 'background-color: ' . $color . ';';
+    }
+
+    if ($media) {
+      $media_entity = Media::load($media);
+      if ($media_entity) {
+        $fid = $media_entity->getSource()->getSourceFieldValue($media_entity);
+        $file = File::load($fid);
+        $url = $file->createFileUrl();
+        $media_image_styles = [
+          'background-image: url(' . $url . ');',
+          'background-position: ' . $position . ';',
+          'background-size: cover;',
+          'background-repeat: no-repeat;',
+        ];
+        $new_styles = array_merge($new_styles, $media_image_styles);
+      }
+    }
+
+    // Update class attribute.
+    if (!isset($variables['attributes']['class']) || !is_array($variables['attributes']['class'])) {
+      $variables['attributes']['class'] = [];
+    }
+    $variables['attributes']['class'] = array_merge($variables['attributes']['class'], $new_classes);
+
+    // Update style attribute.
+    if (!isset($variables['attributes']['style']) || !is_array($variables['attributes']['style'])) {
+      $variables['attributes']['style'] = [];
+    }
+    $variables['attributes']['style'] = array_merge($variables['attributes']['style'], $new_styles);
+
+  }
+}
+
+/**
+ * Implements hook_help().
+ */
+function layout_builder_backgrounds_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the layout_builder_backgrounds module.
+    case 'help.page.layout_builder_backgrounds':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Adds a background field to Layout Builder layouts.') . '</p>';
+      return $output;
+
+    default:
+  }
+}

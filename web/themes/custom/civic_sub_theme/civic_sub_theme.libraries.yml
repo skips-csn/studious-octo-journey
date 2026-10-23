@@ -1,0 +1,48 @@
+global:
+  css:
+    theme:
+      civictheme/styles.css: {}
+  js:
+    dist/civictheme.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+    - core/drupalSettings
+  
+csn-library-catalog:
+  css:
+    theme:
+      dist/csn-library-catalog.css: {}
+  js:
+    assets/js/csn-library-catalog.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+
+csn-hours-widget:
+  css:
+    theme:
+      dist/csn-hours-widget.css: {}
+  js:
+    dist/csn-hours-widget.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+
+csn-events-widget:
+  css:
+    theme:
+      'https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800&display=swap':
+        type: external
+        minified: true
+      dist/csn-events-widget.css: {}
+  js:
+    dist/csn-events-widget.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+
+quicklinks-background:
+  css:
+    theme:
+      dist/styles.css: {}

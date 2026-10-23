@@ -1,0 +1,47 @@
+# PHPStan configuration for VVJ Core.
+#
+# Strict array shapes enforced — every `array` parameter / return must
+# have a documented shape (list<T>, array<K, V>, or array{key: type}).
+parameters:
+  level: max
+  paths:
+    - src
+    - tests
+    - vvj_core.module
+    # Submodules. Added 2026-09-04, and only once the code was actually clean:
+    # until then modules/vvj_core_ai had NEVER been analysed, because neither
+    # this file nor phpcs.xml.dist listed modules/. Closing the gap took 34 real
+    # fixes, almost all of them unchecked array shapes read off
+    # ConfigEntityBase::get(), which returns mixed — a view whose stored display
+    # is not the shape Views normally writes is exactly what the diagnosis tool
+    # gets pointed at, so those were worth having. Adding this path with a
+    # baseline instead would have recreated the gate that gates nothing.
+    - modules
+  excludePaths:
+    - vendor (?)
+    # THE TWO FILES THAT NAME drupal/ai TYPES. drupal/ai is a dependency of the
+    # vvj_core_ai SUBMODULE, not of this project, so it is absent whenever
+    # vvj_core is built from its own composer.json — which is exactly what
+    # drupal.org CI does. MEASURED 2026-09-05 by simulating that build: one
+    # unresolvable drupal/ai class cascades into dozens of class.notFound
+    # findings that bury the real ones.
+    #
+    # Since 2026-09-27 (the chat tools removed, maintainer: "remove the chat
+    # tools like pb") only the drafter talks to drupal/ai. It is thin: every
+    # decision it makes is held to the analysed services — the planner's
+    # fields, ViewRequest::SORTS — and ViewDrafterTest runs it against a stub
+    # provider wherever drupal/ai is present.
+    - modules/vvj_core_ai/src/Service/ViewDrafter.php
+    - modules/vvj_core_ai/tests/src/Kernel/ViewDrafterTest.php
+    # The test fixture module's style plugin is exercised by the kernel tests.
+    - modules/vvj_core_ai/tests/modules
+    # Drush is not a project dependency (installed on host sites), so the
+    # DrushCommands base class is unresolvable at analysis time. The scan
+    # logic lives in the analyzed, unit-tested VvjUpgradeAuditor service.
+    - src/Commands
+  treatPhpDocTypesAsCertain: false
+  ignoreErrors:
+    # Consumed by pattern modules' Kernel tests (outside this package path).
+    -
+      identifier: trait.unused
+      path: tests/src/Kernel/VvjArticleImageExampleKernelTrait.php

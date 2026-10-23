@@ -1,0 +1,7 @@
+2026-10-23 21:57:44.770 [info] Getting Manifest... saoudrizwan.claude-dev
+2026-10-23 21:57:45.208 [info] Installing extension: saoudrizwan.claude-dev {"isMachineScoped":false,"installPreReleaseVersion":false,"donotIncludePackAndDependencies":false,"isBuiltin":false,"installGivenVersion":false,"isApplicationScoped":false,"profileLocation":{"$mid":1,"fsPath":"/var/www/html/.vscode/extensions/extensions.json","external":"file:///var/www/html/.vscode/extensions/extensions.json","path":"/var/www/html/.vscode/extensions/extensions.json","scheme":"file"},"productVersion":{"version":"1.99.3","date":"2025-04-24T19:29:01.118Z"}}
+2026-10-23 21:57:47.298 [error] Could not load vsce-sign module Cannot find package '@vscode/vsce-sign' imported from /usr/lib/code-server/lib/vscode/out/server-main.js
+2026-10-23 21:57:47.298 [info] Extension signature verification is not done: saoudrizwan.claude-dev
+2026-10-23 21:57:47.654 [info] Extracted extension to file:///var/www/html/.vscode/extensions/saoudrizwan.claude-dev-4.0.12-universal: saoudrizwan.claude-dev
+2026-10-23 21:57:47.662 [info] Renamed to /var/www/html/.vscode/extensions/saoudrizwan.claude-dev-4.0.12-universal
+2026-10-23 21:57:47.681 [info] Extension installed successfully: saoudrizwan.claude-dev file:///var/www/html/.vscode/extensions/extensions.json

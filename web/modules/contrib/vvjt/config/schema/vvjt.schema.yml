@@ -1,0 +1,55 @@
+views.style.views_vvjt:
+  type: views_style
+  label: 'Views Vanilla JavaScript Tabs'
+  mapping:
+    animation:
+      type: string
+      label: 'Animation type'
+      constraints:
+        Choice: ['none', 'a-top', 'a-bottom', 'a-left', 'a-right', 'a-zoom', 'a-opacity']
+    tabs_position:
+      type: string
+      label: 'Tabs position'
+      constraints:
+        Choice: ['top', 'bottom', 'left', 'right']
+    max_width:
+      type: integer
+      label: 'Maximum width for tab buttons'
+    max_height:
+      type: integer
+      label: 'Maximum height for vertical tabs buttons container'
+    available_breakpoints:
+      type: string
+      label: 'Responsive breakpoint'
+      constraints:
+        Choice: ['576', '768', '992', '1200', '1400']
+    unique_id:
+      type: integer
+      label: 'Unique identifier for tabs instance'
+    enable_css:
+      type: boolean
+      label: 'Enable default CSS'
+    disable_background:
+      type: boolean
+      label: 'Disable background colors'
+    background_buttons:
+      type: string
+      label: 'Background color for tab buttons'
+    background_panes:
+      type: string
+      label: 'Background color for tab panes'
+    wrap_tabs:
+      type: boolean
+      label: 'Wrap tabs to multiple lines'
+    enable_deeplink:
+      type: boolean
+      label: 'Enable deep linking'
+    deeplink_identifier:
+      type: string
+      label: 'Deep link URL identifier'
+      constraints:
+        Regex:
+          pattern: '/^[a-z][a-z0-9-]*[a-z0-9]$/'
+          message: 'Must start with letter, contain only lowercase letters, numbers, and hyphens'
+        Length:
+          max: 20

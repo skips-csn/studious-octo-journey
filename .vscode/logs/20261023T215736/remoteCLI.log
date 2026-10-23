@@ -1,0 +1,7 @@
+2026-10-23 21:57:37.136 [info] Getting Manifest... pkief.material-icon-theme
+2026-10-23 21:57:37.185 [info] Installing extension: pkief.material-icon-theme {"isMachineScoped":false,"installPreReleaseVersion":false,"donotIncludePackAndDependencies":false,"isBuiltin":false,"installGivenVersion":false,"isApplicationScoped":false,"profileLocation":{"$mid":1,"fsPath":"/var/www/html/.vscode/extensions/extensions.json","external":"file:///var/www/html/.vscode/extensions/extensions.json","path":"/var/www/html/.vscode/extensions/extensions.json","scheme":"file"},"productVersion":{"version":"1.99.3","date":"2025-04-24T19:29:01.118Z"}}
+2026-10-23 21:57:37.964 [error] Could not load vsce-sign module Cannot find package '@vscode/vsce-sign' imported from /usr/lib/code-server/lib/vscode/out/server-main.js
+2026-10-23 21:57:37.964 [info] Extension signature verification is not done: pkief.material-icon-theme
+2026-10-23 21:57:38.445 [info] Extracted extension to file:///var/www/html/.vscode/extensions/pkief.material-icon-theme-5.39.0-universal: pkief.material-icon-theme
+2026-10-23 21:57:38.482 [info] Renamed to /var/www/html/.vscode/extensions/pkief.material-icon-theme-5.39.0-universal
+2026-10-23 21:57:38.493 [info] Extension installed successfully: pkief.material-icon-theme file:///var/www/html/.vscode/extensions/extensions.json

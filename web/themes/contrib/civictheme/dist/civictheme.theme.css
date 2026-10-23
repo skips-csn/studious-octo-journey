@@ -1,0 +1,26 @@
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .toolbar-tray-open.toolbar-fixed .ct-header :target::before {
+    content: "";
+    display: block;
+    height: 100px;
+    margin: -100px 0 0;
+  }
+}
+
+.ct-figure.align-left {
+  margin: 0.5rem 3rem 1rem 0;
+}
+.ct-figure.align-center {
+  text-align: center;
+}
+.ct-figure.align-right {
+  margin: 0.5rem 0 1rem 3rem;
+}
