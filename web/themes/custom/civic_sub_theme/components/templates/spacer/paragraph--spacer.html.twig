@@ -1,0 +1,7 @@
+{# Extract the text value from your Paragraph select list field #}
+{% set selected_size = paragraph.field_spacer_size.value %}
+
+{# Embed your self-contained component #}
+{{ include('civic_sub_theme:spacer', {
+  size: selected_size
+}, with_context = false) }}

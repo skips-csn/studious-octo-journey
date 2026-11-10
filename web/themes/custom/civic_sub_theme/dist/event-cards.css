@@ -1,0 +1,199 @@
+/*
+ * Event Promo Cards use CivicTheme's ct-event-card component.
+ * These selectors leave promo cards for other content types unchanged.
+ */
+
+ .ct-list__rows > .container > .row:has(.ct-event-card) {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 20px;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.ct-list__rows > .container > .row:has(.ct-event-card) > [class*="col-"] {
+  width: auto;
+  max-width: none;
+  min-width: 0;
+  flex: initial;
+}
+
+.ct-event-card {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 142px;
+  overflow: hidden;
+  border: 1px solid #d5dde5;
+  border-radius: 9px;
+  background: #fff;
+  box-shadow: 0 5px 16px rgb(21 59 91 / 7%);
+}
+
+.ct-event-card:not(.ct-event-card--with-image)::before {
+  display: none;
+}
+
+.ct-event-card .ct-event-card__content {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr);
+  grid-template-rows: auto auto auto;
+  align-content: center;
+  align-items: center;
+  gap: 5px 18px;
+  height: auto;
+  min-height: 140px;
+  padding: 16px;
+}
+
+.ct-event-card .ct-event-card__date {
+  grid-column: 1;
+  grid-row: 1 / span 3;
+  display: flex;
+  min-height: 78px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  background: #eaf3f8;
+  color: #174e70;
+  text-align: center;
+}
+
+.ct-event-card .ct-event-card__date-month {
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.ct-event-card .ct-event-card__date-day {
+  margin-top: 3px;
+  font-size: 2rem;
+  font-weight: 750;
+  line-height: 1;
+}
+
+.ct-event-card__content:not(.ct-event-card__content--with-date) .ct-event-card__title,
+.ct-event-card__content:not(.ct-event-card__content--with-date) .ct-event-card__location {
+  grid-column: 1 / -1;
+}
+
+.ct-event-card__content:not(.ct-event-card__content--with-date) .ct-event-card__time {
+  grid-column: 1 / -1;
+}
+
+.ct-event-card .ct-event-card__title {
+  grid-column: 2;
+  grid-row: 1;
+  margin: 0;
+  font-size: 1.12rem;
+  line-height: 1.35;
+}
+
+.ct-event-card .ct-event-card__title__link {
+  color: #145a82;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.ct-event-card .ct-event-card__title__link:hover {
+  color: #0c3f5d;
+}
+
+.ct-event-card .ct-event-card__location {
+  grid-column: 2;
+  grid-row: 3;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  gap: 7px;
+  margin: 0;
+  color: #4a5a6a;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.ct-event-card .ct-event-card__location p {
+  flex: 1 1 0;
+  min-width: 0;
+  width: auto;
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.ct-event-card .ct-event-card__time {
+  grid-column: 2;
+  grid-row: 2;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #4a5a6a;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.ct-event-card .ct-event-card__meta-icon {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  margin-top: 3px;
+  fill: none;
+  stroke: #537489;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.ct-event-card .ct-event-card__location .field {
+  min-width: 0;
+  margin: 0;
+}
+
+.ct-event-card,
+.ct-event-card * {
+  font-family: Lexend, sans-serif;
+}
+
+.ct-event-card .ct-event-card__tags {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .ct-list__rows > .container > .row:has(.ct-event-card) {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .ct-event-card {
+    min-height: 108px;
+  }
+
+  .ct-event-card .ct-event-card__content {
+    grid-template-columns: 62px minmax(0, 1fr);
+    min-height: 106px;
+    gap: 4px 12px;
+    padding: 14px;
+  }
+
+  .ct-event-card .ct-event-card__date {
+    min-height: 68px;
+  }
+
+  .ct-event-card .ct-event-card__date-month {
+    font-size: .69rem;
+  }
+
+  .ct-event-card .ct-event-card__date-day {
+    font-size: 1.7rem;
+  }
+
+  .ct-event-card .ct-event-card__title {
+    font-size: 1rem;
+  }
+
+}

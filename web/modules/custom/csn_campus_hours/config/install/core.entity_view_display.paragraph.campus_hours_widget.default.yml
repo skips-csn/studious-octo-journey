@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.campus_hours_widget.field_csn_campus_hours_campus
+    - paragraphs.paragraphs_type.campus_hours_widget
+id: paragraph.campus_hours_widget.default
+targetEntityType: paragraph
+bundle: campus_hours_widget
+mode: default
+content: { }
+hidden:
+  field_csn_campus_hours_campus: true

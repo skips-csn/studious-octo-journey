@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_csn_campus_hours_campus
+field_name: field_csn_campus_hours_campus
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: henderson
+      label: Henderson Campus Library
+    -
+      value: charleston
+      label: Charleston Campus Library
+    -
+      value: north-las-vegas
+      label: North Las Vegas Campus Library
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: false
+indexes: { }
+persist_with_no_fields: false
+custom_storage: false

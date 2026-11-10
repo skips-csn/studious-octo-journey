@@ -1,0 +1,57 @@
+{#
+/**
+ * @file
+ * CivicTheme implementation to display an Event node as a Promo card.
+ *
+ * For nodes rendered in views, it is not possible to switch the view mode
+ * based on the result type in the theme layer (the hook does not run).
+ * So we are swapping a FE component for Promo card view mode on Event content
+ * type to 'Event card' FE component.
+ *
+ * The event date is formatted directly from the node's date-range field.
+ */
+#}
+{% set event_date = node.field_c_n_date_range.0|default(null) %}
+{% set event_start_date = event_date ? event_date.start_date : null %}
+{% set event_end_date = event_date ? event_date.end_date : null %}
+{% set has_event_date = event_start_date is not empty %}
+{% set event_timezone = 'America/Los_Angeles' %}
+{% if has_event_date %}
+  {% set event_month = event_start_date|date('M', event_timezone) %}
+  {% set event_day = event_start_date|date('j', event_timezone) %}
+{% endif %}
+
+<article{{ attributes.addClass('ct-event-card', 'ct-theme-light') }}>
+  <div class="ct-event-card__content{% if has_event_date %} ct-event-card__content--with-date{% endif %}">
+    {% if has_event_date %}
+      <div class="ct-event-card__date" aria-label="{{ event_month }} {{ event_day }}">
+        <span class="ct-event-card__date-month">{{ event_month }}</span>
+        <span class="ct-event-card__date-day">{{ event_day }}</span>
+      </div>
+    {% endif %}
+
+    <h3 class="ct-event-card__title">
+      <a class="ct-event-card__title__link" href="{{ url }}">{{ label }}</a>
+    </h3>
+
+    {% if has_event_date %}
+      <div class="ct-event-card__meta ct-event-card__time">
+        <svg class="ct-event-card__meta-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9"></circle>
+          <path d="M12 7v5l3 2"></path>
+        </svg>
+        {{ event_start_date|date('g:i a', event_timezone) }}{% if event_end_date %} – {{ event_end_date|date('g:i a', event_timezone) }}{% endif %}
+      </div>
+    {% endif %}
+
+    {% if content.field_c_n_location %}
+      <div class="ct-event-card__meta ct-event-card__location">
+        <svg class="ct-event-card__meta-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+          <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"></path>
+          <circle cx="12" cy="10" r="2.5"></circle>
+        </svg>
+        {{ content.field_c_n_location }}
+      </div>
+    {% endif %}
+  </div>
+</article>

@@ -8,13 +8,13 @@ global:
     - core/drupal
     - core/once
     - core/drupalSettings
-  
+
 csn-library-catalog:
   css:
     theme:
       dist/csn-library-catalog.css: {}
   js:
-    assets/js/csn-library-catalog.js: {}
+    dist/csn-library-catalog.js: {}
   dependencies:
     - core/drupal
     - core/once
@@ -46,3 +46,11 @@ quicklinks-background:
   css:
     theme:
       dist/styles.css: {}
+
+event-cards:
+  css:
+    theme:
+      'https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800&display=swap':
+        type: external
+        minified: true
+      dist/event-cards.css: {}
