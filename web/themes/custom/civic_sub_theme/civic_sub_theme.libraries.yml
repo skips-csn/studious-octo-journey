@@ -54,3 +54,18 @@ event-cards:
         type: external
         minified: true
       dist/event-cards.css: {}
+
+anatomical-models:
+  css:
+    theme:
+      dist/anatomical-models.css: {}
+
+staff-directory:
+  css:
+    theme:
+      dist/staff-directory.css: {}
+
+staff-profile:
+  css:
+    theme:
+      dist/staff-profile.css: {}

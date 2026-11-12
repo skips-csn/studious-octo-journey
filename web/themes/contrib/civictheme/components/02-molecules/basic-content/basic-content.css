@@ -2,13 +2,6 @@
  * This file was automatically generated. Please run `npm run dist` to update.
  */
 
-.ct-basic-content {
-  font-size: var(--ct-typography-text-regular-font-size);
-  line-height: var(--ct-typography-text-regular-line-height);
-  font-family: var(--ct-typography-text-regular-font-name);
-  font-weight: var(--ct-typography-text-regular-font-weight);
-  letter-spacing: var(--ct-typography-text-regular-letter-spacing);
-}
 @media (min-width: 768px) {
   .ct-basic-content.ct-basic-content--with-background {
     padding-left: var(--ct-basic-content-space-horizontal);
@@ -51,6 +44,13 @@
 }
 .ct-basic-content sup {
   top: -0.5em;
+}
+.ct-basic-content {
+  font-size: var(--ct-typography-text-regular-font-size);
+  line-height: var(--ct-typography-text-regular-line-height);
+  font-family: var(--ct-typography-text-regular-font-name);
+  font-weight: var(--ct-typography-text-regular-font-weight);
+  letter-spacing: var(--ct-typography-text-regular-letter-spacing);
 }
 .ct-basic-content h1,
 .ct-basic-content h2,
@@ -183,7 +183,7 @@
   margin: 0;
   margin-top: var(--ct-basic-content-vertical-spacing);
   margin-bottom: var(--ct-basic-content-vertical-spacing);
-  padding: 1rem 1.5rem;
+  padding: 1.25rem 1.5rem 1.25rem 1.875rem;
   display: grid;
 }
 .ct-basic-content blockquote::before {
@@ -207,11 +207,11 @@
   margin-bottom: 0;
 }
 .ct-basic-content blockquote cite {
-  font-size: var(--ct-typography-label-extra-small-font-size);
-  line-height: var(--ct-typography-label-extra-small-line-height);
-  font-family: var(--ct-typography-label-extra-small-font-name);
-  font-weight: var(--ct-typography-label-extra-small-font-weight);
-  letter-spacing: var(--ct-typography-label-extra-small-letter-spacing);
+  font-size: var(--ct-typography-text-regular-font-size);
+  line-height: var(--ct-typography-text-regular-line-height);
+  font-family: var(--ct-typography-text-regular-font-name);
+  font-weight: var(--ct-typography-text-regular-font-weight);
+  letter-spacing: var(--ct-typography-text-regular-letter-spacing);
 }
 .ct-basic-content blockquote cite {
   padding-top: 1rem;
@@ -385,8 +385,9 @@
     padding: 0.75rem 0.5rem;
   }
 }
-.ct-basic-content .ct-content-link .ct-icon {
+.ct-basic-content__external-icon {
   vertical-align: middle;
+  margin-left: var(--ct-basic-content-external-icon-spacing);
 }
 .ct-basic-content .ct-table,
 .ct-basic-content .ct-video-player {

@@ -1,0 +1,127 @@
+/* Anatomical models grid and card styling (scoped to anatomical_models). */
+
+/* Apply padding and flex layout to all grid columns. */
+html body :is(.block-views-blockanatomical-models-block-1, .view-anatomical-models) :is(.col-12, .col-sm-6, .col-md-6, .col-lg-4, .col-xl-4, .col-xxl-4) {
+  padding: 12px;
+  display: flex;
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Style each card wrapper. */
+html body :is(.block-views-blockanatomical-models-block-1, .view-anatomical-models) :is(.col-sm-6, .col-md-6, .col-lg-4, .col-xl-4, .col-xxl-4) > div {
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Style model titles. */
+html body :is(.block-views-blockanatomical-models-block-1, .view-anatomical-models) :is(h4, h4 a) {
+  background-color: transparent;
+  color: #212529;
+  padding: 0;
+  margin: 12px 0 8px;
+  border-radius: 0;
+  box-shadow: none;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  width: auto;
+  font-family: Lexend, sans-serif;
+}
+
+/* Let the card content fill its wrapper without shifting the image. */
+html body :is(.block-views-blockanatomical-models-block-1, .view-anatomical-models) .col-12 > div > div,
+html body :is(.block-views-blockanatomical-models-block-1, .view-anatomical-models) .col-12 > div > div > div {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  margin-top: 0;
+}
+
+/* Anchor only the availability-button wrapper at the bottom. */
+html body :is(.block-views-blockanatomical-models-block-1, .view-anatomical-models) .col-12 > div > div > div > div:last-child {
+  margin-top: auto;
+  width: 100%;
+}
+
+/* Style the card action links. */
+html body :is(.block-views-blockanatomical-models-block-1, .view-anatomical-models) :is(.col-sm-6, .col-md-6, .col-lg-4, .col-xl-4, .col-xxl-4) div:last-child a[href] {
+  display: block;
+  text-align: center;
+  background-color: #0d6efd;
+  color: #ffffff;
+  padding: 10px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: 12px;
+  font-family: Lexend, sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  box-shadow: none;
+  transition: background-color 0.2s ease;
+}
+
+html body :is(.block-views-blockanatomical-models-block-1, .view-anatomical-models) :is(.col-sm-6, .col-md-6, .col-lg-4, .col-xl-4, .col-xxl-4) div:last-child a[href]:hover,
+html body :is(.block-views-blockanatomical-models-block-1, .view-anatomical-models) :is(.col-sm-6, .col-md-6, .col-lg-4, .col-xl-4, .col-xxl-4) div:last-child a[href]:focus {
+  background-color: #1c2d42;
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Resize and center model images. */
+html body :is(.block-views-blockanatomical-models-block-1, .view-anatomical-models) img {
+  width: 220px;
+  height: 330px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+  margin: 0 auto 12px;
+}
+
+/* Center model descriptions. */
+html body :is(.block-views-blockanatomical-models-block-1, .view-anatomical-models) p {
+  text-align: center;
+  margin-top: 4px;
+  margin-bottom: 12px;
+  color: #495057;
+}
+
+/* Bootstrap mobile layout: one column. */
+@media (max-width: 575.98px) {
+  html body :is(.block-views-blockanatomical-models-block-1, .view-anatomical-models) .col-12 {
+    flex: 0 0 100%;
+    width: 100%;
+  }
+}
+
+/* Bootstrap tablet layout: two columns. */
+@media (min-width: 576px) and (max-width: 991.98px) {
+  html body :is(.block-views-blockanatomical-models-block-1, .view-anatomical-models) :is(.col-sm-6, .col-md-6) {
+    flex: 0 0 50%;
+    width: 50%;
+  }
+}
+
+/* Bootstrap desktop layout: three columns. */
+@media (min-width: 992px) {
+  html body :is(.block-views-blockanatomical-models-block-1, .view-anatomical-models) :is(.col-lg-4, .col-xl-4, .col-xxl-4) {
+    flex: 0 0 33.333333%;
+    width: 33.333333%;
+  }
+}
