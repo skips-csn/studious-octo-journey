@@ -1,0 +1,15 @@
+{#
+/**
+ * @file
+ * Custom sub-theme interceptor to stop Layout Builder banner preview crashes.
+ */
+#}
+{% extends 'block.html.twig' %}
+
+{% block content_block %}
+  {% include 'civictheme:banner' with {
+    title: label|default('') or title|default(''),
+    content: content is defined and content|render|trim is not empty ? content : '',
+    theme: theme|default('light'),
+  } only %}
+{% endblock %}

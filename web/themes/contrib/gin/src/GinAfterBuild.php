@@ -3,12 +3,18 @@
 namespace Drupal\gin;
 
 use Drupal\Core\Security\TrustedCallbackInterface;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\Url;
+
+include_once __DIR__ . '/../gin.theme';
+_gin_include_theme_includes();
 
 /**
  * After build callbacks for the gin theme.
  */
 class GinAfterBuild implements TrustedCallbackInterface {
+
+  use StringTranslationTrait;
 
   /**
    * After build callback to modify the description if a setting is overwritten.

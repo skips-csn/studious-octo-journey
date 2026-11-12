@@ -1,0 +1,105 @@
+{{ attach_library('civic_sub_theme/csn-library-catalog') }}
+{% set catalog_id = 'csn-library-catalog-' ~ paragraph.id.value|default('preview') %}
+<section{{ attributes.addClass('csn-library-catalog') }} data-csn-library-tabs>
+  <h2 class="csn-library-catalog__title">CSN Library Catalog</h2>
+
+  <div class="csn-library-catalog__tabs" role="tablist" aria-label="Catalog categories">
+    <button class="csn-library-catalog__tab" id="{{ catalog_id }}-tab-everything" type="button" role="tab" aria-selected="true" aria-controls="{{ catalog_id }}-panel-everything"><svg class="csn-library-catalog__tab-icon csn-library-catalog__tab-icon--everything" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 4 4"></path></svg>Everything</button>
+    <button class="csn-library-catalog__tab" id="{{ catalog_id }}-tab-books" type="button" role="tab" aria-selected="false" aria-controls="{{ catalog_id }}-panel-books" tabindex="-1"><svg class="csn-library-catalog__tab-icon csn-library-catalog__tab-icon--books" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"></path><path d="M3 18V5a2 2 0 0 1 2-2h3a4 4 0 0 1 4 4 4 4 0 0 1 4-4h3a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2h-4a3 3 0 0 0-3 3 3 3 0 0 0-3-3H5a2 2 0 0 1-2-2Z"></path></svg>Books</button>
+    <button class="csn-library-catalog__tab" id="{{ catalog_id }}-tab-articles" type="button" role="tab" aria-selected="false" aria-controls="{{ catalog_id }}-panel-articles" tabindex="-1"><svg class="csn-library-catalog__tab-icon csn-library-catalog__tab-icon--articles" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"></path><path d="M14 2v6h6M8 13h8M8 17h8"></path></svg>Articles</button>
+    <button class="csn-library-catalog__tab" id="{{ catalog_id }}-tab-films" type="button" role="tab" aria-selected="false" aria-controls="{{ catalog_id }}-panel-films" tabindex="-1"><svg class="csn-library-catalog__tab-icon csn-library-catalog__tab-icon--films" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="5" r="2"></circle><circle cx="15" cy="5" r="2"></circle><path d="M4 10h11v9H4zM15 12l6-3v11l-6-3z"></path></svg>Films</button>
+  </div>
+
+  <section class="csn-library-catalog__panel" id="{{ catalog_id }}-panel-everything" role="tabpanel" aria-labelledby="{{ catalog_id }}-tab-everything" tabindex="0">
+    <form action="https://csn.primo.exlibrisgroup.com/discovery/search" class="csn-library-catalog__search" enctype="application/x-www-form-urlencoded; charset=utf-8" method="get" role="search" target="_self" title="Home Page Search" data-primo-search>
+      <input type="hidden" name="vid" value="01UNLV_COSN:Main">
+      <input type="hidden" name="tab" value="Everything">
+      <input type="hidden" name="search_scope" value="MyInst_and_CI">
+      <input type="hidden" name="facet" value="rtype,exclude,reviews">
+      <input type="hidden" name="facet" value="tlevel,exclude,open_access">
+      <input type="hidden" name="query" data-primo-query>
+      <label class="visually-hidden" for="{{ catalog_id }}-query-everything">Search books, films, articles, and more</label>
+      <input class="csn-library-catalog__input" id="{{ catalog_id }}-query-everything" type="search" placeholder="Search for books, films, articles, and more ..." autocomplete="off" required data-primo-query-input>
+      <p class="csn-library-catalog__helper"><a href="https://csn.primo.exlibrisgroup.com/discovery/search?vid=01UNLV_COSN:Main&amp;mode=advanced">Advanced Search</a></p>
+      <button class="csn-library-catalog__submit" type="submit">Search</button>
+    </form>
+    {{ content.field_everything }}
+  </section>
+
+  <section class="csn-library-catalog__panel" id="{{ catalog_id }}-panel-books" role="tabpanel" aria-labelledby="{{ catalog_id }}-tab-books" tabindex="0" hidden>
+    <form action="https://csn.primo.exlibrisgroup.com/discovery/search" class="csn-library-catalog__search" enctype="application/x-www-form-urlencoded; charset=utf-8" method="get" role="search" target="_self" title="Books Search Box" data-primo-search>
+      <input type="hidden" name="vid" value="01UNLV_COSN:Main">
+      <input type="hidden" name="tab" value="Everything">
+      <input type="hidden" name="search_scope" value="MyInst_and_CI">
+      <input type="hidden" name="mfacet" value="rtype,include,books,1">
+      <input type="hidden" name="displayMode" value="full">
+      <input type="hidden" name="bulkSize" value="10">
+      <input type="hidden" name="highlight" value="true">
+      <input type="hidden" name="dum" value="true">
+      <input type="hidden" name="query" data-primo-query>
+      <input type="hidden" name="displayField" value="all">
+      <input type="hidden" name="pcAvailabiltyMode" value="true">
+      <label class="visually-hidden" for="{{ catalog_id }}-query-books">Search for books</label>
+      <input class="csn-library-catalog__input" id="{{ catalog_id }}-query-books" type="search" placeholder="Search for books ..." autocomplete="off" required data-primo-query-input>
+      <button class="csn-library-catalog__submit" type="submit">Search</button>
+    </form>
+    <div class="csn-library-catalog__helper">
+      <p>Use this to search for books, available either in the library or electronically.</p>
+      <p><a href="https://libguides.csn.edu/az.php?t=4095">Browse ebook collections</a> - Our A-Z List of databases with ebook access.</p>
+    </div>
+    {{ content.field_books }}
+  </section>
+
+  <section class="csn-library-catalog__panel" id="{{ catalog_id }}-panel-articles" role="tabpanel" aria-labelledby="{{ catalog_id }}-tab-articles" tabindex="0" hidden>
+    <form action="https://csn.primo.exlibrisgroup.com/discovery/search" class="csn-library-catalog__search" enctype="application/x-www-form-urlencoded; charset=utf-8" method="get" role="search" target="_self" title="Articles Search Box" data-primo-search>
+      <input type="hidden" name="vid" value="01UNLV_COSN:Main">
+      <input type="hidden" name="tab" value="Everything">
+      <input type="hidden" name="search_scope" value="MyInst_and_CI">
+      <input type="hidden" name="facet" value="tlevel,include,online_resources">
+      <input type="hidden" name="mfacet" value="rtype,include,newspaper_articles,1">
+      <input type="hidden" name="mfacet" value="rtype,include,articles,1">
+      <input type="hidden" name="facet" value="tlevel,exclude,open_access">
+      <input type="hidden" name="displayMode" value="full">
+      <input type="hidden" name="bulkSize" value="10">
+      <input type="hidden" name="highlight" value="true">
+      <input type="hidden" name="dum" value="true">
+      <input type="hidden" name="query" data-primo-query>
+      <input type="hidden" name="displayField" value="all">
+      <input type="hidden" name="pcAvailabiltyMode" value="true">
+      <label class="visually-hidden" for="{{ catalog_id }}-query-articles">Search for articles</label>
+      <input class="csn-library-catalog__input" id="{{ catalog_id }}-query-articles" type="search" placeholder="Search for articles ..." autocomplete="off" required data-primo-query-input>
+      <button class="csn-library-catalog__submit" type="submit">Search</button>
+    </form>
+    <div class="csn-library-catalog__helper">
+      <p>Use this search to find journal, newspaper, and magazine articles.</p>
+      <p><a href="https://csn.primo.exlibrisgroup.com/discovery/jsearch?vid=01UNLV_COSN:CSN">Search Journals by Title</a> - Our complete list of journal, magazine and newspaper titles.</p>
+    </div>
+    {{ content.field_articles }}
+  </section>
+
+  <section class="csn-library-catalog__panel" id="{{ catalog_id }}-panel-films" role="tabpanel" aria-labelledby="{{ catalog_id }}-tab-films" tabindex="0" hidden>
+    <form action="https://csn.primo.exlibrisgroup.com/discovery/search" class="csn-library-catalog__search" enctype="application/x-www-form-urlencoded; charset=utf-8" method="get" role="search" target="_self" title="Films Search Box" data-primo-search>
+      <input type="hidden" name="vid" value="01UNLV_COSN:Main">
+      <input type="hidden" name="tab" value="Everything">
+      <input type="hidden" name="search_scope" value="MyInst_and_CI">
+      <input type="hidden" name="facet" value="rtype,include,videos">
+      <input type="hidden" name="displayMode" value="full">
+      <input type="hidden" name="bulkSize" value="10">
+      <input type="hidden" name="highlight" value="true">
+      <input type="hidden" name="dum" value="true">
+      <input type="hidden" name="query" data-primo-query>
+      <input type="hidden" name="displayField" value="all">
+      <input type="hidden" name="pcAvailabiltyMode" value="true">
+      <label class="visually-hidden" for="{{ catalog_id }}-query-films">Search for films</label>
+      <input class="csn-library-catalog__input" id="{{ catalog_id }}-query-films" type="search" placeholder="Search for films ..." autocomplete="off" required data-primo-query-input>
+      <button class="csn-library-catalog__submit" type="submit">Search</button>
+    </form>
+    <div class="csn-library-catalog__helper">
+      <p>Use this search to find films, available either in the library or electronically.</p>
+      <p><a href="https://libguides.csn.edu/az.php?t=4094">Browse film collections</a> - Our A-Z List of databases with streaming videos.</p>
+    </div>
+    {{ content.field_films }}
+  </section>
+
+  {{ content|without('field_everything', 'field_books', 'field_articles', 'field_films') }}
+</section>

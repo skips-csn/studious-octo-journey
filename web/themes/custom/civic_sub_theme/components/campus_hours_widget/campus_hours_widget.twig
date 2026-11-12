@@ -1,0 +1,37 @@
+{% set selected_campus = campus|default('henderson') %}
+
+{% if selected_campus == 'charleston' %}
+  {% set campus_name = 'Charleston Campus Library' %}
+  {% set location_id = '730' %}
+{% elseif selected_campus == 'north-las-vegas' %}
+  {% set campus_name = 'North Las Vegas Campus Library' %}
+  {% set location_id = '731' %}
+{% else %}
+  {% set campus_name = 'Henderson Campus Library' %}
+  {% set location_id = '732' %}
+{% endif %}
+
+<section
+  class="csn-hours-card"
+  data-csn-hours-widget
+  data-location-id="{{ location_id }}"
+  data-campus-name="{{ campus_name }}"
+  aria-label="{{ campus_name }} hours"
+>
+  <header class="csn-hours-card__header">
+    <div class="csn-hours-card__heading">
+      <h2>{{ campus_name }}</h2>
+      <p class="csn-hours-card__date" data-hours-date aria-live="polite">Loading today’s hours…</p>
+    </div>
+    <div class="csn-hours-card__actions" aria-label="Change displayed day">
+      <button class="csn-hours-card__button" type="button" data-hours-today>Today</button>
+      <button class="csn-hours-card__button" type="button" data-hours-next-day>Next day</button>
+    </div>
+  </header>
+  <ul class="csn-hours-card__list" data-hours-list aria-live="polite">
+    <li class="csn-hours-card__message">Loading hours…</li>
+  </ul>
+  <footer class="csn-hours-card__footer">
+    <a href="https://csn.libcal.com/hours/" target="_blank" rel="noopener noreferrer">View all hours</a>
+  </footer>
+</section>

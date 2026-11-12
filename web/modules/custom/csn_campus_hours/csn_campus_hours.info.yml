@@ -1,0 +1,8 @@
+name: CSN Campus Hours
+type: module
+description: Provides a Campus Hours Widget paragraph type.
+package: CSN
+core_version_requirement: ^11
+dependencies:
+  - paragraphs:paragraphs
+  - drupal:options

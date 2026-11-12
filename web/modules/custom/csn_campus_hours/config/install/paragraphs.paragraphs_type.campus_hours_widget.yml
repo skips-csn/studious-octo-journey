@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: campus_hours_widget
+label: Campus Hours Widget
+icon_uuid: null
+icon_default: null
+description: 'Displays live hours for a selected CSN campus library.'
+behavior_plugins: { }

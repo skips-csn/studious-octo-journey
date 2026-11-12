@@ -2,7 +2,7 @@ name: CivicTheme Starter Kit
 type: theme
 base theme: civictheme
 description: 'CivicTheme Starter Kit description.'
-core_version_requirement: ^10.2 || ^11
+core_version_requirement: ^10.6 || ^11
 hidden: true
 
 regions:
@@ -68,8 +68,3 @@ ckeditor5-stylesheets:
   # below is resolved.
   # @see https://www.drupal.org/project/drupal/issues/3406959
   # - /sites/default/files/css-variables.civictheme_starter_kit.css
-
-# Information added by Drupal.org packaging script on 2026-05-05
-version: '1.13.0'
-project: 'civictheme'
-datestamp: 1777987739

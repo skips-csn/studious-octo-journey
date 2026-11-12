@@ -2,8 +2,8 @@
  * This file was automatically generated. Please run `npm run dist` to update.
  */
 
-@import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap');
 .ct-background {
   background-position: center;
   background-repeat: no-repeat;
@@ -78,9 +78,6 @@
   cursor: pointer;
   position: relative;
 }
-[data-collapsible] [data-collapsible-trigger] .ct-collapsible__icon {
-  transform: rotate(-180deg);
-}
 @media (min-width: 0) {
   [data-collapsible] [data-collapsible-trigger] .ct-collapsible__icon {
     font-size: 1.25rem;
@@ -90,6 +87,9 @@
   [data-collapsible] [data-collapsible-trigger] .ct-collapsible__icon {
     font-size: 1.25rem;
   }
+}
+[data-collapsible] [data-collapsible-trigger] .ct-collapsible__icon {
+  transform: rotate(-180deg);
 }
 @media print {
   [data-collapsible] [data-collapsible-trigger] .ct-collapsible__icon {
@@ -3017,7 +3017,7 @@ ul.row {
 }
 @media (min-width: 992px) {
   .ct-layout__sidebar_top_left {
-    grid-column: 1/span 3;
+    grid-column: 1/span 4;
     grid-row: 1/span 1;
     height: auto;
   }
@@ -3031,7 +3031,7 @@ ul.row {
 }
 @media (min-width: 992px) {
   .ct-layout__sidebar_top_right {
-    grid-column: 10/span 3;
+    grid-column: 9/span 4;
     grid-row: 1/span 1;
     height: auto;
   }
@@ -3045,14 +3045,14 @@ ul.row {
 }
 @media (min-width: 992px) {
   .ct-layout__main {
-    grid-column: 4/span 6;
+    grid-column: 5/span 4;
     grid-row: 1/span 2;
   }
   .ct-layout--no-top-left.ct-layout--no-bottom-left > .ct-layout__inner > .ct-layout__main {
-    grid-column: 1/span 9;
+    grid-column: 1/span 8;
   }
   .ct-layout--no-top-right.ct-layout--no-bottom-right > .ct-layout__inner > .ct-layout__main {
-    grid-column: 4/span 9;
+    grid-column: 5/span 8;
   }
   .ct-layout--no-top-left.ct-layout--no-bottom-left.ct-layout--no-top-right.ct-layout--no-bottom-right > .ct-layout__inner > .ct-layout__main {
     grid-column: 1/span 12;
@@ -3064,7 +3064,7 @@ ul.row {
 }
 @media (min-width: 992px) {
   .ct-layout__sidebar_bottom_left {
-    grid-column: 1/span 3;
+    grid-column: 1/span 4;
     grid-row: 2/span 1;
     height: 100%;
   }
@@ -3078,7 +3078,7 @@ ul.row {
 }
 @media (min-width: 992px) {
   .ct-layout__sidebar_bottom_right {
-    grid-column: 10/span 3;
+    grid-column: 9/span 4;
     grid-row: 2/span 1;
     height: 100%;
   }
@@ -3086,30 +3086,17 @@ ul.row {
     grid-row: 1/span 2;
   }
 }
-
 @media (min-width: 992px) {
-  .ct-layout.ct-layout--no-top-left.ct-layout--no-bottom-left > .ct-layout__inner {
-    column-gap: 4rem;
-  }
-  .ct-layout.ct-layout--no-top-right.ct-layout--no-bottom-right > .ct-layout__inner {
-    column-gap: 4rem;
-  }
-  .ct-layout > .ct-layout__inner .ct-layout > .ct-layout__inner {
-    column-gap: 1.5rem;
-  }
-  .ct-layout.ct-layout--no-top-left.ct-layout--no-bottom-left > .ct-layout__inner .ct-layout.ct-layout--no-top-left.ct-layout--no-bottom-left > .ct-layout__inner, .ct-layout.ct-layout--no-top-left.ct-layout--no-bottom-left > .ct-layout__inner .ct-layout.ct-layout--no-top-right.ct-layout--no-bottom-right > .ct-layout__inner {
-    column-gap: 1.5rem;
-  }
-  .ct-layout.ct-layout--no-top-right.ct-layout--no-bottom-right > .ct-layout__inner .ct-layout.ct-layout--no-top-left.ct-layout--no-bottom-left > .ct-layout__inner, .ct-layout.ct-layout--no-top-right.ct-layout--no-bottom-right > .ct-layout__inner .ct-layout.ct-layout--no-top-right.ct-layout--no-bottom-right > .ct-layout__inner {
-    column-gap: 1.5rem;
-  }
-  .ct-layout.ct-layout--no-top-left.ct-layout--no-bottom-left.ct-layout--no-top-right.ct-layout--no-bottom-right > .ct-layout__inner .ct-layout.ct-layout--no-top-left.ct-layout--no-bottom-left > .ct-layout__inner {
-    column-gap: 4rem;
-  }
-  .ct-layout.ct-layout--no-top-left.ct-layout--no-bottom-left.ct-layout--no-top-right.ct-layout--no-bottom-right > .ct-layout__inner .ct-layout.ct-layout--no-top-right.ct-layout--no-bottom-right > .ct-layout__inner {
-    column-gap: 4rem;
+  .ct-layout.ct-layout--no-top-right.ct-layout--no-bottom-right > .ct-layout__inner > .ct-layout__sidebar_top_left, .ct-layout.ct-layout--no-top-right.ct-layout--no-bottom-right > .ct-layout__inner > .ct-layout__sidebar_bottom_left {
+    padding-right: 2.5rem;
   }
 }
+@media (min-width: 992px) {
+  .ct-layout.ct-layout--no-top-left.ct-layout--no-bottom-left > .ct-layout__inner > .ct-layout__sidebar_top_right, .ct-layout.ct-layout--no-top-left.ct-layout--no-bottom-left > .ct-layout__inner > .ct-layout__sidebar_bottom_right {
+    padding-left: 2.5rem;
+  }
+}
+
 [data-scrollspy=true] {
   display: none;
 }
@@ -3345,6 +3332,30 @@ ul.row {
   letter-spacing: var(--ct-typography-label-extra-small-letter-spacing);
 }
 
+.ct-button-large {
+  font-size: var(--ct-typography-button-large-font-size);
+  line-height: var(--ct-typography-button-large-line-height);
+  font-family: var(--ct-typography-button-large-font-name);
+  font-weight: var(--ct-typography-button-large-font-weight);
+  letter-spacing: var(--ct-typography-button-large-letter-spacing);
+}
+
+.ct-button-regular {
+  font-size: var(--ct-typography-button-regular-font-size);
+  line-height: var(--ct-typography-button-regular-line-height);
+  font-family: var(--ct-typography-button-regular-font-name);
+  font-weight: var(--ct-typography-button-regular-font-weight);
+  letter-spacing: var(--ct-typography-button-regular-letter-spacing);
+}
+
+.ct-button-small {
+  font-size: var(--ct-typography-button-small-font-size);
+  line-height: var(--ct-typography-button-small-line-height);
+  font-family: var(--ct-typography-button-small-font-name);
+  font-weight: var(--ct-typography-button-small-font-weight);
+  letter-spacing: var(--ct-typography-button-small-letter-spacing);
+}
+
 .ct-quote {
   font-size: var(--ct-typography-quote-font-size);
   line-height: var(--ct-typography-quote-line-height);
@@ -3464,6 +3475,10 @@ ol ol ol {
 
 .ct-text-align-right {
   text-align: right;
+}
+
+.ct-text-no-wrap {
+  white-space: nowrap;
 }
 
 .show-xxs {

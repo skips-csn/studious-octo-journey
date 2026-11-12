@@ -1,0 +1,10 @@
+name: Spacer
+description: Adds adjustable vertical space between layout components.
+status: stable
+props:
+  type: object
+  properties:
+    size:
+      type: string
+      enum: ['small', 'medium', 'large']
+      default: 'medium'

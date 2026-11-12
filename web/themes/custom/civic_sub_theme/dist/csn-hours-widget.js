@@ -1,6 +1,11 @@
 (function (Drupal, once) {
   // LibCal endpoint that returns the accessible hours HTML for a selected date.
   const HOURS_ENDPOINT = 'https://csn.libcal.com/widget/hours/today/accessible/content';
+  const CAMPUS_URLS = [
+    { name: 'charleston', href: '/locations/charleston' },
+    { name: 'north las vegas', href: '/locations/nlv' },
+    { name: 'henderson', href: '/locations/henderson' },
+  ];
 
   // Strip repeated whitespace so the text extracted from LibCal is easier to compare and render.
   function normalizeWhitespace(text) {
@@ -22,9 +27,12 @@
         element.remove();
       });
 
+      const name = cleanName?.textContent ? normalizeWhitespace(cleanName.textContent) : 'Campus';
+      const campusUrl = CAMPUS_URLS.find((campus) => name.toLowerCase().includes(campus.name))?.href;
+
       return {
-        name: cleanName?.textContent ? normalizeWhitespace(cleanName.textContent) : 'Campus',
-        href: link?.getAttribute('href') || '#',
+        name,
+        href: campusUrl || link?.getAttribute('href') || '#',
         hours: timeCell?.textContent ? normalizeWhitespace(timeCell.textContent) : 'Hours unavailable',
       };
     });
@@ -81,6 +89,24 @@
     const todayButton = widget.querySelector('[data-hours-today]');
     const nextDayButton = widget.querySelector('[data-hours-next-day]');
     let activeDate = new Date();
+
+    [
+      { button: todayButton, label: 'Today' },
+      { button: nextDayButton, label: 'Next Day' },
+    ].forEach(({ button, label }) => {
+      if (!button) {
+        return;
+      }
+
+      button.setAttribute('aria-label', label);
+      button.textContent = label;
+    });
+
+    const catalog = document.querySelector('.csn-library-catalog');
+    const pairedLayout = widget.closest('.layout--twocol-section');
+    if (catalog && pairedLayout?.contains(catalog)) {
+      pairedLayout.classList.add('layout--hours-catalog');
+    }
 
     function renderLocations(locations) {
       listElement.replaceChildren();

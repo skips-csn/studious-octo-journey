@@ -3,15 +3,15 @@
  */
 
 .ct-publication-card {
+  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.2);
+}
+.ct-publication-card {
   position: relative;
   border-radius: var(--ct-publication-card-border-radius);
   width: 100%;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-}
-.ct-publication-card {
-  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.2);
 }
 .ct-publication-card:hover {
   outline: 1px solid transparent;
@@ -23,7 +23,7 @@
   box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2);
 }
 .ct-publication-card--card-clickable:active {
-  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.24);
 }
 .ct-publication-card--card-clickable .ct-publication-card__title-link::before {
   content: "";

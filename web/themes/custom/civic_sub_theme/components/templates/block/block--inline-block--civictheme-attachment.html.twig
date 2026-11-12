@@ -1,0 +1,14 @@
+{#
+/**
+ * @file
+ * Custom sub-theme interceptor for Layout Builder inline attachment blocks.
+ */
+#}
+{% extends 'block.html.twig' %}
+
+{% block content_block %}
+  {% include 'civictheme:attachment' with {
+    content: content is defined and content|render|trim is not empty ? content : '',
+    title: label|default('') or title|default(''),
+  } only %}
+{% endblock %}
