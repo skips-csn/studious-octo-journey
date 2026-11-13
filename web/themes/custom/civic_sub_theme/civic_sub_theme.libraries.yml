@@ -9,12 +9,19 @@ global:
     - core/once
     - core/drupalSettings
 
+navigation-menu:
+  css:
+    theme:
+      dist/navigation-menu/navigation-menu.css: {}
+  dependencies:
+    - civic_sub_theme/global
+
 csn-library-catalog:
   css:
     theme:
-      dist/csn-library-catalog.css: {}
+      dist/library-catalog/csn-library-catalog.css: {}
   js:
-    dist/csn-library-catalog.js: {}
+    dist/library-catalog/csn-library-catalog.js: {}
   dependencies:
     - core/drupal
     - core/once
@@ -22,9 +29,9 @@ csn-library-catalog:
 csn-hours-widget:
   css:
     theme:
-      dist/csn-hours-widget.css: {}
+      dist/csn-hours-widget/csn-hours-widget.css: {}
   js:
-    dist/csn-hours-widget.js: {}
+    dist/csn-hours-widget/csn-hours-widget.js: {}
   dependencies:
     - core/drupal
     - core/once
@@ -53,19 +60,19 @@ event-cards:
       'https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800&display=swap':
         type: external
         minified: true
-      dist/event-cards.css: {}
+      dist/event-cards/event-cards.css: {}
 
 anatomical-models:
   css:
     theme:
-      dist/anatomical-models.css: {}
+      dist/anatomical-models/anatomical-models.css: {}
 
 staff-directory:
   css:
     theme:
-      dist/staff-directory.css: {}
+      dist/staff-directory-pages/staff-directory.css: {}
 
 staff-profile:
   css:
     theme:
-      dist/staff-profile.css: {}
+      dist/staff-directory-pages/staff-profile.css: {}

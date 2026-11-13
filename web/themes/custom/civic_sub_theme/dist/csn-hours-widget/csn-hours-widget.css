@@ -3,7 +3,7 @@
   Grouping the tokens together makes future color updates a single, predictable change.
 */
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800&display=swap');
-.hours-widget { container-name: hours-widget; container-type: inline-size; --hours-surface: var(--ct-navigation-card-light-background-color, #ffffff); --hours-border: var(--ct-color-light-border-light, #adafb0); --hours-text: #1d2a36; --hours-muted: #5b6877; --hours-primary: #214d7f; --hours-primary-soft: #edf4fb; --hours-success: #1f7d5f; --hours-success-soft: #ebfaf3; --hours-danger: #b34a4a; --hours-danger-soft: #fdf0ee; --hours-focus: var(--ct-color-focus, #005fcc); --hours-shadow: var(--ct-shadow-card, 0 0.25rem 0.75rem rgba(0, 0, 0, 0.12)); box-sizing: border-box; display: flex; flex-direction: column; min-width: 0; width: calc(100% - 1.5rem); min-height: 270px; margin: 0.75rem; overflow: hidden; color: var(--hours-text); background: var(--hours-surface); border: 1px solid var(--hours-border); border-radius: var(--ct-radius, 4px); box-shadow: var(--hours-shadow); font-family: 'Lexend', sans-serif; }
+.hours-widget { container-name: hours-widget; container-type: inline-size; --hours-surface: var(--ct-navigation-card-light-background-color, #ffffff); --hours-border: var(--ct-color-light-border-light, #adafb0); --hours-text: #1d2a36; --hours-muted: #5b6877; --hours-primary: #214d7f; --hours-primary-soft: #edf4fb; --hours-success: #1f7d5f; --hours-success-soft: #ebfaf3; --hours-danger: #b34a4a; --hours-danger-soft: #fdf0ee; --hours-focus: var(--ct-color-focus, #005fcc); --hours-shadow: var(--ct-shadow-card, 0 0.25rem 0.75rem rgba(0, 0, 0, 0.12)); box-sizing: border-box; display: flex; flex-direction: column; min-width: 0; width: calc(100% - 1.5rem); min-height: 270px; margin: 0.75rem; overflow: hidden; color: var(--hours-text); background: var(--hours-surface); border: none; border-radius: 8px; box-shadow: var(--hours-shadow); font-family: 'Lexend', sans-serif; }
 /* Place the date above left- and right-aligned date navigation controls. */
 .hours-widget__header { display: grid; grid-template-columns: minmax(5.5rem, 6.25rem) minmax(0, 1fr) minmax(5.5rem, 6.25rem); grid-template-areas: "title title title" "today . next"; align-items: center; gap: 0.5rem; padding: 0.85rem 1.25rem; background: var(--hours-surface); border-bottom: 1px solid var(--hours-border); }
 .hours-widget__title-wrap { display: flex; grid-area: title; min-width: 0; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
@@ -30,12 +30,13 @@
 .hours-widget__date { margin: 0.2rem 0 0; color: var(--hours-muted); font-size: 1.08rem; font-weight: 700; line-height: 1.5; text-wrap: balance; }
 /* Campus rows are listed in a vertical stack with badges and times */
 .hours-list { flex: 1 0 auto; min-height: auto; margin: 0; padding: 0; overflow: visible; list-style: none; }
-.hours-list__item { display: grid; grid-template-columns: max-content minmax(0, 1fr) max-content; grid-template-areas: "badge campus time"; align-items: center; min-width: 0; gap: 0.55rem 0.75rem; padding: 0.75rem 1rem; border-bottom: 1px solid rgba(29, 42, 54, 0.12); transition: background-color 150ms ease, box-shadow 150ms ease; }
+.hours-list__item { display: grid; grid-template-columns: max-content minmax(0, 1fr) max-content; grid-template-areas: "badge campus time"; align-items: center; min-width: 0; gap: 0.55rem 0.75rem; padding: 0.75rem 1.5rem; border-bottom: 1px solid rgba(29, 42, 54, 0.12); transition: background-color 150ms ease, box-shadow 150ms ease; }
 .hours-list__item:last-child { border-bottom: 0; }
 .hours-list__item:hover,
 .hours-list__item:focus-within { background: var(--ct-color-light-background-color, #f8fafc); }
 /* The badge communicates whether the campus is OPEN or CLOSED */
 .hours-badge { display: inline-flex; grid-area: badge; min-width: 64px; align-items: center; justify-content: center; padding: 0.25rem 0.45rem; border: 1px solid transparent; border-radius: 999px; font-size: 0.62rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.4; }
+.hours-badge[hidden] { display: none; }
 .hours-badge--open { color: var(--hours-success); background: var(--hours-success-soft); border-color: rgba(31, 125, 95, 0.18); }
 .hours-badge--closed { color: var(--hours-danger); background: var(--hours-danger-soft); border-color: rgba(179, 74, 74, 0.16); }
 .hours-campus { grid-area: campus; min-width: 0; color: var(--hours-text); font-size: 0.9rem; font-weight: 600; }
@@ -51,7 +52,7 @@
   .hours-widget__today { grid-area: today; }
   .hours-widget__title-wrap { grid-area: title; }
   .hours-widget__next-day { grid-area: next; }
-  .hours-list__item { grid-template-columns: max-content minmax(0, 1fr) max-content; grid-template-areas: "badge campus time"; gap: 0.35rem 0.45rem; padding: 0.5rem 0.85rem; }
+  .hours-list__item { grid-template-columns: max-content minmax(0, 1fr) max-content; grid-template-areas: "badge campus time"; gap: 0.35rem 0.45rem; padding: 0.5rem 1.25rem; }
   .hours-time { padding-left: 0; font-size: 0.72rem; text-align: right; }
   .hours-badge { min-width: 58px; padding: 0.2rem 0.35rem; font-size: 0.58rem; }
   .hours-campus { font-size: 0.9rem; }
@@ -61,13 +62,13 @@
   .hours-widget__today,
   .hours-widget__next-day { min-height: 2.5rem; gap: 0.2rem; padding: 0.35rem 0.35rem; font-size: 0.68rem; }
   .hours-widget__date { font-size: 0.85rem; line-height: 1.3; }
-  .hours-list__item { grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "badge campus" ". time"; gap: 0.25rem 0.45rem; padding: 0.3rem 0.55rem; }
+  .hours-list__item { grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "badge campus" ". time"; gap: 0.25rem 0.45rem; padding: 0.3rem 1rem; }
   .hours-badge { min-width: 52px; padding-right: 0.3rem; padding-left: 0.3rem; font-size: 0.6rem; }
   .hours-campus { font-size: 0.76rem; }
   .hours-time { grid-area: time; font-size: 0.68rem; text-align: left; }
 }
 @container hours-widget (max-width: 380px) {
-  .hours-list__item { grid-template-columns: max-content minmax(0, 1fr); grid-template-areas: "badge campus" ". time"; gap: 0.25rem 0.45rem; padding: 0.3rem 0.55rem; }
+  .hours-list__item { grid-template-columns: max-content minmax(0, 1fr); grid-template-areas: "badge campus" ". time"; gap: 0.25rem 0.45rem; padding: 0.3rem 1rem; }
   .hours-badge { min-width: 52px; padding-right: 0.3rem; padding-left: 0.3rem; font-size: 0.6rem; }
   .hours-campus { font-size: 0.84rem; }
   .hours-time { grid-area: time; font-size: 0.75rem; text-align: left; }
@@ -104,7 +105,25 @@
   .hours-widget__next-day { gap: 0.1rem; padding: 0.45rem 0.45rem; font-size: 0.82rem; }
   .hours-widget__date { font-size: 1rem; line-height: 1.3; }
 }
+@media (min-width: 40em) {
+  .layout--hours-catalog > .layout__region { min-width: 0; }
+  .layout--hours-catalog > .layout__region.hours-catalog-stretch { display: flex; flex-direction: column; }
+  .layout--hours-catalog .hours-catalog-stretch:not(.layout__region) { display: flex; flex: 1 0 auto; flex-direction: column; min-width: 0; }
+  .layout--hours-catalog .hours-widget,
+  .layout--hours-catalog .csn-library-catalog { flex: 1 0 auto; }
+  .layout--hours-catalog .hours-list { display: flex; flex-direction: column; }
+  .layout--hours-catalog .hours-list__item { flex: 1 1 auto; }
+  @container hours-widget (max-width: 380px) {
+    .layout--hours-catalog .hours-widget__header { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-areas: "title title" "today next"; padding: 0.6rem 0.65rem; }
+    .layout--hours-catalog .hours-widget__today,
+    .layout--hours-catalog .hours-widget__next-day { min-width: 0; padding: 0.4rem; font-size: 0.82rem; }
+  }
+}
 @media (min-width: 768px) {
-  .layout.layout--twocol-section.layout--twocol-section--67-33.layout--hours-catalog > .layout__region--first { flex: 0 1 52%; }
-  .layout.layout--twocol-section.layout--twocol-section--67-33.layout--hours-catalog > .layout__region--second { flex: 0 1 48%; }
+  .layout.layout--twocol-section.layout--twocol-section--67-33.layout--hours-catalog > .layout__region--first { flex: 0 1 67%; }
+  .layout.layout--twocol-section.layout--twocol-section--67-33.layout--hours-catalog > .layout__region--second { flex: 0 1 33%; }
+}
+.hours-list__item--no-status { grid-template-columns: minmax(0, 1fr) max-content; grid-template-areas: "campus time"; }
+@container hours-widget (max-width: 380px) {
+  .hours-list__item--no-status { grid-template-columns: minmax(0, 1fr); grid-template-areas: "campus" "time"; }
 }

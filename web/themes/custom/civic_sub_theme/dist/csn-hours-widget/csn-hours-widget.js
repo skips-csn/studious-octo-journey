@@ -6,6 +6,15 @@
     { name: 'north las vegas', href: '/locations/nlv' },
     { name: 'henderson', href: '/locations/henderson' },
   ];
+  const LIBRARY_TIME = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/Los_Angeles',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    hourCycle: 'h23',
+  });
 
   // Strip repeated whitespace so the text extracted from LibCal is easier to compare and render.
   function normalizeWhitespace(text) {
@@ -63,18 +72,30 @@
     return hours * 60 + minutes;
   }
 
-  // Check whether the current time falls within the displayed open/close range for a campus.
-  function isLocationOpen(hoursText) {
-    const match = hoursText.match(/(\d{1,2}:\d{2})(am|pm)\s*[-–]\s*(\d{1,2}:\d{2})(am|pm)/i);
-    if (!match) {
+  function getLibraryTime() {
+    const parts = Object.fromEntries(LIBRARY_TIME.formatToParts(new Date()).map(({ type, value }) => [type, value]));
+    return {
+      date: new Date(Number(parts.year), Number(parts.month) - 1, Number(parts.day), 12),
+      minutes: Number(parts.hour) * 60 + Number(parts.minute),
+    };
+  }
+
+  // Return null when the displayed hours do not establish an open or closed status.
+  function isLocationOpen(hoursText, nowInMinutes) {
+    if (/^closed\b/i.test(hoursText)) {
       return false;
     }
 
-    const [, openTime, openPeriod, closeTime, closePeriod] = match;
-    const currentTime = new Date();
-    const nowInMinutes = currentTime.getHours() * 60 + currentTime.getMinutes();
+    const ranges = [...hoursText.matchAll(/(\d{1,2}:\d{2})\s*(am|pm)\s*[-–]\s*(\d{1,2}:\d{2})\s*(am|pm)/gi)];
+    if (!ranges.length) {
+      return null;
+    }
 
-    return nowInMinutes >= parseTime(openTime, openPeriod) && nowInMinutes <= parseTime(closeTime, closePeriod);
+    return ranges.some(([, openTime, openPeriod, closeTime, closePeriod]) => {
+      const opens = parseTime(openTime, openPeriod);
+      const closes = parseTime(closeTime, closePeriod);
+      return nowInMinutes >= opens && nowInMinutes < closes;
+    });
   }
 
   // Format a native JS date into the YYYY-MM-DD format expected by the API.
@@ -88,7 +109,8 @@
     const listElement = widget.querySelector('[data-hours-list]');
     const todayButton = widget.querySelector('[data-hours-today]');
     const nextDayButton = widget.querySelector('[data-hours-next-day]');
-    let activeDate = new Date();
+    let activeDate = getLibraryTime().date;
+    let requestId = 0;
 
     [
       { button: todayButton, label: 'Today' },
@@ -102,25 +124,47 @@
       button.textContent = label;
     });
 
-    const catalog = document.querySelector('.csn-library-catalog');
     const pairedLayout = widget.closest('.layout--twocol-section');
-    if (catalog && pairedLayout?.contains(catalog)) {
+    const catalog = pairedLayout?.querySelector('.csn-library-catalog');
+    const region = widget.closest('.layout__region');
+    const catalogRegion = catalog?.closest('.layout__region');
+    if (region?.parentElement === pairedLayout && catalogRegion?.parentElement === pairedLayout && region !== catalogRegion) {
       pairedLayout.classList.add('layout--hours-catalog');
+      [widget, catalog].forEach((card) => {
+        for (let ancestor = card.parentElement; ancestor && ancestor !== pairedLayout; ancestor = ancestor.parentElement) {
+          ancestor.classList.add('hours-catalog-stretch');
+        }
+      });
+    }
+
+    function updateStatuses() {
+      const now = getLibraryTime();
+      const isToday = formatDateInput(activeDate) === formatDateInput(now.date);
+      listElement.querySelectorAll('[data-hours-status]').forEach((badge) => {
+        let isOpen;
+        if (isToday) {
+          isOpen = isLocationOpen(badge.dataset.hoursStatus, now.minutes);
+        } else {
+          isOpen = false;
+        }
+        const status = isOpen === null ? '' : isOpen ? 'OPEN' : 'CLOSED';
+        badge.hidden = false;
+        badge.className = `hours-badge${status ? ` hours-badge--${isOpen ? 'open' : 'closed'}` : ''}`;
+        badge.setAttribute('aria-label', status);
+        badge.textContent = status;
+        badge.closest('.hours-list__item').classList.toggle('hours-list__item--no-status', false);
+      });
     }
 
     function renderLocations(locations) {
       listElement.replaceChildren();
 
       locations.forEach((location) => {
-        const isOpen = isLocationOpen(location.hours);
-        const status = isOpen ? 'OPEN' : 'CLOSED';
         const item = document.createElement('li');
         item.className = 'hours-list__item';
 
         const badge = document.createElement('span');
-        badge.className = `hours-badge hours-badge--${isOpen ? 'open' : 'closed'}`;
-        badge.setAttribute('aria-label', status);
-        badge.textContent = status;
+        badge.dataset.hoursStatus = location.hours;
 
         const campus = document.createElement('div');
         campus.className = 'hours-campus';
@@ -139,10 +183,12 @@
         item.append(badge, campus, time);
         listElement.append(item);
       });
+      updateStatuses();
     }
 
     // Fetch the selected date and update the date label plus list of campus statuses.
     async function loadHours(date = activeDate) {
+      const currentRequest = ++requestId;
       try {
         const response = await fetch(`${HOURS_ENDPOINT}?date=${formatDateInput(date)}`, {
           headers: { Accept: 'text/html' },
@@ -153,10 +199,16 @@
         }
 
         const payload = parseHoursText(await response.text());
+        if (currentRequest !== requestId) {
+          return;
+        }
         activeDate = date;
         dateElement.textContent = payload.dateLabel;
         renderLocations(payload.locations);
       } catch (error) {
+        if (currentRequest !== requestId) {
+          return;
+        }
         console.error('Hours widget error:', error);
         listElement.replaceChildren();
         const message = document.createElement('li');
@@ -166,7 +218,7 @@
       }
     }
 
-    todayButton.addEventListener('click', () => loadHours(new Date()));
+    todayButton.addEventListener('click', () => loadHours(getLibraryTime().date));
     nextDayButton.addEventListener('click', () => {
       const nextDate = new Date(activeDate);
       nextDate.setDate(nextDate.getDate() + 1);
@@ -174,6 +226,16 @@
     });
 
     loadHours();
+
+    function scheduleStatusUpdate() {
+      setTimeout(() => {
+        if (widget.isConnected) {
+          updateStatuses();
+          scheduleStatusUpdate();
+        }
+      }, 60000 - Date.now() % 60000);
+    }
+    scheduleStatusUpdate();
   }
 
   Drupal.behaviors.csnHoursWidget = {

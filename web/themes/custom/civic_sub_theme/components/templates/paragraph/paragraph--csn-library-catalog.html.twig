@@ -10,6 +10,7 @@
     <button class="csn-library-catalog__tab" id="{{ catalog_id }}-tab-films" type="button" role="tab" aria-selected="false" aria-controls="{{ catalog_id }}-panel-films" tabindex="-1"><svg class="csn-library-catalog__tab-icon csn-library-catalog__tab-icon--films" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="5" r="2"></circle><circle cx="15" cy="5" r="2"></circle><path d="M4 10h11v9H4zM15 12l6-3v11l-6-3z"></path></svg>Films</button>
   </div>
 
+  <div class="csn-library-catalog__panels">
   <section class="csn-library-catalog__panel" id="{{ catalog_id }}-panel-everything" role="tabpanel" aria-labelledby="{{ catalog_id }}-tab-everything" tabindex="0">
     <form action="https://csn.primo.exlibrisgroup.com/discovery/search" class="csn-library-catalog__search" enctype="application/x-www-form-urlencoded; charset=utf-8" method="get" role="search" target="_self" title="Home Page Search" data-primo-search>
       <input type="hidden" name="vid" value="01UNLV_COSN:Main">
@@ -101,5 +102,6 @@
     {{ content.field_films }}
   </section>
 
+  </div>
   {{ content|without('field_everything', 'field_books', 'field_articles', 'field_films') }}
 </section>

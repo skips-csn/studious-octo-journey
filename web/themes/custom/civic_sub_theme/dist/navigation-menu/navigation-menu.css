@@ -1,0 +1,145 @@
+/* Override CivicTheme defaults for navigation customization */
+
+/* Dividers above Browse Databases and the libanswers FAQ links */
+.ct-primary-navigation nav a[href*="libguides.csn.edu/az.php"],
+.ct-primary-navigation nav a[href*="csn.libanswers.com"],
+nav a[href*="libguides.csn.edu/az.php"],
+nav a[href*="csn.libanswers.com"] {
+  display: block !important;
+  border-top: 1px solid #d1d5db !important;
+  margin-top: 14px !important;
+  padding-top: 14px !important;
+}
+
+/* Ask button base style */
+.ct-primary-navigation nav a[href*="ask"],
+.ct-primary-navigation .ct-navigation > ul > li:last-child > a,
+nav a[href*="ask"],
+.ct-navigation > ul > li:last-child > a {
+  display: inline-block !important;
+  background-color: var(--ct-button-light-primary-background-color, #003366) !important;
+  color: var(--ct-button-light-primary-color, #ffffff) !important;
+  padding: 10px 20px !important;
+  border-radius: 4px !important;
+  text-decoration: none !important;
+  font-weight: bold !important;
+  margin-left: 15px !important;
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out !important;
+}
+
+/* Ask button hover */
+.ct-primary-navigation nav a[href*="ask"]:hover,
+.ct-primary-navigation .ct-navigation > ul > li:last-child > a:hover,
+nav a[href*="ask"]:hover,
+.ct-navigation > ul > li:last-child > a:hover {
+  background-color: #ffcc00 !important;
+  background: #ffcc00 !important;
+  color: #000000 !important;
+}
+
+/* Desktop dropdown spacing, matching SpringShare */
+@media (min-width: 992px) {
+  .ct-primary-navigation .ct-menu__sub-menu__wrapper {
+    width: max-content !important;
+    min-width: 0 !important;
+    max-width: none !important;
+  }
+  .ct-primary-navigation .ct-menu__sub-menu__wrapper .ct-menu--level-1 {
+    padding: 10px 0 !important;
+    margin: 0 !important;
+  }
+  .ct-primary-navigation .ct-menu--level-1 > .ct-menu__item {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .ct-primary-navigation .ct-menu--level-1 > .ct-menu__item > .ct-menu__item__link {
+    display: block !important;
+    padding: 15px 32px !important;
+    margin: 0 !important;
+    line-height: 20px !important;
+    white-space: nowrap;
+  }
+  .ct-primary-navigation .ct-menu--level-1 > .ct-menu__item > a[href*="libguides.csn.edu/az.php"],
+  .ct-primary-navigation .ct-menu--level-1 > .ct-menu__item > a[href*="csn.libanswers.com"] {
+    margin-top: 8px !important;
+    padding-top: 23px !important;
+  }
+}
+
+/* Mobile menu: bigger chevrons, arrow + parent title as one back button */
+@media (max-width: 991.98px) {
+  .ct-mobile-navigation__top-menu .ct-mobile-navigation__open-subsection-trigger {
+    width: 72px !important;
+    min-width: 72px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .ct-mobile-navigation__top-menu .ct-mobile-navigation__open-subsection-trigger svg {
+    width: 28px !important;
+    height: 28px !important;
+  }
+  .ct-mobile-navigation__top-menu .ct-mobile-navigation-close {
+    position: absolute !important;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    width: auto !important;
+    height: 60px;
+    padding: 0 12px 0 0 !important;
+    display: flex;
+    align-items: center;
+  }
+  .ct-mobile-navigation__top-menu .ct-mobile-navigation-close .ct-button {
+    min-height: 44px;
+    min-width: 86px;
+    padding: 0 12px;
+  }
+  .ct-mobile-navigation__top-menu .ct-mobile-navigation__close-trigger {
+    height: 60px;
+    padding: 8px 110px 8px 12px !important;
+    margin: 0 !important;
+  }
+  .ct-mobile-navigation__top-menu .ct-mobile-navigation__close-trigger .ct-button {
+    position: relative;
+    display: flex !important;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100% !important;
+    min-height: 44px;
+    height: 44px;
+    padding: 0 12px 0 44px !important;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .ct-mobile-navigation__top-menu .ct-mobile-navigation__close-trigger .ct-button svg {
+    display: none !important;
+  }
+  .ct-mobile-navigation__top-menu .ct-mobile-navigation__close-trigger .ct-button::before {
+    content: "";
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    width: 24px;
+    height: 24px;
+    margin-top: -12px;
+    background: #002a39;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M15 6l-6 6 6 6' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M15 6l-6 6 6 6' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+  }
+  .ct-mobile-navigation__top-menu .ct-mobile-navigation__close-trigger .ct-button .ct-text-icon__text {
+    color: #002a39;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .ct-mobile-navigation__top-menu .ct-mobile-navigation__close-trigger .ct-button:hover .ct-text-icon__text {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .ct-mobile-navigation__top-menu .ct-mobile-navigation__close-trigger + .ct-menu__sub-menu__wrapper {
+    border-top: 1px solid #adafb0;
+  }
+}
+
