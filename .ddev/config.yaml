@@ -9,6 +9,7 @@ additional_fqdns: []
 database:
     type: mariadb
     version: "11.8"
+bind_all_interfaces: true
 upload_dirs:
     - sites/default/files
     - ../.git

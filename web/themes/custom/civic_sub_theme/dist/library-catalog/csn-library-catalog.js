@@ -170,11 +170,17 @@
         tabs.forEach((tab, index) => {
           tab.addEventListener('click', () => activateTab(tab));
           tab.addEventListener('keydown', (event) => {
-            const nextIndex = event.key === 'ArrowRight' ? (index + 1) % tabs.length
-              : event.key === 'ArrowLeft' ? (index - 1 + tabs.length) % tabs.length
-              : event.key === 'Home' ? 0
-              : event.key === 'End' ? tabs.length - 1
-              : -1;
+            let nextIndex = -1;
+            
+            if (event.key === 'ArrowRight') {
+              nextIndex = (index + 1) % tabs.length;
+            } else if (event.key === 'ArrowLeft') {
+              nextIndex = (index - 1 + tabs.length) % tabs.length;
+            } else if (event.key === 'Home') {
+              nextIndex = 0;
+            } else if (event.key === 'End') {
+              nextIndex = tabs.length - 1;
+            }
 
             if (nextIndex >= 0) {
               event.preventDefault();
@@ -182,6 +188,30 @@
             }
           });
         });
+
+        // Add keydown handler at tablist level to catch events from any tab
+        tabList?.addEventListener('keydown', (event) => {
+          const focusedTab = tabs.find(tab => tab === document.activeElement);
+          if (!focusedTab) return;
+          
+          const focusedIndex = tabs.indexOf(focusedTab);
+          let nextIndex = -1;
+          
+          if (event.key === 'ArrowRight') {
+            nextIndex = (focusedIndex + 1) % tabs.length;
+          } else if (event.key === 'ArrowLeft') {
+            nextIndex = (focusedIndex - 1 + tabs.length) % tabs.length;
+          } else if (event.key === 'Home') {
+            nextIndex = 0;
+          } else if (event.key === 'End') {
+            nextIndex = tabs.length - 1;
+          }
+
+          if (nextIndex >= 0) {
+            event.preventDefault();
+            activateTab(tabs[nextIndex], true);
+          }
+        }, true);
 
         root.querySelectorAll('[data-primo-search]').forEach((form) => {
           form.addEventListener('submit', () => {
