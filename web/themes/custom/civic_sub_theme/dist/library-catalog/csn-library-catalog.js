@@ -213,11 +213,12 @@
           }
         }, true);
 
-        root.querySelectorAll('[data-primo-search]').forEach((form) => {
-          form.addEventListener('submit', () => {
-            const searchText = form.querySelector('[data-primo-query-input]').value.trim();
-            form.querySelector('[data-primo-query]').value = `any,contains,${searchText}`;
-          });
+      });
+
+      once('csn-primo-search', '[data-primo-search]', context).forEach((form) => {
+        form.addEventListener('submit', () => {
+          const searchText = form.querySelector('[data-primo-query-input]').value.trim();
+          form.querySelector('[data-primo-query]').value = `any,contains,${searchText}`;
         });
       });
     }
