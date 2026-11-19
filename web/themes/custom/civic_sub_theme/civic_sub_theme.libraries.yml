@@ -9,6 +9,16 @@ global:
     - core/once
     - core/drupalSettings
 
+open-sans:
+  css:
+    theme:
+      'https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&display=swap':
+        type: external
+        minified: true
+      components/open-sans/open-sans.css: {}
+  dependencies:
+    - civic_sub_theme/global
+
 navigation-menu:
   css:
     theme:

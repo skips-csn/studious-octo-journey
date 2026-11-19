@@ -11,12 +11,11 @@
 .hours-widget .hours-widget__title-wrap > h2 { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0, 0, 0, 0) !important; clip-path: inset(50%) !important; white-space: nowrap !important; border: 0 !important; }
 /* Action buttons for moving between current day and next day */
 .hours-widget__today,
-.hours-widget__next-day { display: inline-flex; box-sizing: border-box; width: 100%; height: auto; min-height: 2.75rem; align-items: center; justify-content: center; gap: 0.3rem; padding: 0.6rem 0.85rem; color: #ffffff; background: #286090; border: 1px solid #286090; border-radius: 10px; font: inherit; font-size: 0.95rem; font-weight: 650; line-height: 1.1; white-space: nowrap; cursor: pointer; transition: color 150ms ease, background-color 150ms ease, border-color 150ms ease, box-shadow 150ms ease; }
+.hours-widget__next-day { display: inline-flex; box-sizing: border-box; width: 5.25rem; max-width: 100%; height: auto; min-height: 2.75rem; align-items: center; justify-content: center; gap: 0.3rem; padding: 0.6rem 0.7rem; color: #ffffff; background: #286090; border: 1px solid #286090; border-radius: 10px; font: inherit; font-size: 0.95rem; font-weight: 650; line-height: 1.1; white-space: nowrap; cursor: pointer; transition: color 150ms ease, background-color 150ms ease, border-color 150ms ease, box-shadow 150ms ease; }
 .hours-widget .hours-widget__today,
 .hours-widget .hours-widget__next-day { color: #ffffff !important; }
 .hours-widget__today { justify-self: start; }
-.hours-widget__next-day { justify-self: end; width: 100%; }
-.hours-widget__today { width: 100%; }
+.hours-widget__next-day { justify-self: end; }
 .hours-widget__today { grid-area: today; }
 .hours-widget__next-day { grid-area: next; }
 .hours-widget__today:hover,
