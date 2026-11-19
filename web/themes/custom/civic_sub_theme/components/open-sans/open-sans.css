@@ -52,3 +52,16 @@ html body :is(.block-views-blockanatomical-models-block-1, .view-anatomical-mode
 html body :is(.block-views-blockanatomical-models-block-1, .view-anatomical-models) :is(.col-sm-6, .col-md-6, .col-lg-4, .col-xl-4, .col-xxl-4) div:last-child a[href] {
   font-family: "Open Sans", sans-serif;
 }
+
+.ct-navigation-card__title-link,
+.ct-slide__links__link {
+  font-family: "Open Sans", sans-serif !important;
+}
+
+.ct-navigation-card .ct-navigation-card__title {
+  font-family: "Open Sans", sans-serif !important;
+}
+
+.ct-slide__links__link {
+  font-family: "Open Sans", sans-serif !important;
+}
