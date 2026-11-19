@@ -1,3 +1,8 @@
+// phpcs:ignoreFile
+/**
+ * CivicTheme Basic Content component stories.
+ */
+
 import Component from './basic-content.twig';
 import BasicContentData from './basic-content.stories.data';
 
@@ -25,9 +30,6 @@ const meta = {
     modifier_class: {
       control: { type: 'text' },
     },
-    attributes: {
-      control: { type: 'text' },
-    },
   },
 };
 
@@ -43,9 +45,13 @@ export const BasicContent = {
 export const BasicContentDark = {
   parameters: {
     layout: 'fullscreen',
+  },
+
+  args: BasicContentData.args('dark'),
+
+  globals: {
     backgrounds: {
-      default: 'Dark',
+      value: 'dark',
     },
   },
-  args: BasicContentData.args('dark'),
 };

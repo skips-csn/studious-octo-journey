@@ -1,3 +1,8 @@
+// phpcs:ignoreFile
+/**
+ * CivicTheme Promo component stories.
+ */
+
 import Component from './promo.twig';
 
 const meta = {
@@ -33,9 +38,6 @@ const meta = {
     with_background: {
       control: { type: 'boolean' },
     },
-    attributes: {
-      control: { type: 'text' },
-    },
     modifier_class: {
       control: { type: 'text' },
     },
@@ -63,7 +65,7 @@ export const Promo = {
     content_top: '',
     content: 'Officia officia deserunt sint sint magna esse in ut elit aliquip nostrud laboris.',
     content_bottom: '',
-    attributes: '',
+    attributes: null,
     modifier_class: '',
   },
 };

@@ -1,3 +1,8 @@
+// phpcs:ignoreFile
+/**
+ * CivicTheme Chip component stories.
+ */
+
 import Component from './chip.twig';
 import './chip.event.stories';
 
@@ -14,6 +19,7 @@ const meta = {
       options: {
         Default: 'default',
         Input: 'input',
+        Link: 'link',
       },
     },
     size: {
@@ -28,14 +34,20 @@ const meta = {
     content: {
       control: { type: 'text' },
     },
+    url: {
+      control: { type: 'text' },
+    },
+    label: {
+      control: { type: 'text' },
+    },
     is_selected: {
       control: { type: 'boolean' },
     },
     is_multiple: {
       control: { type: 'boolean' },
     },
-    attributes: {
-      control: { type: 'text' },
+    is_dismissible: {
+      control: { type: 'boolean' },
     },
     modifier_class: {
       control: { type: 'text' },
@@ -54,7 +66,10 @@ export const Chip = {
     kind: 'default',
     size: 'regular',
     content: 'Chip label',
+    url: 'https://example.com',
+    label: 'Navigate to Chip: Example',
     is_selected: false,
     is_multiple: false,
+    is_dismissible: false,
   },
 };

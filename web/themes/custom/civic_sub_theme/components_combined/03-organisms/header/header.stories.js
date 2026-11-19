@@ -1,5 +1,10 @@
+// phpcs:ignoreFile
+/**
+ * CivicTheme Header component stories.
+ */
+
 import Component from './header.twig';
-import HeaderData from './header.stories.data';
+import HeaderData, { HeaderMultilineData } from './header.stories.data';
 
 const meta = {
   title: 'Organisms/Header',
@@ -48,11 +53,22 @@ export const Header = {
 export const HeaderDark = {
   parameters: {
     layout: 'fullscreen',
+  },
+
+  args: HeaderData.args('dark'),
+
+  globals: {
     backgrounds: {
-      default: 'Dark',
+      value: 'dark',
     },
   },
-  args: HeaderData.args('dark'),
+};
+
+export const HeaderMultiline = {
+  parameters: {
+    layout: 'fullscreen',
+  },
+  args: HeaderMultilineData.args('light'),
 };
 
 export const HeaderWithMobileNavSearchLink = {

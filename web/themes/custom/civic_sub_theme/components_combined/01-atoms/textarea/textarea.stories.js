@@ -1,3 +1,8 @@
+// phpcs:ignoreFile
+/**
+ * CivicTheme Textarea component stories.
+ */
+
 import Component from './textarea.twig';
 
 const meta = {
@@ -32,9 +37,6 @@ const meta = {
     is_disabled: {
       control: { type: 'boolean' },
     },
-    attributes: {
-      control: { type: 'text' },
-    },
     modifier_class: {
       control: { type: 'text' },
     },
@@ -57,7 +59,7 @@ export const Textarea = {
     is_required: false,
     is_invalid: false,
     is_disabled: false,
-    attributes: '',
+    attributes: null,
     modifier_class: '',
   },
 };

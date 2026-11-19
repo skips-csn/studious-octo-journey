@@ -1,3 +1,4 @@
+// phpcs:ignoreFile
 /**
  * @file
  * Background component utilities.
@@ -19,5 +20,5 @@ function getBackgrounds() {
 }
 
 export default {
-  getBackgrounds
-}
+  getBackgrounds,
+};

@@ -1,3 +1,8 @@
+// phpcs:ignoreFile
+/**
+ * CivicTheme Video component stories.
+ */
+
 import Component from './video.twig';
 
 const meta = {
@@ -24,9 +29,6 @@ const meta = {
       control: { type: 'text' },
     },
     fallback_text: {
-      control: { type: 'text' },
-    },
-    attributes: {
       control: { type: 'text' },
     },
     modifier_class: {
@@ -62,7 +64,7 @@ export const Video = {
     width: '',
     height: '',
     fallback_text: 'Your browser doesn\'t support HTML5 video tag.',
-    attributes: '',
+    attributes: null,
     modifier_class: '',
   },
 };

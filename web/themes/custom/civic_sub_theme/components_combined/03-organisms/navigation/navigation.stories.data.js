@@ -1,9 +1,11 @@
+// phpcs:ignoreFile
 export default {
   args: (theme = 'light') => ({
     theme,
     name: '',
     title: 'Navigation title',
     type: 'none',
+    variant: 'none',
     items: [
       {
         title: 'Menu item 1',
@@ -53,7 +55,7 @@ export default {
     dropdown_columns_fill: false,
     is_animated: false,
     menu_id: 'navigation',
-    attributes: '',
+    attributes: null,
     modifier_class: '',
   }),
 };

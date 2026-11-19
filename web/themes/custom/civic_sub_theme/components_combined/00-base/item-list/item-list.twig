@@ -1,15 +1,17 @@
 {#
 /**
  * @file
- * Link List component.
+ * CivicTheme Item List component.
  *
- * Variables:
- * - direction: [string] Direction: horizontal, vertical. Defaults to horizontal.
- * - size: [string] Size: large, regular, small. Defaults to regular.
- * - no_gap: [boolean] Render without gaps.
- * - items: [array] Items array
- * - attributes: [string] Additional attributes.
- * - modifier_class: [string] Additional classes.
+ * Props:
+ * - direction: [string] List direction (horizontal or vertical).
+ * - size: [string] List size (large, regular, or small).
+ * - no_gap: [boolean] Whether to render without gaps.
+ * - items: [array] List items.
+ *   Each item contains:
+ *   - items [string]
+ * - modifier_class: [string] Additional CSS classes.
+ * - attributes: [Drupal\Core\Template\Attribute] Additional HTML attributes.
  */
 #}
 
@@ -21,11 +23,11 @@
 {% set modifier_class = '%s %s %s %s'|format(direction_class, size_class, no_gap_class, modifier_class|default('')) %}
 
 {% if items %}
-  <ul class="ct-item-list {{ modifier_class -}}" {% if attributes is not empty %}{{- attributes|raw -}}{% endif %}>
+  <ul class="ct-item-list {{ modifier_class -}}" {% if attributes is defined and attributes is not null %}{{- attributes -}}{% endif %}>
     {% for item in items %}
       {% if item is not empty %}
         <li class="ct-item-list__item">
-          {{- item|raw -}}
+          {{- item -}}
         </li>
       {% endif %}
     {% endfor %}

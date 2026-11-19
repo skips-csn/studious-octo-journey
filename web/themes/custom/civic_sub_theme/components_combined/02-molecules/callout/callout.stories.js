@@ -1,3 +1,8 @@
+// phpcs:ignoreFile
+/**
+ * CivicTheme Callout component stories.
+ */
+
 import Components from './callout.twig';
 
 const meta = {
@@ -28,9 +33,6 @@ const meta = {
       control: { type: 'array' },
     },
     modifier_class: {
-      control: { type: 'text' },
-    },
-    attributes: {
       control: { type: 'text' },
     },
   },
@@ -64,6 +66,6 @@ export const Callout = {
     content: 'Example content ut fugiat ex nulla enim ipsum proident aliqua in elit irure tempor elit nisi nisi enim labore nostrud mollit ut magna commodo',
     vertical_spacing: 'none',
     modifier_class: '',
-    attributes: '',
+    attributes: null,
   },
 };

@@ -1,5 +1,10 @@
+// phpcs:ignoreFile
+/**
+ * CivicTheme Link component stories.
+ */
+
 import Component from './link.twig';
-import Constants from '../../../dist/constants.json'; // eslint-disable-line import/no-unresolved
+import Constants from '../../../dist/constants.json';
 
 const meta = {
   title: 'Atoms/Link',
@@ -50,9 +55,6 @@ const meta = {
     modifier_class: {
       control: { type: 'text' },
     },
-    attributes: {
-      control: { type: 'text' },
-    },
   },
 };
 
@@ -76,6 +78,6 @@ export const Link = {
     icon_group_disabled: false,
     icon_single_only: false,
     modifier_class: '',
-    attributes: '',
+    attributes: null,
   },
 };

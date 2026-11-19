@@ -1,3 +1,8 @@
+// phpcs:ignoreFile
+/**
+ * CivicTheme Field Description component stories.
+ */
+
 import Component from './field-description.twig';
 
 const meta = {
@@ -15,13 +20,7 @@ const meta = {
     content: {
       control: { type: 'text' },
     },
-    allow_html: {
-      control: { type: 'boolean' },
-    },
     modifier_class: {
-      control: { type: 'text' },
-    },
-    attributes: {
       control: { type: 'text' },
     },
   },
@@ -37,8 +36,7 @@ export const FieldDescription = {
     theme: 'light',
     size: 'regular',
     content: 'Field message content sample.',
-    allow_html: true,
     modifier_class: '',
-    attributes: '',
+    attributes: null,
   },
 };

@@ -1,0 +1,27 @@
+{{ attach_library('civic_sub_theme/csn-hours-widget') }}
+{% set widget_id = 'csn-library-hours-' ~ paragraph.id.value|default('preview') %}
+
+<section{{ attributes.addClass('hours-widget') }} data-hours-widget>
+  <header class="hours-widget__header">
+    <button type="button" class="hours-widget__today" data-hours-today aria-label="Today">
+      Today
+    </button>
+
+    <div class="hours-widget__title-wrap">
+      <h2 id="{{ widget_id }}-title">Today's Hours</h2>
+      <p class="hours-widget__date" data-hours-date aria-live="polite"></p>
+    </div>
+
+    <button type="button" class="hours-widget__next-day" data-hours-next-day aria-label="Next Day">
+      Next Day
+    </button>
+  </header>
+
+  <ul class="hours-list" data-hours-list aria-labelledby="{{ widget_id }}-title"></ul>
+
+  <footer class="hours-widget__footer">
+    <a href="https://csn.libcal.com/hours/" target="_blank" rel="noopener noreferrer">
+      View all hours
+    </a>
+  </footer>
+</section>

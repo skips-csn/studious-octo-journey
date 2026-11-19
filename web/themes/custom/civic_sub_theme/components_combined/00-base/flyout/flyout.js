@@ -1,3 +1,4 @@
+// phpcs:ignoreFile
 /**
  * @file
  * Flyout component.
@@ -202,6 +203,6 @@ CivicThemeFlyout.prototype.collapse = function () {
 
 // Initialize CivicThemeFlyout on every element.
 document.querySelectorAll('[data-flyout]').forEach((flyout) => {
-  // eslint-disable-next-line no-new
+   
   new CivicThemeFlyout(flyout);
 });

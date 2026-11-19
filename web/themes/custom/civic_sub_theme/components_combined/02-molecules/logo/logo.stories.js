@@ -1,3 +1,8 @@
+// phpcs:ignoreFile
+/**
+ * CivicTheme Logo component stories.
+ */
+
 import Component from './logo.twig';
 import LogoData from './logo.stories.data';
 
@@ -22,9 +27,6 @@ const meta = {
     title: {
       control: { type: 'text' },
     },
-    attributes: {
-      control: { type: 'text' },
-    },
     modifier_class: {
       control: { type: 'text' },
     },
@@ -43,9 +45,13 @@ export const Logo = {
 export const LogoDark = {
   parameters: {
     layout: 'centered',
+  },
+
+  args: LogoData.args('dark'),
+
+  globals: {
     backgrounds: {
-      default: 'Dark',
+      value: 'dark',
     },
   },
-  args: LogoData.args('dark'),
 };

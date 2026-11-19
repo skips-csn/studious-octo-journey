@@ -1,3 +1,8 @@
+// phpcs:ignoreFile
+/**
+ * CivicTheme Promo Card component stories.
+ */
+
 import Component from './promo-card.twig';
 import PromoCardData from './promo-card.stories.data';
 
@@ -30,6 +35,9 @@ const meta = {
     image_over: {
       control: { type: 'text' },
     },
+    is_title_click: {
+      control: { type: 'boolean' },
+    },
     content_top: {
       control: { type: 'text' },
     },
@@ -40,9 +48,6 @@ const meta = {
       control: { type: 'text' },
     },
     modifier_class: {
-      control: { type: 'text' },
-    },
-    attributes: {
       control: { type: 'text' },
     },
   },

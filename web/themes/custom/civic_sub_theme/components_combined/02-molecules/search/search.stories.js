@@ -1,3 +1,8 @@
+// phpcs:ignoreFile
+/**
+ * CivicTheme Search component stories.
+ */
+
 import Component from './search.twig';
 
 const meta = {
@@ -17,9 +22,6 @@ const meta = {
     modifier_class: {
       control: { type: 'text' },
     },
-    attributes: {
-      control: { type: 'text' },
-    },
   },
 };
 
@@ -34,6 +36,6 @@ export const Search = {
     text: 'Search',
     url: '/search',
     modifier_class: '',
-    attributes: '',
+    attributes: null,
   },
 };

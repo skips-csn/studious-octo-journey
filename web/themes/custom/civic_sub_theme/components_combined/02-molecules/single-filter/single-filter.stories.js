@@ -1,3 +1,8 @@
+// phpcs:ignoreFile
+/**
+ * CivicTheme Single Filter component stories.
+ */
+
 import Component from './single-filter.twig';
 import SingleFilterData from './single-filter.stories.data';
 
@@ -13,9 +18,6 @@ const meta = {
       control: { type: 'text' },
     },
     title: {
-      control: { type: 'text' },
-    },
-    form_attributes: {
       control: { type: 'text' },
     },
     form_hidden_fields: {
@@ -35,9 +37,6 @@ const meta = {
     },
     is_multiple: {
       control: { type: 'boolean' },
-    },
-    attributes: {
-      control: { type: 'text' },
     },
     modifier_class: {
       control: { type: 'text' },

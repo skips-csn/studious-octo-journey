@@ -1,3 +1,8 @@
+// phpcs:ignoreFile
+/**
+ * CivicTheme Service Card component stories.
+ */
+
 import Component from './service-card.twig';
 
 const meta = {
@@ -24,9 +29,6 @@ const meta = {
       control: { type: 'text' },
     },
     modifier_class: {
-      control: { type: 'text' },
-    },
-    attributes: {
       control: { type: 'text' },
     },
   },
@@ -59,6 +61,6 @@ export const ServiceCard = {
     content_top: '',
     content_bottom: '',
     modifier_class: '',
-    attributes: '',
+    attributes: null,
   },
 };

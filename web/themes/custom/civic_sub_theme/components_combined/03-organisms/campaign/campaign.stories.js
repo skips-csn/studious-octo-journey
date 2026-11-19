@@ -1,3 +1,8 @@
+// phpcs:ignoreFile
+/**
+ * CivicTheme Campaign component stories.
+ */
+
 import Component from './campaign.twig';
 
 const meta = {
@@ -38,9 +43,6 @@ const meta = {
       control: { type: 'text' },
     },
     content_bottom: {
-      control: { type: 'text' },
-    },
-    attributes: {
       control: { type: 'text' },
     },
     modifier_class: {
@@ -85,7 +87,7 @@ export const Campaign = {
     vertical_spacing: 'both',
     content_top: '',
     content_bottom: '',
-    attributes: '',
+    attributes: null,
     modifier_class: '',
   },
 };

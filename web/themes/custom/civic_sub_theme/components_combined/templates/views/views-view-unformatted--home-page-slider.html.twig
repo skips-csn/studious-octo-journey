@@ -1,0 +1,24 @@
+{# 
+  Home Page Slider Component
+This component will allow news articles to be promoted to the slider on the home Page.
+On the editing page for creating an article, there will be a button that will push to home page.
+  Last Updated: 11/2026
+#}
+{% set slider_items = [] %}
+
+{% for row in rows %}
+  {% set slide = {
+    'title': row.content.title,
+    'text': row.content.summary,
+    'image': row.content.field_thumbnail,
+    'url': row.content.view_node,
+  } %}
+  {% set slider_items = slider_items|merge([slide]) %}
+{% endfor %}
+
+{# Render using CivicTheme's rigorously tested accessible markup #}
+{% include 'civictheme:slider' with {
+  'title': 'Featured Content',
+  'items': slider_items,
+  'theme': 'light',
+} only %}

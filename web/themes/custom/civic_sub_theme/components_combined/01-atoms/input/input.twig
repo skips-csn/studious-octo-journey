@@ -1,18 +1,20 @@
 {#
 /**
  * @file
- * Input component.
+ * CivicTheme Input component.
  *
- * Variables:
- * - theme: [string] Theme: light, dark.
- * - name: [string] DOM name. Required.
- * - value: [string] The value.
+ * Props:
+ * - theme: [string] Theme variation (light or dark).
+ * - type: [string] Input type (text, password, email, etc.).
+ * - name: [string] DOM name (required).
+ * - id: [string] DOM id.
+ * - value: [string] The input value.
  * - placeholder: [string] Placeholder text.
- * - is_invalid: [boolean] Denote if the control is invalid.
- * - is_disabled: [boolean] Denote if the control is disabled.
- * - is_required: [boolean] Denote if the control is required.
- * - attributes: [string] Additional attributes.
- * - modifier_class: [string] Additional classes.
+ * - is_invalid: [boolean] Whether the input is invalid.
+ * - is_disabled: [boolean] Whether the input is disabled.
+ * - is_required: [boolean] Whether the input is required.
+ * - modifier_class: [string] Additional CSS classes.
+ * - attributes: [Drupal\Core\Template\Attribute] Additional HTML attributes.
  */
 #}
 
@@ -21,15 +23,16 @@
 {% set modifier_class = '%s %s %s'|format(theme_class, is_invalid_class, modifier_class|default(''))|trim %}
 
 {% if name is not empty %}
-	<input
-		type="{{ type }}"
-		class="ct-input {{ modifier_class -}}"
-		name="{{ name }}"
-		{% if value is not empty %}value="{{ value }}"{% endif %}
-		{% if id %}id="{{ id }}"{% endif %}
-		{% if is_disabled %}disabled{% endif %}
-		{% if is_required %}required{% endif %}
-		{% if placeholder %}placeholder="{{ placeholder }}"{% endif %}
-		{% if attributes is not empty %}{{- attributes|raw -}}{% endif %}
-	/>
+  <input
+    type="{{ type }}"
+    class="ct-input {{ modifier_class -}}"
+    name="{{ name }}"
+    {% if value is not empty %}value="{{ value }}"{% endif %}
+    {% if id %}id="{{ id }}"{% endif %}
+    {% if is_disabled %}disabled{% endif %}
+    {% if is_required %}required{% endif %}
+    {% if is_invalid %}aria-invalid="true"{% endif %}
+    {% if placeholder %}placeholder="{{ placeholder }}"{% endif %}
+    {% if attributes is defined and attributes is not null %}{{- attributes -}}{% endif %}
+  />
 {% endif %}

@@ -1,3 +1,8 @@
+// phpcs:ignoreFile
+/**
+ * CivicTheme Group Filter component stories.
+ */
+
 import Component from './group-filter.twig';
 import GroupFilterData from './group-filter.stories.data';
 
@@ -18,9 +23,6 @@ const meta = {
     submit_text: {
       control: { type: 'text' },
     },
-    form_attributes: {
-      control: { type: 'text' },
-    },
     form_hidden_fields: {
       control: { type: 'text' },
     },
@@ -30,10 +32,10 @@ const meta = {
     content_bottom: {
       control: { type: 'text' },
     },
-    attributes: {
+    modifier_class: {
       control: { type: 'text' },
     },
-    modifier_class: {
+    group_id: {
       control: { type: 'text' },
     },
   },
@@ -51,9 +53,30 @@ export const GroupFilter = {
 export const GroupFilterDark = {
   parameters: {
     layout: 'padded',
+  },
+
+  args: GroupFilterData.args('dark'),
+
+  globals: {
+    backgrounds: {
+      value: 'dark',
+    },
+  },
+};
+
+export const GroupFilterWithSelectedFilters = {
+  parameters: {
+    layout: 'padded',
+  },
+  args: GroupFilterData.args('light', { selectedFilters: true }),
+};
+
+export const GroupFilterWithSelectedFiltersDark = {
+  parameters: {
+    layout: 'padded',
     backgrounds: {
       default: 'Dark',
     },
   },
-  args: GroupFilterData.args('dark'),
+  args: GroupFilterData.args('dark', { selectedFilters: true }),
 };

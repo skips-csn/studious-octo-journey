@@ -1,7 +1,8 @@
+// phpcs:ignoreFile
 /**
- * @file
- * Layout component.
+ * CivicTheme Layout component.
  */
+
 function CivicThemeLayout(el) {
   this.el = el;
   this.grid = el.querySelector(':scope > .ct-layout__inner');
@@ -92,6 +93,6 @@ CivicThemeLayout.prototype.masonryRedraw = function () {
 };
 
 document.querySelectorAll('.ct-layout').forEach((layout) => {
-  // eslint-disable-next-line no-new
+   
   new CivicThemeLayout(layout);
 });

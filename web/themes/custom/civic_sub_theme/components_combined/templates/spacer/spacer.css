@@ -1,0 +1,17 @@
+.component-spacer {
+    width: 100%;
+    display: block;
+  }
+  
+  .component-spacer--small {
+    height: 1.5rem; /* ~24px */
+  }
+  
+  .component-spacer--medium {
+    height: 3rem;   /* ~48px */
+  }
+  
+  .component-spacer--large {
+    height: 6rem;   /* ~96px */
+  }
+  

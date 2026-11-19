@@ -1,3 +1,8 @@
+// phpcs:ignoreFile
+/**
+ * CivicTheme Navigation component stories.
+ */
+
 import Component from './navigation.twig';
 import NavigationData from './navigation.stories.data';
 
@@ -22,6 +27,10 @@ const meta = {
       control: { type: 'radio' },
       options: ['none', 'inline', 'dropdown', 'drawer'],
     },
+    variant: {
+      control: { type: 'radio' },
+      options: ['none', 'primary', 'secondary'],
+    },
     dropdown_columns: {
       control: { type: 'number' },
     },
@@ -32,9 +41,6 @@ const meta = {
       control: { type: 'boolean' },
     },
     menu_id: {
-      control: { type: 'text' },
-    },
-    attributes: {
       control: { type: 'text' },
     },
     modifier_class: {

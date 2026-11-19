@@ -1,20 +1,20 @@
 {#
 /**
  * @file
- * Radio component.
+ * CivicTheme Radio component.
  *
- * Variables:
- * - theme: [string] Theme: light, dark.
- * - name: [string] DOM name. Required.
- * - id: [string] DOM id. Required.
- * - value: [string] DOM value.
+ * Props:
+ * - theme: [string] Theme variation (light or dark).
+ * - name: [string] DOM name (required).
+ * - id: [string] DOM id (required).
+ * - value: [string,boolean] DOM value.
  * - label: [string] Label content.
- * - is_checked: [boolean] Denote if the control is checked.
- * - is_required: [boolean] Denote if the control is required.
- * - is_invalid: [boolean] Denote if the control is invalid.
- * - is_disabled: [boolean] Denote if the control is disabled.
- * - attributes: [string] Additional attributes.
- * - modifier_class: [string] Additional classes.
+ * - is_checked: [boolean] Whether the radio is checked.
+ * - is_required: [boolean] Whether the radio is required.
+ * - is_invalid: [boolean] Whether the radio is invalid.
+ * - is_disabled: [boolean] Whether the radio is disabled.
+ * - modifier_class: [string] Additional CSS classes.
+ * - attributes: [Drupal\Core\Template\Attribute] Additional HTML attributes.
  */
 #}
 
@@ -32,10 +32,11 @@
     {% if is_checked %}checked{% endif %}
     {% if is_required %}required{% endif %}
     {% if is_disabled %}disabled{% endif %}
-    {% if attributes is not empty %}{{- attributes|raw -}}{% endif %}
+    {% if is_invalid %}aria-invalid="true"{% endif %}
+    {% if attributes is defined and attributes is not null %}{{- attributes -}}{% endif %}
   />
   {% if label is not empty %}
-    {% include '@atoms/label/label.twig' with {
+    {% include 'civictheme:label' with {
       theme: theme,
       content: label,
       for: id,

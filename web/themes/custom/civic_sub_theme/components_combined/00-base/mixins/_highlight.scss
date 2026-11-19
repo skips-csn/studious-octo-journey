@@ -13,10 +13,10 @@
   &::before {
     content: '';
     position: absolute;
-    top: -$border-width;
-    bottom: -$border-width;
-    left: -$border-width;
-    width: $width + $border-width;
+    top: 0 - $border-width;
+    bottom: 0 - $border-width;
+    left: 0 - $border-width;
+    width: $width;
 
     @if $position == 'left' {
       border-top-left-radius: $border-radius;
@@ -37,6 +37,12 @@
 // Add highlight stripe to an element.
 //
 @mixin ct-highlight-stripe-horizontal($height, $border-radius, $border-width: ct-particle(0.125), $position: 'top') {
+  $_stripe_size: $height;
+
+  @if $border-width != 0 {
+    $_stripe_size: calc(#{$height} + #{$border-width});
+  }
+
   & {
     position: relative;
   }
@@ -44,16 +50,17 @@
   &::before {
     content: '';
     position: absolute;
-    left: -$border-width;
-    right: -$border-width;
-    top: -$border-width;
-    height: $height + $border-width;
+    left: 0 - $border-width;
+    right: 0 - $border-width;
+    height: $_stripe_size;
 
     @if $position == 'top' {
+      top: 0 - $border-width;
       border-top-left-radius: $border-radius;
       border-top-right-radius: $border-radius;
     }
     @else {
+      bottom: 0 - $border-width;
       border-bottom-left-radius: $border-radius;
       border-bottom-right-radius: $border-radius;
     }

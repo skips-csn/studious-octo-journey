@@ -1,3 +1,8 @@
+// phpcs:ignoreFile
+/**
+ * CivicTheme Breadcrumb component stories.
+ */
+
 import Components from './breadcrumb.twig';
 
 const meta = {
@@ -15,9 +20,6 @@ const meta = {
       control: { type: 'object' },
     },
     modifier_class: {
-      control: { type: 'text' },
-    },
-    attributes: {
       control: { type: 'text' },
     },
   },
@@ -47,6 +49,6 @@ export const Breadcrumb = {
       },
     ],
     modifier_class: '',
-    attributes: '',
+    attributes: null,
   },
 };

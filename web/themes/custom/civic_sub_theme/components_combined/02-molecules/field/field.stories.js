@@ -1,3 +1,8 @@
+// phpcs:ignoreFile
+/**
+ * CivicTheme Field component stories.
+ */
+
 import Component from './field.twig';
 import FieldData from './field.stories.data';
 
@@ -19,6 +24,10 @@ const meta = {
     title_display: {
       control: { type: 'radio' },
       options: ['visible', 'invisible', 'hidden'],
+    },
+    title_size: {
+      control: { type: 'radio' },
+      options: ['extra-small', 'small', 'regular', 'large', 'extra-large'],
     },
     description: {
       control: { type: 'text' },
@@ -56,9 +65,6 @@ const meta = {
     },
     control: {
       control: { type: 'object' },
-    },
-    attributes: {
-      control: { type: 'text' },
     },
     modifier_class: {
       control: { type: 'text' },

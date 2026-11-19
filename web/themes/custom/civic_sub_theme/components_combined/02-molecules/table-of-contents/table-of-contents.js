@@ -1,18 +1,6 @@
+// phpcs:ignoreFile
 /**
- * Table of Contents component.
- *
- * Attaches to markup with 'data-table-of-contents-position' attribute.
- *
- * Available attributes:
- * - data-table-of-contents-position: Placed on the target element to init TOC.
- *   Values are: before, after, prepend, append. Value defaults to 'before'.
- * - data-table-of-contents-theme (optional): Theme of the TOC. Values are:
- *   light, dark. Defaults to 'light'.
- * - data-table-of-contents-anchor-selector (optional): The selector of the
- *   anchors. Defaults to 'h2'.
- * - data-table-of-contents-anchor-scope-selector (optional): The scope for
- *   the anchors. Defaults to '.ct-basic-content'.
- * - data-table-of-contents-title (optional): The title of TOC.
+ * CivicTheme Table of Contents component.
  */
 
 function CivicThemeTableOfContents(el) {
@@ -69,9 +57,19 @@ CivicThemeTableOfContents.prototype.findLinks = function (anchorSelector, scopeS
   // Find links within provided scope selector.
   document.querySelectorAll(scopeSelector).forEach((elScope) => {
     elScope.querySelectorAll(anchorSelector).forEach((elAnchor) => {
+      // Skip headings marked to be excluded from TOC.
+      if (elAnchor.hasAttribute('data-toc-exclude')) {
+        return;
+      }
+
       // Respect existing ID.
       let anchorId = elAnchor.id || null;
       const anchorText = elAnchor.innerText;
+
+      // Ignore blank headings.
+      if (anchorText.trim() === '') {
+        return;
+      }
 
       // Generate new ID if no existing ID.
       if (!anchorId || anchorId.length === 0) {

@@ -1,5 +1,5 @@
 //
-// Attachment component.
+// CivicTheme Attachment component styles.
 //
 
 .ct-attachment {
@@ -7,14 +7,14 @@
 
   &#{$root}--with-background {
     @include ct-breakpoint(m) {
-      padding-left: $ct-attachment-space-horizontal;
-      padding-right: $ct-attachment-space-horizontal;
+      padding-left: var(--ct-attachment-space-horizontal);
+      padding-right: var(--ct-attachment-space-horizontal);
     }
   }
 
   #{$root}__wrapper {
     border: solid ct-particle(0.125);
-    border-radius: $ct-attachment-border-radius;
+    border-radius: var(--ct-attachment-border-radius);
     padding: ct-spacing(3);
 
     @include ct-breakpoint(m) {
@@ -23,7 +23,7 @@
   }
 
   #{$root}__title {
-    margin-bottom: ct-spacing(2);
+    margin-bottom: ct-spacing();
   }
 
   #{$root}__content {
@@ -33,6 +33,14 @@
   #{$root}__links .ct-item-list__item {
     display: flex;
     gap: 0 ct-spacing();
+  }
+
+  #{$root}__links__link__changed {
+    margin-bottom: 0;
+  }
+
+  #{$root}__links__link__icon {
+    flex-shrink: 0;
   }
 
   #{$root}__links__link__extension {

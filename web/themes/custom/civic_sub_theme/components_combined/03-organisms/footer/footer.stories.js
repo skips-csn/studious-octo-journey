@@ -1,6 +1,11 @@
+// phpcs:ignoreFile
+/**
+ * CivicTheme Footer component stories.
+ */
+
 import Component from './footer.twig';
 import FooterData from './footer.stories.data';
-import Constants from '../../../dist/constants.json'; // eslint-disable-line import/no-unresolved
+import Constants from '../../../dist/constants.json';
 
 const meta = {
   title: 'Organisms/Footer',
@@ -59,9 +64,13 @@ export const Footer = {
 export const FooterDark = {
   parameters: {
     layout: 'fullscreen',
+  },
+
+  args: FooterData.args('dark'),
+
+  globals: {
     backgrounds: {
-      default: 'Dark',
+      value: 'dark',
     },
   },
-  args: FooterData.args('dark'),
 };

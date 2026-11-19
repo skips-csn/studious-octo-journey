@@ -1,3 +1,4 @@
+// phpcs:ignoreFile
 export default {
   args: (theme = 'light') => ({
     theme,
@@ -48,7 +49,7 @@ export default {
       },
     ],
     vertical_spacing: 'none',
-    attributes: '',
+    attributes: null,
     modifier_class: '',
   }),
 };

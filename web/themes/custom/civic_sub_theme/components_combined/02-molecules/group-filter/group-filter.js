@@ -1,7 +1,8 @@
+// phpcs:ignoreFile
 /**
- * @file
- * Group Filter component.
+ * CivicTheme Group Filter component.
  */
+
 function CivicThemeGroupFilterComponent(el) {
   if (this.el) {
     return;

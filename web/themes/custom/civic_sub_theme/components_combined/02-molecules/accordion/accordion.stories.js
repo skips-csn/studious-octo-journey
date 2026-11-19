@@ -1,3 +1,8 @@
+// phpcs:ignoreFile
+/**
+ * CivicTheme Accordion component stories.
+ */
+
 import Component from './accordion.twig';
 
 const meta = {
@@ -27,9 +32,6 @@ const meta = {
     modifier_class: {
       control: { type: 'text' },
     },
-    attributes: {
-      control: { type: 'text' },
-    },
     panels: {
       control: { type: 'object' },
     },
@@ -48,7 +50,7 @@ export const Accordion = {
     with_background: false,
     vertical_spacing: 'none',
     modifier_class: '',
-    attributes: '',
+    attributes: null,
     panels: [
       {
         title: 'Accordion title 1',

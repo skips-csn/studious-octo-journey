@@ -1,3 +1,8 @@
+// phpcs:ignoreFile
+/**
+ * CivicTheme Item List component stories.
+ */
+
 import Component from './item-list.twig';
 
 const meta = {
@@ -17,9 +22,6 @@ const meta = {
     },
     items: {
       control: { type: 'array' },
-    },
-    attributes: {
-      control: { type: 'text' },
     },
     modifier_class: {
       control: { type: 'text' },
@@ -43,6 +45,6 @@ export const ItemList = {
       '<div class="story-placeholder" contenteditable="true">Content placeholder<div>',
     ],
     modifier_class: '',
-    attributes: '',
+    attributes: null,
   },
 };

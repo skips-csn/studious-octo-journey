@@ -1,4 +1,5 @@
-import Constants from '../../../dist/constants.json'; // eslint-disable-line import/no-unresolved
+// phpcs:ignoreFile
+import Constants from '../../../dist/constants.json';
 
 import Paragraph from '../../01-atoms/paragraph/paragraph.twig';
 import Button from '../../01-atoms/button/button.twig';
@@ -43,7 +44,6 @@ export default {
     content_middle: '',
     content: Paragraph({
       theme,
-      allow_html: true,
       content: `<p>Government grade set of high quality design themes that are accessible, inclusive and provide a consistent digital experience for your citizen. </p><p>${Button({
         theme,
         text: 'Learn about our mission',
@@ -84,6 +84,6 @@ export default {
       row_class: 'row--equal-heights-content row--vertically-spaced',
     }).trim(),
     modifier_class: '',
-    attributes: '',
+    attributes: null,
   }),
 };

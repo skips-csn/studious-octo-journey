@@ -1,27 +1,33 @@
+// phpcs:ignoreFile
+/**
+ * CivicTheme Table component stories.
+ */
+
 import Component from './table.twig';
+import Link from '../link/link.twig';
 
 const getRows = function (theme) {
   return [
     [
-      `<a class="ct-link ct-theme-${theme}" href="#" title="Row 1 with link">Row 1 with link</a>`,
+      Link({ theme, text: 'Row 1 with link', url: '#', title: 'Row 1 with link' }),
       'Description summary on odd row with vertical spacing',
       'Another column',
       'One more column column',
     ],
     [
-      `<a class="ct-link ct-theme-${theme}" href="#" title="Row 1 with link">Row 2 with link</a>`,
+      Link({ theme, text: 'Row 2 with link', url: '#', title: 'Row 2 with link' }),
+      Link({ theme, text: 'Row 2 with link', url: '#', title: 'Row 2 with link' }),
       'Description summary on even row',
       'Another column',
-      'One more column column',
     ],
     [
-      `<a class="ct-link ct-theme-${theme}" href="#" title="Row 1 with link">Row 3 with link</a>`,
+      Link({ theme, text: 'Row 3 with link', url: '#', title: 'Row 3 with link' }),
       'Description summary on odd row with vertical spacing',
       'Another column',
       'One more column column',
     ],
     [
-      `<a class="ct-link ct-theme-${theme}" href="#" title="Row 1 with link">Row 5 with link</a>`,
+      Link({ theme, text: 'Row 4 with link', url: '#', title: 'Row 4 with link' }),
       'Description summary on even row',
       'Another column',
       'One more column column',
@@ -77,9 +83,6 @@ const meta = {
     is_data_table: {
       control: { type: 'boolean' },
     },
-    attributes: {
-      control: { type: 'text' },
-    },
     modifier_class: {
       control: { type: 'text' },
     },
@@ -98,6 +101,12 @@ export const Table = {
     caption_position: 'before',
     header: [
       'Header 1',
+      '<span>Header 2</span>',
+      '<span class="demo-class">Header 3</span>',
+      '<span class="ct-visually-hidden">Header 4</span>',
+    ],
+    header_sanitized: [
+      'Header 1',
       'Header 2',
       'Header 3',
       'Header 4',
@@ -111,7 +120,7 @@ export const Table = {
     ],
     is_striped: '',
     is_data_table: '',
-    attributes: '',
+    attributes: null,
     modifier_class: '',
   },
   render: (args) => Component({

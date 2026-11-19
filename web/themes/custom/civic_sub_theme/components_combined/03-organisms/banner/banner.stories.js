@@ -1,6 +1,11 @@
+// phpcs:ignoreFile
+/**
+ * CivicTheme Banner component stories.
+ */
+
 import Component from './banner.twig';
 import BannerData from './banner.stories.data';
-import Constants from '../../../dist/constants.json'; // eslint-disable-line import/no-unresolved
+import Constants from '../../../dist/constants.json';
 
 const meta = {
   title: 'Organisms/Banner',
@@ -56,9 +61,6 @@ const meta = {
     modifier_class: {
       control: { type: 'text' },
     },
-    attributes: {
-      control: { type: 'text' },
-    },
   },
 };
 
@@ -74,9 +76,13 @@ export const Banner = {
 export const BannerDark = {
   parameters: {
     layout: 'fullscreen',
+  },
+
+  args: BannerData.args('dark'),
+
+  globals: {
     backgrounds: {
-      default: 'Dark',
+      value: 'dark',
     },
   },
-  args: BannerData.args('dark'),
 };

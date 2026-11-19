@@ -1,25 +1,20 @@
 {#
 /**
  * @file
- * Mobile Navigation Menu component.
+ * CivicTheme Mobile Navigation Menu component.
  *
- * Copied from '@base/menu/menu.twig' with some additions.
- *
- * Used to output hierarchical menu structure.
- *
- * Specific navigation component implementations that use menu hierarchies
- * should extend this template and may override 'menu_item_link' and
- * 'menu_item_below' blocks with specific markup.
- *
- * Variables:
- * - theme: [string] Theme: light, dark.
- * - items: [array] Menu links array. Each item contains:
- *   - title: [string] The title of the link.
- *   - url: [string] The link url.
- *   - icon: [string] Icon name.
- *   - below: [array] Array of submenu items.
- *   - is_expanded: [boolean] Flag if the current item has visible child.
- *   - in_active_trail: [boolean] Flag if the current item is in the active trail.
+ * Props:
+ * - theme: [string] Theme variation (light or dark).
+ * - items: [array] Menu links:
+ *   Each item contains:
+ *   - title: [string,null,object] Link title.
+ *   - url: [string,null,object] Link URL.
+ *   - icon: [string,null,object] Icon name.
+ *   - below: [array] Submenu items.
+ *   - is_expanded: [boolean,null] Whether the current item has visible children.
+ *   - in_active_trail: [boolean,null] Whether the current item is in the active trail.
+ * - modifier_class: [string] Additional CSS classes.
+ * - attributes: [Drupal\Core\Template\Attribute] Additional HTML attributes.
  */
 #}
 
@@ -29,9 +24,9 @@
 {% import _self as menus %}
 
 {#
-Copied as-is from '@base/menu/menu.twig'.
+Copied as-is from 'civictheme:menu'.
 #}
-{% macro menu_links(items, menu_level, modifier_class, theme, is_collapsible, parent_key) %}
+{% macro menu_links(items, menu_level, modifier_class, theme, is_collapsible) %}
   {% if items %}
     {% if menu_level == 0 %}
       <ul class="ct-menu ct-menu--level-{{ menu_level }} {{ modifier_class -}} " data-component-name="ct-menu" {{- attributes|default('') -}}>
@@ -44,7 +39,7 @@ Copied as-is from '@base/menu/menu.twig'.
         <ul class="ct-menu ct-menu__sub-menu ct-menu--level-{{ menu_level }}">
     {% endif %}
 
-    {% for key, item in items %}
+    {% for item in items %}
       {% set item_classes = [
         'ct-menu__item',
         'ct-menu__item--level-' ~ menu_level,
@@ -62,8 +57,8 @@ Copied as-is from '@base/menu/menu.twig'.
 
       <li class="{{ item_classes|join(' ') }}" {{ item_attributes }}>
 
-        {% include '@atoms/link/link.twig' with {
-          theme: theme,
+        {% include 'civictheme:link' with {
+          theme: theme|default('light'),
           text: item.title,
           title: item.title,
           url: item.url,
@@ -80,7 +75,7 @@ Copied as-is from '@base/menu/menu.twig'.
         {% endif %}
 
         {% if item.below %}
-          {{ menus.menu_links_below(item.below, menu_level + 1, classes, theme, item) }}
+          {{ menus.menu_links_below(item.below, menu_level + 1, modifier_class, theme, item) }}
         {% endif %}
 
       </li>
@@ -100,30 +95,37 @@ Overrides for generation of child links.
 #}
 {% macro menu_links_below(items, menu_level, modifier_class, theme, parent_item) %}
 
-  {% include '@atoms/button/button.twig' with {
+  {% include 'civictheme:button' with {
     theme: theme,
     kind: 'button',
     icon: 'right-arrow-2',
     size: 'regular',
     modifier_class: 'ct-mobile-navigation__open-subsection-trigger',
-    attributes: 'data-flyout-open-trigger aria-expanded="false" aria-label="Open %s submenu"'|format(parent_item.title),
+    attributes: create_attribute({
+      'data-flyout-open-trigger': '',
+      'aria-expanded': 'false',
+      'aria-label': 'Open %s submenu'|format(parent_item.title),
+    }),
   } only %}
 
   <div data-flyout data-flyout-direction="right" data-flyout-focus=".ct-link">
     <div data-flyout-panel>
-      {% include '@organisms/mobile-navigation/mobile-navigation-close.twig' with {
+      {% include 'civictheme:mobile-navigation-close' with {
         theme: theme,
       } only %}
 
       <div class="ct-mobile-navigation__close-trigger">
-        {% include '@atoms/button/button.twig' with {
+        {% include 'civictheme:button' with {
           theme: theme,
           kind: 'button',
           icon: 'left-arrow-outline',
           icon_placement: 'before',
           size: 'regular',
           text: parent_item.title,
-          attributes: 'data-flyout-close-trigger aria-label="Close %s submenu"'|format(parent_item.title),
+          attributes: create_attribute({
+            'data-flyout-close-trigger': '',
+            'aria-label': 'Close %s submenu'|format(parent_item.title),
+          }),
         } only %}
       </div>
 

@@ -1,4 +1,5 @@
-import Constants from '../../../dist/constants.json'; // eslint-disable-line import/no-unresolved
+// phpcs:ignoreFile
+import Constants from '../../../dist/constants.json';
 
 export default {
   args: (theme = 'light') => ({
@@ -28,7 +29,7 @@ export default {
     },
     url: 'https://example.com',
     title: 'Logo title',
-    attributes: '',
+    attributes: null,
     modifier_class: '',
   }),
 };

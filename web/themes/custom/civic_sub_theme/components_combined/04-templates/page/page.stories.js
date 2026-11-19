@@ -1,5 +1,10 @@
+// phpcs:ignoreFile
+/**
+ * CivicTheme Page Template component stories.
+ */
+
 import Component from './page.twig';
-import PageData from './page.stories.data';
+import PageData, { PageFullWidthData } from './page.stories.data';
 
 const meta = {
   title: 'Templates/Page',
@@ -56,37 +61,19 @@ const meta = {
     sidebar_top_left: {
       control: { type: 'text' },
     },
-    sidebar_top_left_attributes: {
-      control: { type: 'text' },
-    },
     sidebar_top_right: {
-      control: { type: 'text' },
-    },
-    sidebar_top_right_attributes: {
       control: { type: 'text' },
     },
     content: {
       control: { type: 'text' },
     },
-    content_attributes: {
-      control: { type: 'text' },
-    },
     sidebar_bottom_left: {
-      control: { type: 'text' },
-    },
-    sidebar_bottom_left_attributes: {
       control: { type: 'text' },
     },
     sidebar: {
       control: { type: 'text' },
     },
-    sidebar_attributes: {
-      control: { type: 'text' },
-    },
     sidebar_bottom_right: {
-      control: { type: 'text' },
-    },
-    sidebar_bottom_right_attributes: {
       control: { type: 'text' },
     },
     content_contained: {
@@ -128,9 +115,6 @@ const meta = {
     footer_bottom_2: {
       control: { type: 'text' },
     },
-    attributes: {
-      control: { type: 'text' },
-    },
     modifier_class: {
       control: { type: 'text' },
     },
@@ -149,9 +133,32 @@ export const Page = {
 export const PageDark = {
   parameters: {
     layout: 'fullscreen',
+  },
+
+  args: PageData.args('dark'),
+
+  globals: {
     backgrounds: {
-      default: 'Dark',
+      value: 'dark',
     },
   },
-  args: PageData.args('dark'),
+};
+
+export const PageFullWidth = {
+  parameters: {
+    layout: 'fullscreen',
+  },
+  args: PageFullWidthData.args('light'),
+};
+
+export const PageSidebar = {
+  parameters: {
+    layout: 'fullscreen',
+  },
+  args: {
+    ...PageFullWidthData.args('light'),
+    hide_sidebar_left: false,
+    hide_sidebar_right: false,
+    sidebar_top_left: PageData.args('light').sidebar_top_left,
+  },
 };

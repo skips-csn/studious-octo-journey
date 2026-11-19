@@ -1,3 +1,4 @@
+// phpcs:ignoreFile
 export default {
   args: (theme = 'light') => ({
     theme,
@@ -14,18 +15,19 @@ export default {
       is_new_window: false,
     },
     image: {
-      url: './demo/images/demo1.jpg',
+      url: './demo/images/demo7.jpg',
       alt: 'Image alt text',
     },
     tags: [
       'Tag 1',
       'Tag 2',
     ],
+    is_title_click: false,
     content_top: '',
     image_over: '',
     content_middle: '',
     content_bottom: '',
     modifier_class: '',
-    attributes: '',
+    attributes: null,
   }),
 };

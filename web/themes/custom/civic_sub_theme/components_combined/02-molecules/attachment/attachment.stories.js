@@ -1,3 +1,8 @@
+// phpcs:ignoreFile
+/**
+ * CivicTheme Attachment component stories.
+ */
+
 import Component from './attachment.twig';
 
 const meta = {
@@ -31,9 +36,6 @@ const meta = {
       control: { type: 'text' },
     },
     modifier_class: {
-      control: { type: 'text' },
-    },
-    attributes: {
       control: { type: 'text' },
     },
   },
@@ -104,12 +106,21 @@ export const Attachment = {
         changed: '2022-01-01',
         icon: 'download-file',
       },
+      {
+        url: 'https://example.com/document',
+        name: 'Document',
+        ext: null,
+        size: null,
+        created: '2022-01-01',
+        changed: '2022-01-01',
+        icon: 'download-file',
+      },
     ],
     with_background: false,
     vertical_spacing: 'none',
     content_top: '',
     content_bottom: '',
     modifier_class: '',
-    attributes: '',
+    attributes: null,
   },
 };

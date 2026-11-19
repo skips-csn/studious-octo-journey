@@ -1,3 +1,8 @@
+// phpcs:ignoreFile
+/**
+ * CivicTheme Checkbox component stories.
+ */
+
 import Component from './checkbox.twig';
 
 const meta = {
@@ -31,9 +36,6 @@ const meta = {
     },
     is_disabled: {
       control: { type: 'boolean' },
-    },
-    attributes: {
-      control: { type: 'text' },
     },
     modifier_class: {
       control: { type: 'text' },

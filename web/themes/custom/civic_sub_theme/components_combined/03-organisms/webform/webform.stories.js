@@ -1,3 +1,8 @@
+// phpcs:ignoreFile
+/**
+ * CivicTheme Webform component stories.
+ */
+
 import Component from './webform.twig';
 
 const meta = {
@@ -18,9 +23,6 @@ const meta = {
       control: { type: 'radio' },
       options: ['none', 'top', 'bottom', 'both'],
     },
-    attributes: {
-      control: { type: 'text' },
-    },
     modifier_class: {
       control: { type: 'text' },
     },
@@ -38,7 +40,7 @@ export const Webform = {
     referenced_webform: 'Webform title',
     with_background: false,
     vertical_spacing: 'none',
-    attributes: '',
+    attributes: null,
     modifier_class: '',
   },
 };

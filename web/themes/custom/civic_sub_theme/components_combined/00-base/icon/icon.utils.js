@@ -1,3 +1,4 @@
+// phpcs:ignoreFile
 /**
  * @file
  * Icon component utilities.
@@ -31,5 +32,5 @@ function getIcons() {
 }
 
 export default {
-  getIcons
-}
+  getIcons,
+};

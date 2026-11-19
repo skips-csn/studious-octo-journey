@@ -13,47 +13,46 @@
     text-decoration: none;
     padding: ct-spacing(0.375) 0 ct-spacing(0.5);
   }
-
-  &:visited {
-    @include ct-content-link-visited();
-  }
 }
 
 @mixin ct-content-link-light() {
-  color: $ct-content-link-light-color;
+  color: var(--ct-content-link-light-color);
 
   &:focus-visible {
     @include ct-outline();
   }
 
   &:hover {
-    background-color: $ct-content-link-light-hover-background-color;
-    color: $ct-content-link-light-hover-color;
+    background-color: var(--ct-content-link-light-hover-background-color);
+    color: var(--ct-content-link-light-hover-color);
+  }
+
+  &:visited {
+    color: var(--ct-content-link-light-visited-color);
+
+    &:hover {
+      color: var(--ct-content-link-light-visited-hover-color);
+    }
   }
 }
 
 @mixin ct-content-link-dark() {
-  color: $ct-content-link-dark-color;
+  color: var(--ct-content-link-dark-color);
 
   &:focus-visible {
     @include ct-outline(true);
   }
 
   &:hover {
-    background-color: $ct-content-link-dark-hover-background-color;
-    color: $ct-content-link-dark-hover-color;
+    background-color: var(--ct-content-link-dark-hover-background-color);
+    color: var(--ct-content-link-dark-hover-color);
   }
-}
 
-@mixin ct-content-link-visited() {
-  $root: &;
-
-  @include ct-component-theme($root) using($root, $theme) {
-    color: ct-component-var($root, $theme, visited, color);
+  &:visited {
+    color: var(--ct-content-link-dark-visited-color);
 
     &:hover {
-      @include ct-component-property($root, $theme, visited, hover, border-color);
-      @include ct-component-property($root, $theme, visited, hover, color);
+      color: var(--ct-content-link-dark-visited-hover-color);
     }
   }
 }

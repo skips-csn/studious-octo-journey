@@ -1,3 +1,4 @@
+// phpcs:ignoreFile
 export default {
   args: (theme = 'light') => ({
     theme,
@@ -47,9 +48,9 @@ export default {
     ],
     items_per_page_name: 'items_per_page_name',
     items_per_page_id: 'items-per-page-id',
-    items_per_page_attributes: '',
+    items_per_page_attributes: null,
     use_ellipsis: false,
     modifier_class: '',
-    attributes: '',
+    attributes: null,
   }),
 };

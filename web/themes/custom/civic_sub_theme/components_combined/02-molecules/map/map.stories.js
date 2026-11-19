@@ -1,3 +1,8 @@
+// phpcs:ignoreFile
+/**
+ * CivicTheme Map component stories.
+ */
+
 import Component from './map.twig';
 
 const meta = {
@@ -36,9 +41,6 @@ const meta = {
     modifier_class: {
       control: { type: 'text' },
     },
-    attributes: {
-      control: { type: 'text' },
-    },
   },
 };
 
@@ -59,6 +61,6 @@ export const Map = {
     content_top: '',
     content_bottom: '',
     modifier_class: '',
-    attributes: '',
+    attributes: null,
   },
 };

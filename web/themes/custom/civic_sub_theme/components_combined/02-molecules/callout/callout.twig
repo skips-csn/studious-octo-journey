@@ -1,22 +1,31 @@
 {#
 /**
  * @file
- * Callout component.
+ * CivicTheme Callout component.
  *
- * Variables:
- * - content_top: [string] Content slot.
- * - title: [string] Title text.
- * - content: [string] Content text.
- * - links: [array] Array of link objects containing:
+ * Props:
+ * - theme: [string] Theme variation (light or dark).
+ * - vertical_spacing: [string] Vertical spacing position (top, bottom, both).
+ * - modifier_class: [string] Additional CSS classes.
+ * - links: [array] Callout links:
+ *   Each item contains:
  *   - text: [string] Link text.
  *   - url: [string] Link URL.
- *   - is_new_window: [boolean] Open link in the new window.
- *   - is_external: [boolean] Link is external.
- * - content_bottom: [string] Content slot.
- * - theme: [string] Theme: light, dark.
- * - vertical_spacing: [string] With top, bottom or both vertical spaces.
- * - attributes: [string] Additional attributes.
- * - modifier_class: [string] Additional classes.
+ *   - is_new_window: [boolean] Whether to open link in a new window.
+ *   - is_external: [boolean] Whether the link is external.
+ * - attributes: [Drupal\Core\Template\Attribute] Additional HTML attributes.
+ *
+ * Slots:
+ * - title: Title text.
+ * - content: Content text.
+ * - content_top: Callout top content.
+ * - content_bottom: Callout bottom content.
+ *
+ * Blocks:
+ * - content_top_block
+ * - content_block
+ * - links_block
+ * - content_bottom_block
  */
 #}
 
@@ -24,24 +33,24 @@
 {% set theme_class = 'ct-theme-%s'|format(theme|default('light')) %}
 {% set modifier_class = '%s %s %s'|format(theme_class, vertical_spacing_class, modifier_class|default('')) %}
 
-<div class="ct-callout {{ modifier_class -}}" {% if attributes is not empty %}{{- attributes|raw -}}{% endif %}>
+<div class="ct-callout {{ modifier_class -}}" {% if attributes is defined and attributes is not null %}{{- attributes -}}{% endif %}>
   <div class="container">
     <div class="row">
       <div class="col-xxs-12">
         <div class="ct-callout__wrapper">
-          {% block content_top %}
+          {% block content_top_block %}
             {% if content_top is not empty %}
               <div class="ct-callout__content-top">
-                {{- content_top|raw -}}
+                {{- content_top -}}
               </div>
             {% endif %}
           {% endblock %}
 
-          {% block content %}
+          {% block content_block %}
             {% if title is not empty or content is not empty %}
               <div class="ct-callout__inner">
                 {% if title %}
-                  {% include '@atoms/heading/heading.twig' with {
+                  {% include 'civictheme:heading' with {
                     content: title,
                     level: 4,
                     theme: theme,
@@ -50,10 +59,10 @@
                 {% endif %}
 
                 {% if content is not empty %}
-                  {% include '@atoms/paragraph/paragraph.twig' with {
+                  {% include 'civictheme:paragraph' with {
                     theme: theme,
                     content: content,
-                    allow_html: true,
+                    no_margin: true,
                     modifier_class: 'ct-callout__content',
                   } only %}
                 {% endif %}
@@ -61,11 +70,11 @@
             {% endif %}
           {% endblock %}
 
-          {% block links %}
+          {% block links_block %}
             {% set link_items = [] %}
             {% for link in links %}
               {%- set link %}
-                {% include '@atoms/button/button.twig' with {
+                {% include 'civictheme:button' with {
                   theme: theme,
                   kind: 'link',
                   type: loop.index > 1 ? 'secondary' : 'primary',
@@ -78,17 +87,17 @@
               {% set link_items = link_items|merge([link]) %}
             {% endfor %}
 
-            {% include '@base/item-list/item-list.twig' with {
+            {% include 'civictheme:item-list' with {
               items: link_items,
               size: 'small',
               modifier_class: 'ct-callout__links',
             } only %}
           {% endblock %}
 
-          {% block content_bottom %}
+          {% block content_bottom_block %}
             {% if content_bottom is not empty %}
               <div class="ct-callout__content-bottom">
-                {{- content_bottom|raw -}}
+                {{- content_bottom -}}
               </div>
             {% endif %}
           {% endblock %}

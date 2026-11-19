@@ -1,0 +1,43 @@
+//
+// CivicTheme Figure component styles.
+//
+
+.ct-figure {
+  $root: &;
+
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: ct-spacing();
+  width: fit-content;
+  max-width: 100%;
+
+  @include ct-reset-margins();
+
+  #{$root}__image {
+    border-radius: var(--ct-figure-border-radius);
+    object-fit: contain;
+    max-width: 100%;
+    height: auto;
+  }
+
+  #{$root}__caption {
+    @include ct-typography('text-small');
+
+    align-items: center;
+    contain: inline-size;
+    display: flex;
+    width: 100%;
+    gap: ct-spacing();
+  }
+
+  &__caption-icon {
+    flex-shrink: 0;
+  }
+
+  @include ct-component-theme($root) using($root, $theme) {
+    #{$root}__caption {
+      @include ct-component-property($root, $theme, caption, color);
+    }
+  }
+}

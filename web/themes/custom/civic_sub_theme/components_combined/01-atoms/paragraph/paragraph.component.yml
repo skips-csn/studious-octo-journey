@@ -1,0 +1,38 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Paragraph
+status: stable
+description: Paragraph component for text content
+props:
+  type: object
+  properties:
+    theme:
+      type: string
+      title: Theme
+      description: Theme variation (light or dark).
+      enum:
+      - light
+      - dark
+      default: light
+    content:
+      type: [string, 'null']
+      title: Content
+      description: Paragraph content.
+    size:
+      type: string
+      title: Size
+      description: Paragraph size (extra-large, large, regular, small).
+      enum:
+      - extra-large
+      - large
+      - regular
+      - small
+      default: regular
+    no_margin:
+      type: [boolean, 'null']
+      title: No margin
+      description: Disable default margin.
+      default: false
+    modifier_class:
+      type: string
+      title: Modifier classes
+      description: Additional CSS classes.

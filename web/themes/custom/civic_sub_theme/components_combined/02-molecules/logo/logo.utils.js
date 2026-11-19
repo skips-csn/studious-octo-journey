@@ -1,3 +1,4 @@
+// phpcs:ignoreFile
 /**
  * @file
  * Logo component utilities.
@@ -53,5 +54,5 @@ function getLogos() {
 }
 
 export default {
-  getLogos
-}
+  getLogos,
+};

@@ -1,3 +1,8 @@
+// phpcs:ignoreFile
+/**
+ * CivicTheme Label component stories.
+ */
+
 import Component from './label.twig';
 
 const meta = {
@@ -35,12 +40,6 @@ const meta = {
     for: {
       control: { type: 'text' },
     },
-    allow_html: {
-      control: { type: 'boolean' },
-    },
-    attributes: {
-      control: { type: 'text' },
-    },
     modifier_class: {
       control: { type: 'text' },
     },
@@ -61,8 +60,7 @@ export const Label = {
     is_required: false,
     required_text: '',
     for: '',
-    allow_html: false,
-    attributes: '',
+    attributes: null,
     modifier_class: '',
   },
 };

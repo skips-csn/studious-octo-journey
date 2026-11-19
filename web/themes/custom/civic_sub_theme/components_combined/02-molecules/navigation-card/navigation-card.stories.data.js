@@ -1,3 +1,4 @@
+// phpcs:ignoreFile
 export default {
   args: (theme = 'light') => ({
     theme,
@@ -15,11 +16,12 @@ export default {
     },
     image_as_icon: false,
     icon: '', // replace with actual icon value
+    is_title_click: false,
     image_over: '',
     content_top: '',
     content_middle: '',
     content_bottom: '',
     modifier_class: '',
-    attributes: '',
+    attributes: null,
   }),
 };

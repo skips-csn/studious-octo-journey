@@ -1,3 +1,8 @@
+// phpcs:ignoreFile
+/**
+ * CivicTheme Image component stories.
+ */
+
 import Component from './image.twig';
 
 const meta = {
@@ -23,9 +28,6 @@ const meta = {
     modifier_class: {
       control: { type: 'text' },
     },
-    attributes: {
-      control: { type: 'text' },
-    },
   },
 };
 
@@ -42,6 +44,6 @@ export const Image = {
     width: '',
     height: '',
     modifier_class: '',
-    attributes: '',
+    attributes: null,
   },
 };

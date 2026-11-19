@@ -1,5 +1,10 @@
+// phpcs:ignoreFile
+/**
+ * CivicTheme Tooltip component stories.
+ */
+
 import Component from './tooltip.twig';
-import Constants from '../../../dist/constants.json'; // eslint-disable-line import/no-unresolved
+import Constants from '../../../dist/constants.json';
 
 const meta = {
   title: 'Molecules/Tooltip',
@@ -11,7 +16,7 @@ const meta = {
     },
     position: {
       control: { type: 'radio' },
-      options: ['auto', 'left', 'right', 'top', 'bottom'],
+      options: ['auto', 'auto-start', 'auto-end', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'right', 'right-start', 'right-end', 'left', 'left-start', 'left-end'],
     },
     icon: {
       control: { type: 'select' },
@@ -24,10 +29,13 @@ const meta = {
         ...Object.keys(Constants.SCSS_VARIABLES['ct-icon-sizes']),
       ],
     },
-    modifier_class: {
+    title: {
       control: { type: 'text' },
     },
-    attributes: {
+    content: {
+      control: { type: 'text' },
+    },
+    modifier_class: {
       control: { type: 'text' },
     },
   },
@@ -47,6 +55,6 @@ export const Tooltip = {
     title: 'Toggle tooltip display',
     content: 'Ullamco incididunt laborum aliquip.',
     modifier_class: '',
-    attributes: '',
+    attributes: null,
   },
 };

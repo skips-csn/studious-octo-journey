@@ -1,6 +1,6 @@
+// phpcs:ignoreFile
 /**
- * @file
- * Tooltip component.
+ * CivicTheme Tooltip component.
  */
 
 function CivicThemeTooltip(el) {

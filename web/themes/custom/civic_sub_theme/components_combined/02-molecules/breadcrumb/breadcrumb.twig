@@ -1,16 +1,17 @@
 {#
 /**
  * @file
- * Breadcrumb component.
+ * CivicTheme Breadcrumb component.
  *
- * Variables:
- * - theme: [string] Theme: light, dark.
- * - links: [array] Array of link objects containing:
+ * Props:
+ * - theme: [string] Theme variation (light or dark).
+ * - active_is_link: [boolean] Whether to show the active element as a link.
+ * - modifier_class: [string] Additional CSS classes.
+ * - links: [array] Breadcrumb links:
+ *   Each item contains:
  *   - text: [string] Link text.
  *   - url: [string] Link URL.
- * - active_is_link: [boolean] Show active element as a link.
- * - attributes: [string] Additional attributes.
- * - modifier_class: [string] Additional classes.
+ * - attributes: [Drupal\Core\Template\Attribute] Additional HTML attributes.
  */
 #}
 
@@ -21,26 +22,26 @@
   {% set links_count = links|length %}
   {% set parent = false %}
 
-  <nav class="ct-breadcrumb {{ modifier_class -}}" aria-label="breadcrumb" {% if attributes is not empty %}{{- attributes|raw -}}{% endif %}>
+  <nav class="ct-breadcrumb {{ modifier_class -}}" aria-label="breadcrumb" {% if attributes is defined and attributes is not null %}{{- attributes -}}{% endif %}>
     {% set link_items = [] %}
 
     {% for link in links %}
       {% set link_item -%}
-        {% set link = {
+        {% set link_data = {
           text: link.text,
           url: link.url,
           theme: theme,
           is_active: (loop.index == links_count),
-          attributes: (loop.index == links_count) ? 'aria-current="location"' : '',
+          attributes: (loop.index == links_count) ? create_attribute({'aria-current': 'location'}) : null,
           modifier_class: (loop.index == links_count) ? 'ct-breadcrumb__links__link ct-breadcrumb__links__link--active' : 'ct-breadcrumb__links__link',
         } %}
 
-        {%- if (not active_is_link or link.url is empty) and (loop.index == links_count) -%}
-          <span class="ct-breadcrumb__links__link ct-breadcrumb__links__link--active" aria-current="location">{{ link.text }}</span>
+        {%- if (not active_is_link or link_data.url is empty) and (loop.index == links_count) -%}
+          <span class="ct-breadcrumb__links__link ct-breadcrumb__links__link--active" aria-current="location">{{ link_data.text }}</span>
         {%- else -%}
-          {%- include '@atoms/link/link.twig' with link only -%}
+          {%- include 'civictheme:link' with link_data only -%}
           {%- if loop.index < links_count -%}
-            {%- include '@base/icon/icon.twig' with {
+            {%- include 'civictheme:icon' with {
               symbol: 'right-arrow-1',
               modifier_class: 'ct-breadcrumb__links__separator',
             } only -%}
@@ -64,17 +65,17 @@
 
     {% if parent %}
       {% set parent_link_item %}
-        {% include '@atoms/link/link.twig' with parent only %}
+        {% include 'civictheme:link' with parent only %}
       {% endset %}
 
-      {% include '@base/item-list/item-list.twig' with {
+      {% include 'civictheme:item-list' with {
         direction: 'horizontal',
         items: [parent_link_item],
         modifier_class: 'ct-breadcrumb__links show-xxs-flex hide-m',
       } only %}
     {% endif %}
 
-    {% include '@base/item-list/item-list.twig' with {
+    {% include 'civictheme:item-list' with {
       direction: 'horizontal',
       items: link_items,
       no_gap: true,

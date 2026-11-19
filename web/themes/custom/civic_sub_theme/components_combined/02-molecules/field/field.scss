@@ -1,5 +1,5 @@
 //
-// Field component.
+// CivicTheme Field component styles.
 //
 
 @use 'sass:math';
@@ -15,6 +15,15 @@
 
   &:not(:last-child) {
     margin-bottom: ct-spacing(2);
+  }
+
+  &#{$root}--radio,
+  &#{$root}--checkbox {
+    #{$root}__wrapper {
+      border: none;
+      padding: 0;
+      margin: 0;
+    }
   }
 
   & > *:not(:last-child),
@@ -41,8 +50,8 @@
 
     #{$root}__title {
       flex: 0 1 auto;
-      min-width: $ct-field-horizontal-label-min-width;
-      max-width: $ct-field-horizontal-label-max-width;
+      min-width: var(--ct-field-horizontal-label-min-width);
+      max-width: var(--ct-field-horizontal-label-max-width);
       margin-top: $_control-vertical-padding - $_control-border-width;
     }
 

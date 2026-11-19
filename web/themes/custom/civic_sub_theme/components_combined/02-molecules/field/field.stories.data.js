@@ -1,3 +1,4 @@
+// phpcs:ignoreFile
 export default {
   args: (theme = 'light', options = {}) => {
     const name = `option_group_${Math.floor(Math.random() * 1000)}`;
@@ -9,7 +10,7 @@ export default {
       is_required: options.is_required || false,
       is_invalid: false,
       is_disabled: false,
-      attributes: '',
+      attributes: null,
       modifier_class: '',
     })) : null;
 
@@ -25,6 +26,7 @@ export default {
       type: 'textfield',
       title: 'Field title',
       title_display: 'visible',
+      title_size: 'regular',
       description: 'Description content sample.',
       message: {
         content: 'Message conte nt sample.',
@@ -42,7 +44,7 @@ export default {
       id: fieldId,
       control,
       options: selectOptions,
-      attributes: '',
+      attributes: null,
       modifier_class: '',
       prefix: '',
       suffix: '',

@@ -1,5 +1,5 @@
 //
-// Paragraph component.
+// CivicTheme Paragraph component styles.
 //
 
 @use 'sass:map';
@@ -10,6 +10,10 @@
 
   display: block;
   margin-bottom: ct-spacing();
+
+  &--no-margin {
+    margin-bottom: 0;
+  }
 
   @include ct-content();
 

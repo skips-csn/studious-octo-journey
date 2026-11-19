@@ -1,3 +1,4 @@
+// phpcs:ignoreFile
 import Component from './scrollspy.stories.twig';
 
 const meta = {
@@ -10,7 +11,7 @@ export default meta;
 export const Scrollspy = {
   parameters: {
     layout: 'fullscreen',
-    docs: 'Scroll the viewport to see elements appear when it reaches a specific pixel threshold.',
+    storyDocs: 'Scroll the viewport to see elements appear when it reaches a specific pixel threshold.',
     html: {
       disable: true,
     },

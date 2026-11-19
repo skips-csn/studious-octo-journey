@@ -1,3 +1,8 @@
+// phpcs:ignoreFile
+/**
+ * CivicTheme Video Player component stories.
+ */
+
 import Component from './video-player.twig';
 
 const meta = {
@@ -32,8 +37,18 @@ const meta = {
     transcript_link: {
       control: { type: 'object' },
     },
-    attributes: {
+    transcript_content: {
       control: { type: 'text' },
+    },
+    transcript_expand_text: {
+      control: { type: 'text' },
+    },
+    transcript_collapse_text: {
+      control: { type: 'text' },
+    },
+    vertical_spacing: {
+      control: { type: 'radio' },
+      options: ['none', 'top', 'bottom', 'both'],
     },
     modifier_class: {
       control: { type: 'text' },
@@ -75,9 +90,10 @@ export const Sources = {
       url: 'https://example.com',
       is_new_window: true,
       is_external: false,
-      attributes: '',
+      attributes: null,
     },
-    attributes: '',
+    vertical_spacing: 'none',
+    attributes: null,
     modifier_class: '',
   },
 };
@@ -101,9 +117,10 @@ export const EmbeddedSource = {
       url: 'https://example.com',
       is_new_window: true,
       is_external: false,
-      attributes: '',
+      attributes: null,
     },
-    attributes: '',
+    vertical_spacing: 'none',
+    attributes: null,
     modifier_class: '',
   },
 };
@@ -127,9 +144,38 @@ export const RawSources = {
       url: 'https://example.com',
       is_new_window: true,
       is_external: false,
-      attributes: '',
+      attributes: null,
     },
-    attributes: '',
+    vertical_spacing: 'none',
+    attributes: null,
+    modifier_class: '',
+  },
+};
+
+export const TranscriptBlock = {
+  parameters: {
+    layout: 'padded',
+  },
+  decorators: [
+    (Story) => `<div class="story-container"><div class="story-container__content">${Story()}</div></div>`,
+  ],
+  args: {
+    theme: 'light',
+    title: '',
+    width: '550',
+    height: '400',
+    sources: [
+      {
+        url: 'demo/videos/demo.mp4',
+        type: 'video/mp4',
+      },
+    ],
+    poster: 'demo/videos/demo_poster.png',
+    transcript_content: 'Reprehenderit sed irure dolor nisi ut consectetur exercitation aliquip commodo mollit velit est voluptate ut sint cillum est dolor ullamco reprehenderit in.',
+    transcript_expand_text: 'Show transcript',
+    transcript_collapse_text: 'Hide transcript',
+    vertical_spacing: 'none',
+    attributes: null,
     modifier_class: '',
   },
 };

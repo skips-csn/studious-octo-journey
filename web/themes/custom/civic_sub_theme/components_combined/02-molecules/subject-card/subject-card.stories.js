@@ -1,3 +1,8 @@
+// phpcs:ignoreFile
+/**
+ * CivicTheme Subject Card component stories.
+ */
+
 import Component from './subject-card.twig';
 
 const meta = {
@@ -20,10 +25,10 @@ const meta = {
     image_over: {
       control: { type: 'text' },
     },
-    modifier_class: {
-      control: { type: 'text' },
+    is_title_click: {
+      control: { type: 'boolean' },
     },
-    attributes: {
+    modifier_class: {
       control: { type: 'text' },
     },
   },
@@ -47,7 +52,8 @@ export const SubjectCard = {
       alt: 'Image alt text',
     },
     image_over: '',
+    is_title_click: false,
     modifier_class: '',
-    attributes: '',
+    attributes: null,
   },
 };

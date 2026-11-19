@@ -1,3 +1,8 @@
+// phpcs:ignoreFile
+/**
+ * CivicTheme Popover component stories.
+ */
+
 import Component from './popover.twig';
 
 const meta = {
@@ -26,9 +31,6 @@ const meta = {
     modifier_class: {
       control: { type: 'text' },
     },
-    attributes: {
-      control: { type: 'text' },
-    },
   },
 };
 
@@ -46,6 +48,6 @@ export const Popover = {
     content_bottom: '',
     group: 'group-name',
     modifier_class: '',
-    attributes: '',
+    attributes: null,
   },
 };

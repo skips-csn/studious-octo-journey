@@ -1,19 +1,20 @@
 {#
 /**
  * @file
- * Textarea component.
+ * CivicTheme Textarea component.
  *
- * Variables:
- * - theme: [string] Theme: light, dark.
- * - name: [string] DOM name. Required.
- * - value: [string] The value.
+ * Props:
+ * - theme: [string] Theme variation (light or dark).
+ * - name: [string] DOM name (required).
+ * - id: [string] DOM ID attribute.
+ * - value: [string] The textarea value.
  * - placeholder: [string] Placeholder text.
- * - rows: [integer] Optional number of rows.
- * - is_invalid: [boolean] Denote if the control is invalid.
- * - is_disabled: [boolean] Denote if the control is disabled.
- * - is_required: [boolean] Denote if the control is required.
- * - attributes: [string] Additional attributes.
- * - modifier_class: [string] Additional classes.
+ * - rows: [integer] Display rows count.
+ * - is_invalid: [boolean] Whether the textarea is invalid.
+ * - is_disabled: [boolean] Whether the textarea is disabled.
+ * - is_required: [boolean] Whether the textarea is required.
+ * - modifier_class: [string] Additional CSS classes.
+ * - attributes: [Drupal\Core\Template\Attribute] Additional HTML attributes.
  */
 #}
 
@@ -29,7 +30,8 @@
     {% if id %}id="{{ id }}"{% endif %}
     {% if is_disabled %}disabled{% endif %}
     {% if is_required %}required{% endif %}
+    {% if is_invalid %}aria-invalid="true"{% endif %}
     {% if placeholder %}placeholder="{{ placeholder }}"{% endif %}
-    {% if attributes is not empty %}{{- attributes|raw -}}{% endif %}
+    {% if attributes is defined and attributes is not null %}{{- attributes -}}{% endif %}
   />{{ value|default('') }}</textarea>
 {% endif %}

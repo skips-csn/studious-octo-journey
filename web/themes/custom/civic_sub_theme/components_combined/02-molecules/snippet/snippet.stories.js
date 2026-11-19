@@ -1,3 +1,8 @@
+// phpcs:ignoreFile
+/**
+ * CivicTheme Snippet component stories.
+ */
+
 import Component from './snippet.twig';
 import SnippetData from './snippet.stories.data';
 
@@ -31,9 +36,6 @@ const meta = {
       control: { type: 'text' },
     },
     modifier_class: {
-      control: { type: 'text' },
-    },
-    attributes: {
       control: { type: 'text' },
     },
   },

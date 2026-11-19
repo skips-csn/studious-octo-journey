@@ -1,0 +1,24 @@
+{{ attach_library('civic_sub_theme/csn-library-catalog') }}
+{% set reserves_id = 'csn-course-reserves-' ~ paragraph.id.value|default('preview') %}
+<div class="container">
+<section{{ attributes.addClass('csn-library-catalog', 'csn-course-reserves') }}>
+  <h2 class="csn-library-catalog__title">Find Library Textbooks</h2>
+
+  <form action="https://csn.primo.exlibrisgroup.com/discovery/search" class="csn-library-catalog__search" method="get" role="search" target="_blank" data-primo-search>
+    <input type="hidden" name="vid" value="01UNLV_COSN:Main">
+    <input type="hidden" name="search_scope" value="CourseReserves">
+    <input type="hidden" name="tab" value="CourseReserves">
+    <input type="hidden" name="mode" value="basic">
+    <input type="hidden" name="query" data-primo-query>
+    <label class="visually-hidden" for="{{ reserves_id }}-query">Search course reserves</label>
+    <input class="csn-library-catalog__input" id="{{ reserves_id }}-query" type="search" placeholder="Search by instructor, course code, or name ..." aria-describedby="{{ reserves_id }}-help" autocomplete="off" required data-primo-query-input>
+    <button class="csn-library-catalog__submit" type="submit">Search</button>
+  </form>
+
+  <div class="csn-library-catalog__helper" id="{{ reserves_id }}-help">
+    <p>Find textbooks by searching for the course code (ENG101, HIST100, etc.), instructor's name, or title of the book.</p>
+    <p>Search results open in a new tab.</p>
+  </div>
+  {{ content }}
+</section>
+</div>

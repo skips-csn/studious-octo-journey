@@ -1,24 +1,25 @@
 //
-// Service Card component.
+// CivicTheme Service Card component styles.
 //
 
 .ct-service-card {
   $root: &;
 
-  @include ct-elevation-interaction();
-  @include ct-highlight-stripe-horizontal($ct-service-card-stripe-height, $ct-service-card-border-radius, 0);
+  @include ct-highlight-stripe-horizontal(var(--ct-service-card-stripe-height), var(--ct-service-card-border-radius), 0);
 
   & {
+    @include ct-elevation(2);
+
     position: relative;
-    border-radius: $ct-service-card-border-radius;
+    border-radius: var(--ct-service-card-border-radius);
     width: 100%;
   }
 
   #{$root}__content {
-    padding: ct-spacing(3);
+    padding: ct-spacing(3.75) ct-spacing(2.5) ct-spacing(4) ct-spacing(2.5);
 
     @include ct-breakpoint(m) {
-      padding: ct-spacing(4);
+      padding: ct-spacing(4.75) ct-spacing(4) ct-spacing(5) ct-spacing(4);
     }
   }
 
@@ -27,7 +28,11 @@
   }
 
   #{$root}__links {
-    margin-top: ct-spacing(2);
+    margin-top: ct-spacing(2.5);
+
+    @include ct-breakpoint(m) {
+      margin-top: ct-spacing(3);
+    }
 
     .ct-item-list__item {
       text-align: center;
