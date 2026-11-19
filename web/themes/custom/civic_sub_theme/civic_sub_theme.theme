@@ -1,5 +1,10 @@
 <?php
 
+use Drupal\Core\Url;
+use Drupal\file\Entity\File;
+use Drupal\image\Entity\ImageStyle;
+use Drupal\node\NodeInterface;
+
 /**
  * Implements hook_preprocess_links().
  */
@@ -15,7 +20,7 @@ function civic_sub_theme_preprocess_links(&$variables) {
 function civic_sub_theme_preprocess_page(&$variables) {
   // Always attach navigation menu styles to ensure they override CivicTheme defaults
   $variables['#attached']['library'][] = 'civic_sub_theme/navigation-menu';
-  
+
   $current_path = \Drupal::service('path.current')->getPath();
   $alias = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
 
@@ -31,5 +36,111 @@ function civic_sub_theme_preprocess_page(&$variables) {
   // Matches /staff/* (individual staff profile pages)
   if (str_starts_with($alias, '/staff/')) {
     $variables['#attached']['library'][] = 'civic_sub_theme/staff-profile';
+  }
+}
+
+/**
+ * Implements hook_preprocess_paragraph__civictheme_slider().
+ */
+function civic_sub_theme_preprocess_paragraph__civictheme_slider(array &$variables): void {
+  // Query up to 5 published Page nodes with "Promoted to front page" checked.
+  $nids = \Drupal::entityQuery('node')
+    ->accessCheck(TRUE)
+    ->condition('status', NodeInterface::PUBLISHED)
+    ->condition('type', ['civictheme_page', 'page'], 'IN')
+    ->condition('promote', 1)
+    ->sort('created', 'DESC')
+    ->range(0, 5)
+    ->execute();
+
+  if (empty($nids)) {
+    return;
+  }
+
+  $nodes = \Drupal::entityTypeManager()->getStorage('node')->loadMultiple($nids);
+  $theme_value = $variables['theme'] ?? 'light';
+  $heading_level = !empty($variables['title']) ? 3 : 2;
+  $slide_elements = [];
+
+  foreach ($nodes as $node) {
+    // 1. Summary (checks CivicTheme summary field first, falls back to body).
+    $summary = '';
+    if ($node->hasField('field_c_n_summary') && !$node->get('field_c_n_summary')->isEmpty()) {
+      $summary = $node->get('field_c_n_summary')->value;
+    }
+    elseif ($node->hasField('body') && !$node->get('body')->isEmpty()) {
+      $summary = text_summary(strip_tags($node->get('body')->value), NULL, 180);
+    }
+
+    // 2. Topics (if present on the node).
+    $topics = [];
+    if ($node->hasField('field_c_n_topics') && !$node->get('field_c_n_topics')->isEmpty()) {
+      foreach ($node->get('field_c_n_topics')->referencedEntities() as $term) {
+        $topics[] = $term->label();
+      }
+    }
+
+    // 3. Date formatted like CivicTheme ("10 Nov 2026").
+    $date = \Drupal::service('date.formatter')->format($node->getCreatedTime(), 'custom', 'j M Y');
+
+    // 4. Base SDC props (omits 'image' unless one exists to pass SDC schema validation).
+    $props = [
+      'theme' => $theme_value,
+      'title' => $node->label(),
+      'heading_level' => $heading_level,
+      'content' => $summary,
+      'image_position' => 'right',
+      'topics' => $topics,
+      'date' => $date,
+      'links' => [
+        [
+          'text' => (string) t('Read More'),
+          'url' => $node->toUrl()->toString(),
+          'is_external' => FALSE,
+          'is_new_window' => FALSE,
+        ],
+        [
+          'text' => (string) t('All News'),
+          'url' => Url::fromUserInput('/news-and-events')->toString(),
+          'is_external' => FALSE,
+          'is_new_window' => FALSE,
+        ],
+      ],
+    ];
+
+    // 5. Extract Thumbnail Image if available.
+    if ($node->hasField('field_c_n_thumbnail') && !$node->get('field_c_n_thumbnail')->isEmpty()) {
+      $media = $node->get('field_c_n_thumbnail')->entity;
+      if ($media && $media->hasField('field_c_m_image') && !$media->get('field_c_m_image')->isEmpty()) {
+        $file_id = $media->get('field_c_m_image')->target_id;
+        $alt = $media->get('field_c_m_image')->alt ?? $node->label();
+        $file = File::load($file_id);
+        if ($file) {
+          $style = ImageStyle::load('civictheme_slider_slide');
+          $url = $style ? $style->buildUrl($file->getFileUri()) : $file->createFileUrl();
+          $props['image'] = [
+            'url' => $url,
+            'alt' => $alt,
+          ];
+        }
+      }
+    }
+
+    $slide_elements[] = [
+      '#type' => 'component',
+      '#component' => 'civictheme:slide',
+      '#props' => $props,
+    ];
+  }
+
+  /** @var \Drupal\Core\Render\RendererInterface $renderer */
+  $renderer = \Drupal::service('renderer');
+  $output = $renderer->hasRenderContext()
+    ? $renderer->render($slide_elements)
+    : $renderer->renderInIsolation($slide_elements);
+
+  if (trim((string) $output) !== '') {
+    $variables['promoted_slides'] = $output;
+    $variables['#cache']['tags'][] = 'node_list';
   }
 }

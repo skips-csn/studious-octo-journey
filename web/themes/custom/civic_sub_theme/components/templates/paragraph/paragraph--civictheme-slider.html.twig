@@ -1,0 +1,9 @@
+{#
+/**
+ * @file
+ * CivicTheme subtheme override to display promoted nodes in a Slider.
+ */
+#}
+{% include 'civictheme:slider' with {
+  slides: promoted_slides is not empty ? promoted_slides : slides
+} %}
