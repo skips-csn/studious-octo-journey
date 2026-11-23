@@ -157,3 +157,8 @@ regions:
   sidebar_first: 'First sidebar'
 regions_hidden:
   - sidebar_first
+
+# Information added by Drupal.org packaging script on 2026-10-14
+version: '5.0.16'
+project: 'gin'
+datestamp: 1791991072

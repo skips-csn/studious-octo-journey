@@ -1,3 +1,9 @@
+{#
+/**
+ * CSN Library Catalog component with category tabs.
+ */
+#}
+
 {{ attach_library('civic_sub_theme/csn-library-catalog') }}
 {% set catalog_id = 'csn-library-catalog-' ~ paragraph.id.value|default('preview') %}
 <section{{ attributes.addClass('csn-library-catalog') }} data-csn-library-tabs>

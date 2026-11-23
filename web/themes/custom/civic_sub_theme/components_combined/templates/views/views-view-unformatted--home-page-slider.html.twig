@@ -16,7 +16,7 @@ On the editing page for creating an article, there will be a button that will pu
   {% set slider_items = slider_items|merge([slide]) %}
 {% endfor %}
 
-{# Render using CivicTheme's rigorously tested accessible markup #}
+{# Render using CivicTheme's markup #}
 {% include 'civictheme:slider' with {
   'title': 'Featured Content',
   'items': slider_items,

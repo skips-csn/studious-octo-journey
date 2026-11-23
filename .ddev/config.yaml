@@ -1,7 +1,7 @@
 name: library-2
 type: drupal11
 docroot: web
-php_version: "8.3"
+php_version: "8.4"
 webserver_type: nginx-fpm
 xdebug_enabled: false
 additional_hostnames: []
@@ -13,12 +13,13 @@ bind_all_interfaces: true
 upload_dirs:
     - sites/default/files
     - ../.git
+project_tld: localhost
 use_dns_when_possible: true
 composer_version: 2.11.2
 web_environment: []
 nodejs_version: "24"
 corepack_enable: true
-project_tld: localhost
+
 # Key features of DDEV's config.yaml:
 
 # name: <projectname> # Name of the project, automatically provides
