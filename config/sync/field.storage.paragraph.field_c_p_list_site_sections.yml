@@ -1,0 +1,22 @@
+uuid: 1ead81bf-e6c1-4bd5-bc8d-e09276e0c716
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - taxonomy
+_core:
+  default_config_hash: 1XVWLDaUkUNd3JXt8TC77A7d0dmasX2tPn1ZozVpvdE
+id: paragraph.field_c_p_list_site_sections
+field_name: field_c_p_list_site_sections
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,20 @@
+third_party_settings:
+  field_group:
+    group_tabs:
+      label: Pestañas
+    group_appearance:
+      label: Apariencia
+    group_limit:
+      label: Límite
+    group_filters:
+      label: Filtros
+    group_fields:
+      label: Campos
+    group_metadata:
+      label: 'Meta datos'
+    group_items:
+      label: Elementos
+    group_content:
+      label: Contenido
+    group_columns:
+      label: Columnas

@@ -1,0 +1,24 @@
+uuid: 549081fe-1319-49b9-9571-55ed8469ce50
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_role
+    - filter.format.basic_html
+    - node.type.staff_profile
+  module:
+    - text
+id: node.staff_profile.field_role
+field_name: field_role
+entity_type: node
+bundle: staff_profile
+label: Role
+description: 'Job Title'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text

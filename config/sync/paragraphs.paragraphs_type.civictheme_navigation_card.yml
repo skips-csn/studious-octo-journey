@@ -1,0 +1,12 @@
+uuid: df64a716-dbf5-423b-a28c-5bc2d1598699
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: W7OpJi-uXfHvjrHLwzRT2U6BCy0WUbkDEO0nV9eZk9M
+id: civictheme_navigation_card
+label: 'Navigation card'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

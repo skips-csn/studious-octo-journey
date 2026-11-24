@@ -1,0 +1,8 @@
+uuid: d3ba084a-b5ab-4059-83d8-f888f5b4d091
+langcode: en
+status: true
+dependencies: {  }
+id: bs5_navigation_menu
+label: 'BS5 Navigation Menu'
+revision: false
+description: null

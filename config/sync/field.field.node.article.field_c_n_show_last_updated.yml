@@ -1,0 +1,23 @@
+uuid: 5c5bd8b8-f724-4145-a047-d55e1e39fd1a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_c_n_show_last_updated
+    - node.type.article
+id: node.article.field_c_n_show_last_updated
+field_name: field_c_n_show_last_updated
+entity_type: node
+bundle: article
+label: 'Show Last updated date'
+description: 'Show <em>Last updated</em> date on the page.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

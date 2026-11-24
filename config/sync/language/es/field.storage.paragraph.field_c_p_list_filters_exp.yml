@@ -1,0 +1,6 @@
+settings:
+  allowed_values:
+    0:
+      label: Tipo
+    2:
+      label: Título

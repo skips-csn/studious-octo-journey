@@ -1,0 +1,8 @@
+uuid: 2a22f7ab-25f2-4900-8674-9709a239aa08
+langcode: en
+status: true
+dependencies: {  }
+id: quick_links
+label: 'Quick Links'
+revision: false
+description: 'Quick Links Block to create manual lists of links'

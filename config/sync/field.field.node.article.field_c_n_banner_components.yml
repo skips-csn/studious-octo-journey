@@ -1,0 +1,136 @@
+uuid: d8ee3376-5b84-426c-a744-343ff73d13c6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_c_n_banner_components
+    - node.type.article
+    - paragraphs.paragraphs_type.civictheme_content
+  module:
+    - entity_reference_revisions
+id: node.article.field_c_n_banner_components
+field_name: field_c_n_banner_components
+entity_type: node
+bundle: article
+label: 'Banner components'
+description: 'Components that will appear within the banner content.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      civictheme_content: civictheme_content
+    negate: 0
+    target_bundles_drag_drop:
+      campus_hours_widget:
+        weight: 37
+        enabled: false
+      civictheme_accordion:
+        weight: -54
+        enabled: false
+      civictheme_accordion_panel:
+        weight: -53
+        enabled: false
+      civictheme_attachment:
+        weight: -48
+        enabled: false
+      civictheme_automated_list:
+        weight: -39
+        enabled: false
+      civictheme_callout:
+        weight: -47
+        enabled: false
+      civictheme_campaign:
+        weight: 38
+        enabled: false
+      civictheme_content:
+        weight: -61
+        enabled: true
+      civictheme_event_card:
+        weight: -46
+        enabled: false
+      civictheme_event_card_ref:
+        weight: -45
+        enabled: false
+      civictheme_fast_fact_card:
+        weight: 42
+        enabled: false
+      civictheme_iframe:
+        weight: -59
+        enabled: false
+      civictheme_manual_list:
+        weight: -60
+        enabled: false
+      civictheme_map:
+        weight: -58
+        enabled: false
+      civictheme_message:
+        weight: 46
+        enabled: false
+      civictheme_navigation_card:
+        weight: -52
+        enabled: false
+      civictheme_navigation_card_ref:
+        weight: -44
+        enabled: false
+      civictheme_next_step:
+        weight: -38
+        enabled: false
+      civictheme_promo:
+        weight: -42
+        enabled: false
+      civictheme_promo_card:
+        weight: -51
+        enabled: false
+      civictheme_promo_card_ref:
+        weight: -43
+        enabled: false
+      civictheme_publication_card:
+        weight: -36
+        enabled: false
+      civictheme_service_card:
+        weight: -49
+        enabled: false
+      civictheme_slider:
+        weight: -57
+        enabled: false
+      civictheme_slider_slide:
+        weight: -55
+        enabled: false
+      civictheme_slider_slide_ref:
+        weight: -35
+        enabled: false
+      civictheme_snippet:
+        weight: 58
+        enabled: false
+      civictheme_snippet_ref:
+        weight: 59
+        enabled: false
+      civictheme_social_icon:
+        weight: -34
+        enabled: false
+      civictheme_subject_card:
+        weight: -41
+        enabled: false
+      civictheme_subject_card_ref:
+        weight: -40
+        enabled: false
+      civictheme_webform:
+        weight: -33
+        enabled: false
+      csn_course_reserves:
+        weight: 69
+        enabled: false
+      csn_library_catalog:
+        weight: 64
+        enabled: false
+      csn_library_hours:
+        weight: 66
+        enabled: false
+      spacer:
+        weight: 72
+        enabled: false
+field_type: entity_reference_revisions

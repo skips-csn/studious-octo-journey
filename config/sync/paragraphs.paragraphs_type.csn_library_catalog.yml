@@ -1,0 +1,10 @@
+uuid: 1c7486b9-5904-4b06-80aa-3c4f43595b8c
+langcode: en
+status: true
+dependencies: {  }
+id: csn_library_catalog
+label: 'CSN Library Catalog'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

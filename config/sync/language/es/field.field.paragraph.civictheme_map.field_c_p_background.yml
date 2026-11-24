@@ -1,0 +1,4 @@
+label: Fondo
+settings:
+  on_label: Activado
+  off_label: Desactivado

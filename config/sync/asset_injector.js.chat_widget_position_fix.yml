@@ -1,0 +1,69 @@
+uuid: 0f7624ae-4bfa-4518-808f-4860d46dcc97
+langcode: en
+status: true
+dependencies: {  }
+id: chat_widget_position_fix
+label: 'Chat Widget Position Fix'
+code: |
+  (function () {
+    function moveLibChat() {
+      const btn = document.querySelector('button.s-lch-widget-float-btn');
+      const box = document.querySelector('#s-lch-widget-29855');
+      const isMobile = window.innerWidth < 768;
+
+      if (btn) {
+        if (isMobile) {
+          if (btn.style.display !== 'none') {
+            btn.style.setProperty('display', 'none', 'important');
+          }
+        } else {
+          if (btn.style.display === 'none') {
+            btn.style.removeProperty('display');
+          }
+          if (btn.style.right !== '50px') {
+            btn.style.setProperty('right', '50px', 'important');
+          }
+          if (btn.style.bottom !== '-6px') {
+            btn.style.setProperty('bottom', '-6px', 'important');
+          }
+          if (btn.style.cursor !== 'pointer') {
+            btn.style.setProperty('cursor', 'pointer', 'important');
+          }
+        }
+      }
+
+      if (box) {
+        if (isMobile) {
+          if (box.style.display !== 'none') {
+            box.style.setProperty('display', 'none', 'important');
+          }
+        } else {
+          if (box.style.display === 'none') {
+            box.style.removeProperty('display');
+          }
+          if (box.style.right !== '50px') {
+            box.style.setProperty('right', '50px', 'important');
+          }
+        }
+      }
+    }
+
+    moveLibChat();
+    window.addEventListener('load', moveLibChat);
+    window.addEventListener('resize', moveLibChat);
+    const observer = new MutationObserver(moveLibChat);
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['style'],
+    });
+  })();
+noscript: ''
+noscriptRegion: {  }
+jquery: false
+header: false
+preprocess: false
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

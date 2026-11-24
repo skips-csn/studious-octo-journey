@@ -1,0 +1,23 @@
+uuid: b3f8e771-31e4-47e0-86d3-c79d1b225b00
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.campus_hours_widget.field_csn_campus_hours_campus
+    - paragraphs.paragraphs_type.campus_hours_widget
+_core:
+  default_config_hash: RSvSCTPrtwhj78LSWO015JkcpraIODDJ6ZCv0a2THI8
+id: paragraph.campus_hours_widget.default
+targetEntityType: paragraph
+bundle: campus_hours_widget
+mode: default
+content:
+  field_csn_campus_hours_campus:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

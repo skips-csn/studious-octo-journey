@@ -1,0 +1,10 @@
+uuid: 4e69aa0a-70f5-4940-944f-cbbf4430262b
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: bPWfRZW-3G4GECxpoczBVbUX_EHVwFdbRkhhU4yEgkY
+id: civictheme_social_links
+label: 'Social Links'
+revision: false
+description: 'Provides a block type to implement social link icons'

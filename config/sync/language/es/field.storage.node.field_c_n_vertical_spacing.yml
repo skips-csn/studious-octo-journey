@@ -1,0 +1,10 @@
+settings:
+  allowed_values:
+    -
+      label: Ninguno
+    -
+      label: Superior
+    -
+      label: Inferior
+    -
+      label: Ambos

@@ -1,0 +1,29 @@
+uuid: 540f41e0-35d6-45bd-bc2e-e2a1e8f2c453
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+_core:
+  default_config_hash: w_xHzqMW7mLvvj34wlncgBlRVPlQtcrX8wk4xWfxv1I
+id: paragraph.field_c_p_image_position
+field_name: field_c_p_image_position
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: left
+      label: Left
+    -
+      value: right
+      label: Right
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

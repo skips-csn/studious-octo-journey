@@ -1,0 +1,30 @@
+uuid: 81759288-269e-4027-ad58-fa37c3b71c9e
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_spacer_size
+field_name: field_spacer_size
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: small
+      label: 'Small (24px)'
+    -
+      value: medium
+      label: 'Medium (48px)'
+    -
+      value: 'Large (96px)'
+      label: 'Large (96px)'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

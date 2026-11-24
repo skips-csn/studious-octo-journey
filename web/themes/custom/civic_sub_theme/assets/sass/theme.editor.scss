@@ -1,0 +1,20 @@
+//
+// Editor styles.
+//
+// stylelint-disable scss/at-import-partial-extension
+
+// Import only required partials to minimize CSS output.
+@import '00-base/variables';
+@import '00-base/mixins/_index.scss';
+@import '00-base/reset/_index.scss';
+@import '00-base/mixins/_index.scss';
+@import '00-base/reset/_index.scss';
+@import '00-base/**/mixins/*.scss';
+@import '00-base/**/fonts';
+@import '01-atoms/**/button/*.scss';
+
+.ck-editor__editable,
+.ck-content.ck-editor__editable {
+  @include ct-content();
+  @include ct-content-light();
+}

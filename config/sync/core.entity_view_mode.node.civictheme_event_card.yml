@@ -1,0 +1,11 @@
+uuid: bb608db7-50d5-422b-9f34-57193198a339
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.civictheme_event_card
+label: 'Event Card'
+description: null
+targetEntityType: node
+cache: true

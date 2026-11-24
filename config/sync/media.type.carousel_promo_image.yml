@@ -1,0 +1,13 @@
+uuid: 3cc82c57-b524-4bdf-bf05-51db1a0113b8
+langcode: en
+status: true
+dependencies: {  }
+id: carousel_promo_image
+label: 'Carousel Promo Image'
+description: 'Image for the front of the carousel (not for use inside articles/news pages)'
+source: image
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_image_3
+field_map: {  }

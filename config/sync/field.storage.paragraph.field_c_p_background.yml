@@ -1,0 +1,20 @@
+uuid: 3504f515-5c11-4f34-a7f2-59809101071c
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+_core:
+  default_config_hash: SraVS37P7lSTuKwlD2k6Et96JGzsYNJ4itoCViwShM8
+id: paragraph.field_c_p_background
+field_name: field_c_p_background
+entity_type: paragraph
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

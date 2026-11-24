@@ -1,0 +1,83 @@
+uuid: feb1a773-8b82-4201-a3b1-dc38899683d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.civictheme_slider_slide
+    - field.field.node.civictheme_event.feeds_item
+    - field.field.node.civictheme_event.field_c_n_attachments
+    - field.field.node.civictheme_event.field_c_n_body
+    - field.field.node.civictheme_event.field_c_n_custom_last_updated
+    - field.field.node.civictheme_event.field_c_n_date_range
+    - field.field.node.civictheme_event.field_c_n_hide_sidebar
+    - field.field.node.civictheme_event.field_c_n_location
+    - field.field.node.civictheme_event.field_c_n_show_last_updated
+    - field.field.node.civictheme_event.field_c_n_show_toc
+    - field.field.node.civictheme_event.field_c_n_site_section
+    - field.field.node.civictheme_event.field_c_n_summary
+    - field.field.node.civictheme_event.field_c_n_thumbnail
+    - field.field.node.civictheme_event.field_c_n_topics
+    - field.field.node.civictheme_event.field_c_n_vertical_spacing
+    - field.field.node.civictheme_event.field_event_link
+    - node.type.civictheme_event
+  module:
+    - layout_builder
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+_core:
+  default_config_hash: _kY4Z6MIuCH-kqXf8vzYKitgN4_NbpNaLP8VPUiece8
+id: node.civictheme_event.civictheme_slider_slide
+targetEntityType: node
+bundle: civictheme_event
+mode: civictheme_slider_slide
+content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  field_c_n_body:
+    type: text_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_c_n_thumbnail:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_c_n_topics:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  feeds_item: true
+  field_c_n_attachments: true
+  field_c_n_custom_last_updated: true
+  field_c_n_date_range: true
+  field_c_n_hide_sidebar: true
+  field_c_n_location: true
+  field_c_n_show_last_updated: true
+  field_c_n_show_toc: true
+  field_c_n_site_section: true
+  field_c_n_summary: true
+  field_c_n_vertical_spacing: true
+  field_event_link: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

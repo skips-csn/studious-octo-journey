@@ -1,0 +1,12 @@
+uuid: c744df5d-e7b4-4c4f-b218-5e16c5d7628c
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 1swIg4suy9wrvKhdWl73E7PHAD7xuU8sO-F6kjQXRtM
+id: civictheme_next_step
+label: 'Next step'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

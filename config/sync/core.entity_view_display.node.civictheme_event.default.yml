@@ -1,0 +1,118 @@
+uuid: e84dfdca-4209-44a5-a530-2b8050003c8d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.civictheme_event.feeds_item
+    - field.field.node.civictheme_event.field_c_n_attachments
+    - field.field.node.civictheme_event.field_c_n_body
+    - field.field.node.civictheme_event.field_c_n_custom_last_updated
+    - field.field.node.civictheme_event.field_c_n_date_range
+    - field.field.node.civictheme_event.field_c_n_hide_sidebar
+    - field.field.node.civictheme_event.field_c_n_location
+    - field.field.node.civictheme_event.field_c_n_show_last_updated
+    - field.field.node.civictheme_event.field_c_n_show_toc
+    - field.field.node.civictheme_event.field_c_n_site_section
+    - field.field.node.civictheme_event.field_c_n_summary
+    - field.field.node.civictheme_event.field_c_n_thumbnail
+    - field.field.node.civictheme_event.field_c_n_topics
+    - field.field.node.civictheme_event.field_c_n_vertical_spacing
+    - field.field.node.civictheme_event.field_event_link
+    - node.type.civictheme_event
+  module:
+    - layout_builder
+    - layout_builder_restrictions
+    - user
+  theme:
+    - civic_sub_theme
+    - civictheme
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: civictheme_three_columns
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+          is_contained: true
+          vertical_spacing: auto
+        components:
+          91049c1e-7457-4c58-b858-f6d88b388d36:
+            uuid: 91049c1e-7457-4c58-b858-f6d88b388d36
+            region: main
+            configuration:
+              id: 'field_block:node:civictheme_event:field_c_n_body'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          68eb6373-d887-497a-8917-8aac25e40db3:
+            uuid: 68eb6373-d887-497a-8917-8aac25e40db3
+            region: main
+            configuration:
+              id: 'field_block:node:civictheme_event:field_c_n_site_section'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+          a75555d2-de4e-456f-b2ac-361d4b8b5c66:
+            uuid: a75555d2-de4e-456f-b2ac-361d4b8b5c66
+            region: main
+            configuration:
+              id: 'extra_field_block:node:civictheme_event:content_moderation_control'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+            weight: 1
+            additional: {  }
+        third_party_settings: {  }
+  layout_builder_restrictions:
+    allowed_block_categories: {  }
+    entity_view_mode_restriction:
+      allowed_layouts:
+        - civictheme_three_columns
+      denylisted_blocks: {  }
+      allowlisted_blocks: {  }
+      restricted_categories: {  }
+_core:
+  default_config_hash: KIb8IfqEgkVVgVcG9W2uoWA4LOpNyQSKxgh0Acgtgyk
+id: node.civictheme_event.default
+targetEntityType: node
+bundle: civictheme_event
+mode: default
+content: {  }
+hidden:
+  content_moderation_control: true
+  feeds_item: true
+  field_c_n_attachments: true
+  field_c_n_body: true
+  field_c_n_custom_last_updated: true
+  field_c_n_date_range: true
+  field_c_n_hide_sidebar: true
+  field_c_n_location: true
+  field_c_n_show_last_updated: true
+  field_c_n_show_toc: true
+  field_c_n_site_section: true
+  field_c_n_summary: true
+  field_c_n_thumbnail: true
+  field_c_n_topics: true
+  field_c_n_vertical_spacing: true
+  field_event_link: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

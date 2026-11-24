@@ -1,0 +1,82 @@
+uuid: a912283d-b521-4853-b800-2b3a4a73894b
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.civictheme_banner
+    - field.field.block_content.civictheme_banner.field_c_b_background_image
+    - field.field.block_content.civictheme_banner.field_c_b_banner_blend_mode
+    - field.field.block_content.civictheme_banner.field_c_b_banner_type
+    - field.field.block_content.civictheme_banner.field_c_b_featured_image
+    - field.field.block_content.civictheme_banner.field_c_b_theme
+    - field.field.block_content.civictheme_banner.layout_builder__layout
+  module:
+    - layout_builder
+    - layout_discovery
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: true
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          359d86e1-24ff-4b48-bac9-be219885c650:
+            uuid: 359d86e1-24ff-4b48-bac9-be219885c650
+            region: content
+            configuration:
+              id: 'extra_field_block:block_content:civictheme_banner:content_moderation_control'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+            weight: 0
+            additional: {  }
+          775e90c9-d522-4435-a1db-ef832daeaf71:
+            uuid: 775e90c9-d522-4435-a1db-ef832daeaf71
+            region: content
+            configuration:
+              id: 'field_block:block_content:civictheme_banner:field_c_b_background_image'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_entity_view
+                label: hidden
+                settings:
+                  view_mode: default
+                  link: false
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+        third_party_settings: {  }
+_core:
+  default_config_hash: 18h0PKz7izrwUsL8QUQylbYvatXQuPAaIZ33BcihCRg
+id: block_content.civictheme_banner.default
+targetEntityType: block_content
+bundle: civictheme_banner
+mode: default
+content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  field_c_b_background_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_c_b_banner_blend_mode: true
+  field_c_b_banner_type: true
+  field_c_b_featured_image: true
+  field_c_b_theme: true
+  langcode: true
+  layout_builder__layout: true
+  search_api_excerpt: true

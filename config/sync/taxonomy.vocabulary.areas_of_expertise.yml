@@ -1,0 +1,9 @@
+uuid: 8ceca91e-108d-4896-a791-0ec0f451cd29
+langcode: en
+status: true
+dependencies: {  }
+name: 'Areas of Expertise'
+vid: areas_of_expertise
+description: 'Subjects and courses'
+weight: 0
+new_revision: false

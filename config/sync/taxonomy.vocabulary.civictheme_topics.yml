@@ -1,0 +1,11 @@
+uuid: cc928693-fcbc-4f7b-be9b-e99206ef1039
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: oe7rKkT-ABGzEIZ1gDuHd9FYf2nbBCew4Q5wOsX5zw8
+name: Topics
+vid: civictheme_topics
+description: null
+weight: 0
+new_revision: false

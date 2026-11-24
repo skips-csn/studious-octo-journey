@@ -6,6 +6,8 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     twig({
       namespaces: {
+        'civictheme': resolve(import.meta.dirname, './components_combined'),
+        'civic_sub_theme': resolve(import.meta.dirname, './components'),
         'base': resolve(import.meta.dirname, './components_combined/00-base'),
         'atoms': resolve(import.meta.dirname, './components_combined/01-atoms'),
         'molecules': resolve(import.meta.dirname, './components_combined/02-molecules'),

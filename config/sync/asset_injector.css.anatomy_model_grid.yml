@@ -1,0 +1,167 @@
+uuid: 03708d0c-2a80-4861-b360-339b43e3a345
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+id: anatomy_model_grid
+label: 'Anatomy Model Grid'
+code: |-
+  /* Anatomical models grid and card styling. */
+
+  /* Apply padding and flex layout to all grid columns. */
+  .block-views-blockanatomical-models-block-1 .col-12,
+  .block-views-blockanatomical-models-block-1 .col-sm-6,
+  .block-views-blockanatomical-models-block-1 .col-md-6,
+  .block-views-blockanatomical-models-block-1 .col-lg-4,
+  .block-views-blockanatomical-models-block-1 .col-xl-4,
+  .block-views-blockanatomical-models-block-1 .col-xxl-4 {
+    padding: 12px !important;
+    display: flex !important;
+    box-sizing: border-box !important;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  /* Style each card wrapper. */
+  .block-views-blockanatomical-models-block-1 .col-sm-6 > div,
+  .block-views-blockanatomical-models-block-1 .col-md-6 > div,
+  .block-views-blockanatomical-models-block-1 .col-lg-4 > div,
+  .block-views-blockanatomical-models-block-1 .col-xl-4 > div,
+  .block-views-blockanatomical-models-block-1 .col-xxl-4 > div {
+    background-color: #ffffff !important;
+    border: 1px solid #dee2e6 !important;
+    border-radius: 8px !important;
+    padding: 16px !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Style model titles. */
+  .block-views-blockanatomical-models-block-1 h4,
+  .block-views-blockanatomical-models-block-1 h4 a {
+    background-color: transparent !important;
+    color: #212529 !important;
+    padding: 0 !important;
+    margin: 12px 0 8px !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    display: block !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    font-size: 1.2rem !important;
+    font-weight: 600 !important;
+    width: auto !important;
+    font-family: Lexend, sans-serif !important;
+  }
+
+  /* Let the card content fill its wrapper without shifting the image. */
+  .block-views-blockanatomical-models-block-1 .col-12 > div > div {
+    display: flex !important;
+    flex: 1 1 auto !important;
+    flex-direction: column !important;
+    margin-top: 0 !important;
+  }
+
+  .block-views-blockanatomical-models-block-1 .col-12 > div > div > div {
+    display: flex !important;
+    flex: 1 1 auto !important;
+    flex-direction: column !important;
+  }
+
+  /* Anchor only the availability-button wrapper at the bottom. */
+  .block-views-blockanatomical-models-block-1 .col-12 > div > div > div > div:last-child {
+    margin-top: auto !important;
+    width: 100% !important;
+  }
+
+  /* Style the card action links. */
+  .block-views-blockanatomical-models-block-1 .col-sm-6 div:last-child a,
+  .block-views-blockanatomical-models-block-1 .col-md-6 div:last-child a,
+  .block-views-blockanatomical-models-block-1 .col-lg-4 div:last-child a,
+  .block-views-blockanatomical-models-block-1 .col-xl-4 div:last-child a,
+  .block-views-blockanatomical-models-block-1 .col-xxl-4 div:last-child a {
+    display: block !important;
+    text-align: center !important;
+    background-color: #0d6efd !important;
+    color: #ffffff !important;
+    padding: 10px 16px !important;
+    border-radius: 4px !important;
+    text-decoration: none !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    margin-top: 12px !important;
+    font-family: Lexend, sans-serif !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .block-views-blockanatomical-models-block-1 .col-sm-6 div:last-child a:hover,
+  .block-views-blockanatomical-models-block-1 .col-md-6 div:last-child a:hover,
+  .block-views-blockanatomical-models-block-1 .col-lg-4 div:last-child a:hover,
+  .block-views-blockanatomical-models-block-1 .col-xl-4 div:last-child a:hover,
+  .block-views-blockanatomical-models-block-1 .col-xxl-4 div:last-child a:hover {
+    background-color: #1c2d42 !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+  }
+
+  /* Resize and center model images. */
+  .block-views-blockanatomical-models-block-1 img {
+    width: 220px !important;
+    height: 330px !important;
+    object-fit: cover !important;
+    border-radius: 4px !important;
+    display: block !important;
+    margin: 0 auto 12px !important;
+  }
+
+  /* Center model descriptions. */
+  .block-views-blockanatomical-models-block-1 p {
+    text-align: center !important;
+    margin-top: 4px !important;
+    margin-bottom: 12px !important;
+    color: #495057 !important;
+  }
+
+  /* Bootstrap mobile layout: one column. */
+  @media (max-width: 575.98px) {
+    .block-views-blockanatomical-models-block-1 .col-12 {
+      flex: 0 0 100%;
+      width: 100%;
+    }
+  }
+
+  /* Bootstrap tablet layout: two columns. */
+  @media (min-width: 576px) and (max-width: 991.98px) {
+    .block-views-blockanatomical-models-block-1 .col-sm-6,
+    .block-views-blockanatomical-models-block-1 .col-md-6 {
+      flex: 0 0 50%;
+      width: 50%;
+    }
+  }
+
+  /* Bootstrap desktop layout: three columns. */
+  @media (min-width: 992px) {
+    .block-views-blockanatomical-models-block-1 .col-lg-4,
+    .block-views-blockanatomical-models-block-1 .col-xl-4,
+    .block-views-blockanatomical-models-block-1 .col-xxl-4 {
+      flex: 0 0 33.333333%;
+      width: 33.333333%;
+    }
+  }
+media: all
+preprocess: false
+conditions:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /anatomy-models
+contexts: {  }
+conditions_require_all: true

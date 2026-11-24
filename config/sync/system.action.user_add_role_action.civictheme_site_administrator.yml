@@ -1,0 +1,14 @@
+uuid: 27d1232d-efbc-4ecf-8bdc-eb8ef67e86ca
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.civictheme_site_administrator
+  module:
+    - user
+id: user_add_role_action.civictheme_site_administrator
+label: 'Add the Site Administrator role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: civictheme_site_administrator

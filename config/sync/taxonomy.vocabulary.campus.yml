@@ -1,0 +1,9 @@
+uuid: c25a1bbe-437e-4c67-a567-d14a35ea0e7b
+langcode: en
+status: true
+dependencies: {  }
+name: Campus
+vid: campus
+description: 'Campus Locations for ANATOMY MODELS'
+weight: 0
+new_revision: false

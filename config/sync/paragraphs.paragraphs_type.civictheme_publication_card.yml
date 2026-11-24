@@ -1,0 +1,12 @@
+uuid: d7f949a0-add9-4654-b9c0-11556b726955
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: KfViNm7pF0tK_BhZ5YxkgWRwwY7DjGVcC5JghUGrqgQ
+id: civictheme_publication_card
+label: 'Publication card'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

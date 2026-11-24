@@ -1,0 +1,70 @@
+uuid: 3c8e77d3-9492-4907-b048-75447bf456b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.staff_profile.field_department
+    - field.field.node.staff_profile.field_email
+    - field.field.node.staff_profile.field_home_campus
+    - field.field.node.staff_profile.field_office
+    - field.field.node.staff_profile.field_office_phone
+    - field.field.node.staff_profile.field_return_link
+    - field.field.node.staff_profile.field_role
+    - field.field.node.staff_profile.field_role_2
+    - field.field.node.staff_profile.field_schedule_appointment
+    - node.type.staff_profile
+    - views.view.staff_profile_page
+  module:
+    - layout_builder
+    - user
+    - views
+  theme:
+    - civic_sub_theme
+    - civictheme
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: civictheme_three_columns
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+          is_contained: true
+          vertical_spacing: auto
+        components:
+          0ee07e1a-4b5d-4abe-8a8c-c14a56bf58c1:
+            uuid: 0ee07e1a-4b5d-4abe-8a8c-c14a56bf58c1
+            region: main
+            configuration:
+              id: 'views_block:staff_profile_page-block_1'
+              label: ''
+              label_display: '0'
+              provider: views
+              context_mapping:
+                nid: layout_builder.entity
+              views_label: ''
+              items_per_page: null
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+id: node.staff_profile.full
+targetEntityType: node
+bundle: staff_profile
+mode: full
+content: {  }
+hidden:
+  field_department: true
+  field_email: true
+  field_home_campus: true
+  field_office: true
+  field_office_phone: true
+  field_return_link: true
+  field_role: true
+  field_role_2: true
+  field_schedule_appointment: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

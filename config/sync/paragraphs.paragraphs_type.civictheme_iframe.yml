@@ -1,0 +1,12 @@
+uuid: e3e8594a-ba5f-44f5-a157-804c36713030
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: D4u9LePZ0KV89DIIseASg2sRnMClgLSmN8SLhNZeUec
+id: civictheme_iframe
+label: iFrame
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

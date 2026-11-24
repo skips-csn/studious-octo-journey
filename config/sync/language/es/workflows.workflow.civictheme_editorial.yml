@@ -1,0 +1,20 @@
+label: Editorial
+type_settings:
+  states:
+    archived:
+      label: Archivado
+    draft:
+      label: Borrador
+    published:
+      label: Publicado
+  transitions:
+    archive:
+      label: Archivo
+    create_new_draft:
+      label: 'Crear nuevo borrador'
+    publish:
+      label: Publicar
+    restore:
+      label: Restaurar
+    restore_to_draft:
+      label: 'Restaurar a Borrador'

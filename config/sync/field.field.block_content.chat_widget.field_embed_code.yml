@@ -1,0 +1,24 @@
+uuid: 591904a2-c1db-4f0d-bc00-ddbeb653418a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.chat_widget
+    - field.storage.block_content.field_embed_code
+    - filter.format.full_html
+  module:
+    - text
+id: block_content.chat_widget.field_embed_code
+field_name: field_embed_code
+entity_type: block_content
+bundle: chat_widget
+label: 'Embed Code'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text_long

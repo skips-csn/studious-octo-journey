@@ -1,0 +1,14 @@
+uuid: 64e3819f-262a-4a7e-aa4d-4f58d8502ab4
+langcode: en
+status: true
+dependencies: {  }
+name: anatomy_model_image
+label: 'Anatomy Model Image'
+effects:
+  09d9a3f7-8d9f-408c-99d8-c9441162552d:
+    uuid: 09d9a3f7-8d9f-408c-99d8-c9441162552d
+    id: image_resize
+    weight: 1
+    data:
+      width: 220
+      height: 330

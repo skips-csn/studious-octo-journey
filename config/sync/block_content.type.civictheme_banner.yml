@@ -1,0 +1,10 @@
+uuid: b9d5aa05-245b-476b-b4a2-1867f1e85dc4
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: sDo5-45Cs_L1Bxtv5vQMb9vw6wH-P3ZWeaEKiub8a4s
+id: civictheme_banner
+label: Banner
+revision: false
+description: 'Provides a block type to create CivicTheme banners.'

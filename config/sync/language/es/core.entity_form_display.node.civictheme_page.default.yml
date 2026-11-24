@@ -1,0 +1,27 @@
+third_party_settings:
+  field_group:
+    group_civictheme_tabs:
+      label: Pestañas
+    group_civictheme_banner:
+      label: Banner
+    group_civictheme_content:
+      label: Contenido
+    group_banner_background:
+      label: Fondo
+    group_appearance:
+      label: Apariencia
+    group_metadata:
+      label: 'Meta datos'
+content:
+  field_c_n_banner_components:
+    settings:
+      title: Párrafo
+      title_plural: Paragraphs
+  field_c_n_banner_components_bott:
+    settings:
+      title: Párrafo
+      title_plural: Paragraphs
+  field_c_n_components:
+    settings:
+      title: Párrafo
+      title_plural: Paragraphs

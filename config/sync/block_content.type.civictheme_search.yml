@@ -1,0 +1,10 @@
+uuid: 0d236197-913f-4dae-9a75-91b7cb8785a2
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: QAJhVMgkf3Qq51lqz68Hx427IuRakZrLb6ODgnTp89U
+id: civictheme_search
+label: Search
+revision: false
+description: 'Provides a block type to implement CivicTheme search.'

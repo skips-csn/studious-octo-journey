@@ -1,0 +1,24 @@
+uuid: b690ef56-a3e4-4ef7-b6c7-a4e5ba937d0a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_office
+    - filter.format.basic_html
+    - node.type.staff_profile
+  module:
+    - text
+id: node.staff_profile.field_office
+field_name: field_office
+entity_type: node
+bundle: staff_profile
+label: Office
+description: 'Office Room Number/Sort code'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text

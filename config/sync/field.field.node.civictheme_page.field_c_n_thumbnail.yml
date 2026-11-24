@@ -1,0 +1,31 @@
+uuid: 479dcef2-f9af-4085-9a68-82a7952d0445
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_c_n_thumbnail
+    - media.type.civictheme_image
+    - node.type.civictheme_page
+_core:
+  default_config_hash: VYooDivr2lv2fJJvH59g3qKKVxBaAE6RabhgzQjZG2w
+id: node.civictheme_page.field_c_n_thumbnail
+field_name: field_c_n_thumbnail
+entity_type: node
+bundle: civictheme_page
+label: 'Slider Image'
+description: 'This image appears on the home page slider'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      civictheme_image: civictheme_image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: civictheme_image
+field_type: entity_reference

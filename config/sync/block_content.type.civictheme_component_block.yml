@@ -1,0 +1,10 @@
+uuid: e4aac08b-ad79-4b18-8834-7385c85374e5
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Xru4xuch3NTaUkJbwfGpd8LcTup9vXd3wpa63ZYXdWw
+id: civictheme_component_block
+label: Component
+revision: false
+description: 'Provides a block type to place CivicTheme components in blocks'

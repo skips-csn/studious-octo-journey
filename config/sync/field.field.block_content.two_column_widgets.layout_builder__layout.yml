@@ -1,0 +1,21 @@
+uuid: 699f70c1-ba80-414a-948c-db1bc2338988
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.two_column_widgets
+    - field.storage.block_content.layout_builder__layout
+  module:
+    - layout_builder
+id: block_content.two_column_widgets.layout_builder__layout
+field_name: layout_builder__layout
+entity_type: block_content
+bundle: two_column_widgets
+label: Layout
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: layout_section

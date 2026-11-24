@@ -1,0 +1,10 @@
+uuid: 3f521191-def3-4310-970d-0bcd94e4f766
+langcode: en
+status: true
+dependencies: {  }
+id: csn_course_reserves
+label: 'Course Reserves Search'
+icon_uuid: null
+icon_default: null
+description: 'search box for course reserves'
+behavior_plugins: {  }

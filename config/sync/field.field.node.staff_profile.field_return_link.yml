@@ -1,0 +1,28 @@
+uuid: d03ed2c4-1696-4d4e-abd8-4b39d1f7e27d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_return_link
+    - node.type.staff_profile
+  module:
+    - link
+id: node.staff_profile.field_return_link
+field_name: field_return_link
+entity_type: node
+bundle: staff_profile
+label: 'Return Link'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    attributes: {  }
+    uri: 'entity:node/25'
+    title: 'Return to Staff Directory'
+    options: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

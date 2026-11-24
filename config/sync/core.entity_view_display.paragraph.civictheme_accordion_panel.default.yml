@@ -1,0 +1,45 @@
+uuid: 851d4771-c4eb-46b9-b70b-69dd9e06359e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.civictheme_accordion_panel.field_c_p_content
+    - field.field.paragraph.civictheme_accordion_panel.field_c_p_expand
+    - field.field.paragraph.civictheme_accordion_panel.field_c_p_title
+    - paragraphs.paragraphs_type.civictheme_accordion_panel
+  module:
+    - text
+_core:
+  default_config_hash: K6dHhUT58Y_hY4FtaeR492bndg7QC709o1nLrOQOeBY
+id: paragraph.civictheme_accordion_panel.default
+targetEntityType: paragraph
+bundle: civictheme_accordion_panel
+mode: default
+content:
+  field_c_p_content:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_c_p_expand:
+    type: boolean
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_c_p_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

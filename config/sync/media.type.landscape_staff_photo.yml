@@ -1,0 +1,13 @@
+uuid: 43148cdc-3588-4418-9f4a-ab0d32b69a26
+langcode: en
+status: true
+dependencies: {  }
+id: landscape_staff_photo
+label: 'Landscape Staff Photo'
+description: ''
+source: image
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_image_2
+field_map: {  }

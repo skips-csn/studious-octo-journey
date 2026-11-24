@@ -1,0 +1,17 @@
+third_party_settings:
+  field_group:
+    group_tabs:
+      label: Pestañas
+    group_content:
+      label: Contenido
+    group_event:
+      label: Evento
+    group_appearance:
+      label: Apariencia
+    group_metadata:
+      label: 'Meta datos'
+content:
+  field_c_n_attachments:
+    settings:
+      title: Párrafo
+      title_plural: Paragraphs

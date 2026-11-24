@@ -1,0 +1,13 @@
+uuid: 299d3d73-2a8b-49ed-8310-1d67d3a6f80e
+langcode: en
+status: true
+dependencies: {  }
+id: anatomy_image
+label: 'Anatomy Image'
+description: ''
+source: image
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_image_1
+field_map: {  }

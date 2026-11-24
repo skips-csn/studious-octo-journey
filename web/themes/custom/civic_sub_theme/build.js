@@ -201,7 +201,7 @@ function buildStylesEditor() {
       loadStyleFile(STYLE_EDITOR_FILE_IN, PATH),
     ].join('\n')
 
-    const compiled = sass.compileString(editorcss, { loadPaths: [PATH] })
+    const compiled = sass.compileString(editorcss, { loadPaths: [COMPONENT_DIR, PATH] })
     fs.writeFileSync(STYLE_EDITOR_FILE_OUT, compiled.css, 'utf-8')
     successReporter(`Saved: Editor styles ${time()}`)
   }
@@ -209,7 +209,7 @@ function buildStylesEditor() {
 
 function buildStylesAdmin() {
   if (config.styles_admin) {
-    const compiled = sass.compile(STYLE_ADMIN_FILE_IN, { loadPaths: [PATH] })
+    const compiled = sass.compile(STYLE_ADMIN_FILE_IN, { loadPaths: [COMPONENT_DIR, PATH] })
     fs.writeFileSync(STYLE_ADMIN_FILE_OUT, compiled.css, 'utf-8')
     successReporter(`Saved: Admin styles ${time()}`)
   }
@@ -222,7 +222,7 @@ function buildStylesLayout() {
       loadStyleFile(STYLE_LAYOUT_FILE_IN, PATH),
     ].join('\n')
 
-    const compiled = sass.compileString(layoutcss, { loadPaths: [PATH] })
+    const compiled = sass.compileString(layoutcss, { loadPaths: [COMPONENT_DIR, PATH] })
     fs.writeFileSync(STYLE_LAYOUT_FILE_OUT, compiled.css, 'utf-8')
     successReporter(`Saved: Layout styles ${time()}`)
   }

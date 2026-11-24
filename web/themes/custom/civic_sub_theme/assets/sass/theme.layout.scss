@@ -1,0 +1,9 @@
+//
+// Editor styles.
+//
+// stylelint-disable scss/at-import-partial-extension
+
+// Import only required partials to minimize CSS output.
+@import '00-base/variables';
+@import '00-base/**/mixins/*.scss';
+@import '00-base/**/layout/layout.scss';

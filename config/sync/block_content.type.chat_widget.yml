@@ -1,0 +1,8 @@
+uuid: 17abdc41-3503-45dc-af90-4f6cdcbf3417
+langcode: en
+status: true
+dependencies: {  }
+id: chat_widget
+label: 'Chat Widget'
+revision: false
+description: null

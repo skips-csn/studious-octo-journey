@@ -1,0 +1,45 @@
+uuid: 1b5d77fc-d6f5-40a7-8c92-67cae95c9975
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.media.media_library
+    - field.field.media.landscape_staff_photo.field_media_image_2
+    - image.style.thumbnail
+    - media.type.landscape_staff_photo
+  module:
+    - image
+id: media.landscape_staff_photo.media_library
+targetEntityType: media
+bundle: landscape_staff_photo
+mode: media_library
+content:
+  field_media_image_2:
+    type: image_image
+    weight: 5
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  moderation_state: true
+  path: true
+  status: true
+  uid: true

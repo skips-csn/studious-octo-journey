@@ -1,0 +1,24 @@
+uuid: 63dfd586-1947-4ad2-98b6-1969679c5f9a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.chat_widget
+    - field.field.block_content.chat_widget.field_embed_code
+  module:
+    - text
+id: block_content.chat_widget.default
+targetEntityType: block_content
+bundle: chat_widget
+mode: default
+content:
+  field_embed_code:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

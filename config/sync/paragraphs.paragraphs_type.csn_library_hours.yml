@@ -1,0 +1,10 @@
+uuid: b13e0e0a-6cd2-4c3a-a1f7-21cfce7e136a
+langcode: en
+status: true
+dependencies: {  }
+id: csn_library_hours
+label: 'CSN Library Hours'
+icon_uuid: null
+icon_default: null
+description: 'library hours widget custom code'
+behavior_plugins: {  }

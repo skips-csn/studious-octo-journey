@@ -1,0 +1,44 @@
+display:
+  default:
+    display_title: 'Por defecto'
+    display_options:
+      fields:
+        title:
+          separator: ', '
+      pager:
+        options:
+          tags:
+            next: Siguiente
+            previous: Anterior
+            first: Primero
+            last: Último
+          expose:
+            items_per_page_label: 'Elementos por página'
+            items_per_page_options_all_label: '- Todo -'
+            offset_label: Desplazamiento
+      exposed_form:
+        options:
+          submit_button: Aplicar
+          reset_button_label: Restablecer
+          exposed_sorts_label: 'Ordenar por'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      arguments:
+        type:
+          exception:
+            title: Todo(s)
+        term_node_tid_depth:
+          exception:
+            title: Todo(s)
+        nid:
+          exception:
+            title: Todo(s)
+      filters:
+        type:
+          expose:
+            label: 'Tipo de contenido'
+        title:
+          expose:
+            label: Título
+  block1:
+    display_title: Bloque

@@ -1,0 +1,38 @@
+uuid: 19857054-aa50-4cd3-b7e7-a28a04d2ceec
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.author_news_articles
+  module:
+    - node
+    - system
+    - views
+  theme:
+    - civic_sub_theme
+id: civic_sub_theme_views_block__author_news_articles_block_1
+theme: civic_sub_theme
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:author_news_articles-block_1'
+settings:
+  id: 'views_block:author_news_articles-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: null
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/staff/*'
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      staff_profile: staff_profile

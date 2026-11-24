@@ -1,0 +1,41 @@
+uuid: a90b70ac-2188-4fb3-bdf3-8cb65db3383f
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.civictheme-primary-navigation
+  module:
+    - menu_block
+    - system
+  theme:
+    - civictheme
+_core:
+  default_config_hash: DE0YugVpbyYuwd87g4Aupx7mzSTJed_fHBJn-Vd0YFg
+id: civictheme_side_navigation
+theme: civictheme
+region: sidebar_top_left
+weight: 0
+provider: null
+plugin: 'menu_block:civictheme-primary-navigation'
+settings:
+  id: 'menu_block:civictheme-primary-navigation'
+  label: 'Side Navigation'
+  label_display: ''
+  provider: menu_block
+  follow: false
+  follow_parent: child
+  display_empty: false
+  level: 1
+  depth: 3
+  expand_all_items: false
+  parent: 'civictheme-primary-navigation:'
+  render_parent: false
+  suggestion: civictheme_primary_navigation
+  label_type: block
+  label_link: false
+  hide_on_nonactive: false
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: "/search\n\r/news-and-events"

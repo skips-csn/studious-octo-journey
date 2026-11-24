@@ -1,0 +1,20 @@
+uuid: d74f7e41-c805-49ce-bcc5-50a163b23e18
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_office
+field_name: field_office
+entity_type: node
+type: text
+settings:
+  max_length: 255
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

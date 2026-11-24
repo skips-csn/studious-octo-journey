@@ -1,0 +1,19 @@
+third_party_settings:
+  field_group:
+    group_tabs:
+      label: Pestañas
+    group_appearance:
+      label: Apariencia
+    group_fields:
+      label: Campos
+    group_items:
+      label: Elementos
+    group_content:
+      label: Contenido
+    group_columns:
+      label: Columnas
+content:
+  field_c_p_list_items:
+    settings:
+      title: Párrafo
+      title_plural: Paragraphs

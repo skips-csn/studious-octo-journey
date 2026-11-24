@@ -1,0 +1,17 @@
+uuid: 092d82f6-f10c-4eb8-968a-d58f28718321
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.campus_hours_widget.field_csn_campus_hours_campus
+    - paragraphs.paragraphs_type.campus_hours_widget
+_core:
+  default_config_hash: maaru7Vg09zPFx9O5qbum8VZLhMj1RiGS_IEj2GiABM
+id: paragraph.campus_hours_widget.default
+targetEntityType: paragraph
+bundle: campus_hours_widget
+mode: default
+content: {  }
+hidden:
+  field_csn_campus_hours_campus: true
+  search_api_excerpt: true

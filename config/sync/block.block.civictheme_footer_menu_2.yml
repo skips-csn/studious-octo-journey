@@ -1,0 +1,36 @@
+uuid: fdf42aa3-cea6-4bbe-a2eb-332ed4e8e620
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.civictheme-footer
+  module:
+    - menu_block
+  theme:
+    - civictheme
+_core:
+  default_config_hash: vgGVkKLfj3S8V_uix3qDP3VBzMGUImXGmwud99R4Vkg
+id: civictheme_footer_menu_2
+theme: civictheme
+region: footer_middle_2
+weight: 0
+provider: null
+plugin: 'menu_block:civictheme-footer'
+settings:
+  id: 'menu_block:civictheme-footer'
+  label: 'Footer menu 2'
+  label_display: visible
+  provider: menu_block
+  follow: false
+  follow_parent: child
+  display_empty: false
+  level: 1
+  depth: 1
+  expand_all_items: false
+  parent: 'civictheme-footer:menu_link_content:91a6d91f-a42a-4e29-9c51-edcd7e058276'
+  render_parent: false
+  suggestion: civictheme_footer
+  label_type: fixed
+  label_link: false
+  hide_on_nonactive: false
+visibility: {  }

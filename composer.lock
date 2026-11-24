@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0c9aff277df26378770e08ccc86bd6b4",
+    "content-hash": "58d5d0490ed8bb14eb836268feccfe75",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2265,6 +2265,59 @@
                 "issues": "http://drupal.org/project/linkit"
             },
             "published-time": "2026-11-09T21:31:07+00:00"
+        },
+        {
+            "name": "drupal/media_folders",
+            "version": "1.0.8",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/media_folders.git",
+                "reference": "1.0.8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/media_folders-1.0.8.zip",
+                "reference": "1.0.8",
+                "shasum": "d30aa2f6d95d7ffeb68341fb07461b9dfb9d8c9e"
+            },
+            "require": {
+                "drupal/core": "^10.3 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.8",
+                    "datestamp": "1784742717",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "jmauricio",
+                    "homepage": "https://www.drupal.org/user/274084"
+                },
+                {
+                    "name": "kallado",
+                    "homepage": "https://www.drupal.org/user/3533061"
+                }
+            ],
+            "description": "Media Folders",
+            "homepage": "https://www.drupal.org/project/media_folders",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/media_folders",
+                "issues": "https://www.drupal.org/project/issues/media_folders"
+            },
+            "published-time": "2026-07-21T14:47:45+00:00"
         },
         {
             "name": "drupal/media_library_form_element",

@@ -1,0 +1,107 @@
+uuid: 3627bbac-b639-4e65-97bb-d20583e6805a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.two_column_widgets
+    - field.field.block_content.two_column_widgets.body
+    - field.field.block_content.two_column_widgets.field_paragraph_2
+    - field.field.block_content.two_column_widgets.field_paragraphs
+    - field.field.block_content.two_column_widgets.layout_builder__layout
+  module:
+    - entity_reference_revisions
+    - layout_builder
+    - layout_builder_restrictions
+    - text
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: true
+    sections:
+      -
+        layout_id: layout_twocol_section
+        layout_settings:
+          label: 'two col'
+          context_mapping: {  }
+          column_widths: 67-33
+        components:
+          ac0f193e-93d9-4c08-85c0-3f07f0642b52:
+            uuid: ac0f193e-93d9-4c08-85c0-3f07f0642b52
+            region: first
+            configuration:
+              id: 'field_block:block_content:two_column_widgets:field_paragraphs'
+              label: 'Library Catalog Widget Paragraph'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_revisions_entity_view
+                label: above
+                settings:
+                  view_mode: default
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          e328c3a1-6cd2-4205-b477-995c2e484632:
+            uuid: e328c3a1-6cd2-4205-b477-995c2e484632
+            region: second
+            configuration:
+              id: 'field_block:block_content:two_column_widgets:field_paragraph_2'
+              label: 'Library Hours Widget Paragraph'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_revisions_entity_view
+                label: above
+                settings:
+                  view_mode: default
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+  layout_builder_restrictions:
+    allowed_block_categories: {  }
+    entity_view_mode_restriction:
+      allowed_layouts: {  }
+      denylisted_blocks: {  }
+      allowlisted_blocks: {  }
+      restricted_categories: {  }
+id: block_content.two_column_widgets.default
+targetEntityType: block_content
+bundle: two_column_widgets
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_paragraph_2:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 2
+    region: first
+  field_paragraphs:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 1
+    region: first
+hidden:
+  langcode: true
+  layout_builder__layout: true
+  search_api_excerpt: true

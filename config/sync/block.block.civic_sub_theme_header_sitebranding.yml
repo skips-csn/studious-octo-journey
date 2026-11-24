@@ -1,0 +1,25 @@
+uuid: 6b340182-3db8-43f6-985a-5b53e7f26051
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - civic_sub_theme
+_core:
+  default_config_hash: dDiOslpCr2epethC565FuMRvAHoaO1pOsX0uMIMWT2w
+id: civic_sub_theme_header_sitebranding
+theme: civic_sub_theme
+region: header_middle_2
+weight: -7
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Header site branding - logo'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: false
+  use_site_slogan: false
+visibility: {  }

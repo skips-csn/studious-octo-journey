@@ -1,0 +1,30 @@
+label: Buscar
+display:
+  default:
+    display_title: 'Por defecto'
+    display_options:
+      title: Buscar
+      pager:
+        options:
+          tags:
+            next: ››
+            previous: ‹‹
+            first: '« Primero'
+            last: 'Último »'
+          expose:
+            items_per_page_label: 'Elementos por página'
+            items_per_page_options_all_label: '- Todo -'
+            offset_label: Desplazamiento
+      exposed_form:
+        options:
+          submit_button: Buscar
+          reset_button_label: Restablecer
+          exposed_sorts_label: 'Ordenar por'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      filters:
+        search_api_fulltext:
+          expose:
+            label: 'Palabras claves de búsqueda'
+  page_1:
+    display_title: Página

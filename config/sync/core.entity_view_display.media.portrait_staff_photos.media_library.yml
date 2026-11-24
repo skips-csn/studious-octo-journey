@@ -1,0 +1,34 @@
+uuid: 735abd36-4dd8-40ed-99e1-1d2e26bc0f02
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.media_library
+    - field.field.media.portrait_staff_photos.field_media_image
+    - image.style.medium
+    - media.type.portrait_staff_photos
+  module:
+    - image
+id: media.portrait_staff_photos.media_library
+targetEntityType: media
+bundle: portrait_staff_photos
+mode: media_library
+content:
+  thumbnail:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: medium
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  field_media_image: true
+  langcode: true
+  name: true
+  search_api_excerpt: true
+  uid: true

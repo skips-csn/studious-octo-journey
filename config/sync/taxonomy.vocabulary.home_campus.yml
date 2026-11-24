@@ -1,0 +1,9 @@
+uuid: 7246921a-e264-4205-af95-1f3c973a9e01
+langcode: en
+status: true
+dependencies: {  }
+name: 'Home Campus'
+vid: home_campus
+description: 'Campus Locations for STAFF PROFILES'
+weight: 0
+new_revision: false

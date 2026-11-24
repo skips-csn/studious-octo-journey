@@ -1,0 +1,10 @@
+uuid: 8fe96b9b-e82a-4ab1-9004-02cbbb5535d1
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: BkLrJfQheS8ZqniKMAvhHiZdHfDRIXoGqcu7c6JwzPA
+id: civictheme_mobile_navigation
+label: 'Mobile Navigation'
+revision: false
+description: 'Provides a block type to setup the mobile navigation'

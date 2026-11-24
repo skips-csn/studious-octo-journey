@@ -34,6 +34,7 @@
         "drupal/gin_toolbar": "^3.0",
         "drupal/layout_builder_backgrounds": "^1.1",
         "drupal/layout_builder_styles": "^2.1",
+        "drupal/media_folders": "^1.0",
         "drupal/menu_breadcrumb": "^2.0",
         "drupal/paragraphs": "^1.21",
         "drupal/search_api_db": "^1.38",

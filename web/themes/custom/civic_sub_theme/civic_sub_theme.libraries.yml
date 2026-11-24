@@ -1,9 +1,9 @@
 global:
   css:
     theme:
-      civictheme/styles.css: {}
+      dist/styles.css: {}
   js:
-    dist/civictheme.js: {}
+    dist/scripts.js: {}
   dependencies:
     - core/drupal
     - core/once
@@ -12,7 +12,7 @@ global:
 open-sans:
   css:
     theme:
-      'https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&display=swap':
+      'https://googleapis.com':
         type: external
         minified: true
       components/open-sans/open-sans.css: {}
@@ -49,7 +49,7 @@ csn-hours-widget:
 csn-events-widget:
   css:
     theme:
-      'https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800&display=swap':
+      'https://googleapis.com':
         type: external
         minified: true
       dist/csn-events-widget.css: {}
@@ -67,10 +67,12 @@ quicklinks-background:
 event-cards:
   css:
     theme:
-      'https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800&display=swap':
+      'https://googleapis.com':
         type: external
         minified: true
-      dist/event-cards/event-cards.css: {}
+      dist/event-cards/event-cards.css: { weight: 100 }
+  dependencies:
+    - civic_sub_theme/global
 
 anatomical-models:
   css:

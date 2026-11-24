@@ -1,0 +1,9 @@
+uuid: 1f01f7ad-9ed5-44a6-95dc-f6e4f0952169
+langcode: en
+status: true
+dependencies: {  }
+name: 'Anatomical Model Type'
+vid: anatomical_model_type
+description: null
+weight: 0
+new_revision: false

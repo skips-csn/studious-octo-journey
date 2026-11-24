@@ -1,0 +1,84 @@
+uuid: f98562ed-1b5a-4b53-ac42-93ac6c38e5fc
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.civictheme_promo_card
+    - field.field.node.staff_profile.field_department
+    - field.field.node.staff_profile.field_email
+    - field.field.node.staff_profile.field_home_campus
+    - field.field.node.staff_profile.field_office
+    - field.field.node.staff_profile.field_office_phone
+    - field.field.node.staff_profile.field_return_link
+    - field.field.node.staff_profile.field_role
+    - field.field.node.staff_profile.field_role_2
+    - field.field.node.staff_profile.field_schedule_appointment
+    - node.type.staff_profile
+  module:
+    - link
+    - telephone
+    - text
+    - user
+id: node.staff_profile.civictheme_promo_card
+targetEntityType: node
+bundle: staff_profile
+mode: civictheme_promo_card
+content:
+  field_department:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_email:
+    type: email_mailto
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_home_campus:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_office_phone:
+    type: telephone_link
+    label: above
+    settings:
+      title: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_role:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_schedule_appointment:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 5
+    region: content
+hidden:
+  field_office: true
+  field_return_link: true
+  field_role_2: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

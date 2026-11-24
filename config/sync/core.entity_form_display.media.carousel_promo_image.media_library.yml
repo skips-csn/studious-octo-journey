@@ -1,0 +1,45 @@
+uuid: 8cfb1f8d-459b-4850-b3d1-9f3a14ed54bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.media.media_library
+    - field.field.media.carousel_promo_image.field_media_image_3
+    - image.style.thumbnail
+    - media.type.carousel_promo_image
+  module:
+    - image
+id: media.carousel_promo_image.media_library
+targetEntityType: media
+bundle: carousel_promo_image
+mode: media_library
+content:
+  field_media_image_3:
+    type: image_image
+    weight: 5
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  moderation_state: true
+  path: true
+  status: true
+  uid: true

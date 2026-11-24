@@ -1,0 +1,29 @@
+uuid: c273aaf6-17bf-4fb8-9be0-aedf2759a8fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_campus_location
+    - node.type.anatomical_model
+    - taxonomy.vocabulary.campus
+id: node.anatomical_model.field_campus_location
+field_name: field_campus_location
+entity_type: node
+bundle: anatomical_model
+label: 'Campus Location'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      campus: campus
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

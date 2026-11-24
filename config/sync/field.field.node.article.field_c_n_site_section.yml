@@ -1,0 +1,29 @@
+uuid: e7bd38ce-876a-410b-a1ed-904ffeed76c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_c_n_site_section
+    - node.type.article
+    - taxonomy.vocabulary.civictheme_site_sections
+id: node.article.field_c_n_site_section
+field_name: field_c_n_site_section
+entity_type: node
+bundle: article
+label: 'Site section'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      civictheme_site_sections: civictheme_site_sections
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

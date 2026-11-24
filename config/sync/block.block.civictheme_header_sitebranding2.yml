@@ -1,0 +1,25 @@
+uuid: 9e63978e-2d64-4dd6-89bf-ff29e59888bc
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - civictheme
+_core:
+  default_config_hash: 2lpQqpxnB3eNCIBJa_4jrul1ptqM0kiPBxa0O3mX89A
+id: civictheme_header_sitebranding2
+theme: civictheme
+region: header_top_2
+weight: -7
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Header site branding - slogan'
+  label_display: '0'
+  provider: system
+  use_site_logo: false
+  use_site_name: false
+  use_site_slogan: true
+visibility: {  }

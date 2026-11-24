@@ -1,0 +1,29 @@
+uuid: 96eaba8e-4e3f-49a9-ac51-5a5a1896de16
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: campus_page_staff_images
+label: 'Campus Page Sidebar'
+code: |-
+  /* Round staff portraits in the sidebar. */
+  aside.layout__region--sidebar_bottom_right img[alt*="Staff"] {
+    border-radius: 4px !important;
+  }
+
+  /* Center the hours widget against the campus description on desktop. */
+  @media (min-width: 1024px) {
+    aside.layout__region--sidebar_top_right .csn-hours-card {
+      margin-top: 102px !important;
+    }
+  }
+media: all
+preprocess: true
+conditions:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/locations/*'
+contexts: {  }
+conditions_require_all: true

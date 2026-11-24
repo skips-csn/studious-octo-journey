@@ -1,0 +1,34 @@
+uuid: a6972916-1e7a-4b1c-8055-a82ce250ef2f
+langcode: en
+status: true
+dependencies: {  }
+id: fix_metadata_baseline_font
+label: 'Fix Metadata Baseline Font'
+code: |
+  .ct-meta-item,
+  .ct-node-meta,
+  .ct-page-meta,
+  .field--name-uid,
+  .field--name-created,
+  .news-byline,
+  .news-byline * {
+    font-family: "Lexend", sans-serif !important;
+  }
+
+  .ct-meta-item,
+  .ct-node-meta,
+  .ct-page-meta,
+  .field--name-uid,
+  .field--name-created {
+    display: inline-block;
+  }
+
+  .news-byline {
+    padding-top: 1.5rem;
+    margin-bottom: 2rem;
+  }
+media: all
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

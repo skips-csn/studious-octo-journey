@@ -1,0 +1,24 @@
+uuid: 66d3a16e-1b55-428c-86a0-75b493ae01c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.civictheme_page
+_core:
+  default_config_hash: HpVCldwOffLJ5Ow-I-E5VHNz0X0BU7gobUVdMjWOPn4
+id: node.civictheme_page.promote
+field_name: promote
+entity_type: node
+bundle: civictheme_page
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

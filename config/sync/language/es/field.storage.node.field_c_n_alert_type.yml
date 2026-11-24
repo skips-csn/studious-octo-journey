@@ -1,0 +1,10 @@
+settings:
+  allowed_values:
+    -
+      label: Información
+    -
+      label: Éxito
+    -
+      label: Advertencia
+    -
+      label: Error

@@ -1,0 +1,6 @@
+settings:
+  allowed_values:
+    1:
+      label: Página
+    2:
+      label: Evento

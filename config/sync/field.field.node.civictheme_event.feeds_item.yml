@@ -1,0 +1,23 @@
+uuid: 67472730-8ee9-4a44-af84-4442eedd1cd9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.feeds_item
+    - node.type.civictheme_event
+  module:
+    - feeds
+id: node.civictheme_event.feeds_item
+field_name: feeds_item
+entity_type: node
+bundle: civictheme_event
+label: 'Feeds item'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:feeds_feed'
+  handler_settings: {  }
+field_type: feeds_item

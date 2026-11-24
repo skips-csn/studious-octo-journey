@@ -1,0 +1,18 @@
+uuid: e8a38986-3483-411b-927c-bd897b7e71ff
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Anatomical Model'
+type: anatomical_model
+description: 'Use to add a new anatomical model to the website'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

@@ -1,0 +1,16 @@
+uuid: 74e6b1ef-0c2c-459f-9e40-44b41d367603
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+  enforced:
+    module:
+      - media_library
+_core:
+  default_config_hash: 04_dAqpWYP1WmsXZ7IXJ7-yarCvNddD10EUkBDtIFy4
+id: media.media_library
+label: 'Media library'
+description: null
+targetEntityType: media
+cache: true

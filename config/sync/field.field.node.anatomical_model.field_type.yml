@@ -1,0 +1,29 @@
+uuid: dd536b6c-65ae-4e22-941b-bd566f0481d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_type
+    - node.type.anatomical_model
+    - taxonomy.vocabulary.anatomical_model_type
+id: node.anatomical_model.field_type
+field_name: field_type
+entity_type: node
+bundle: anatomical_model
+label: Type
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      anatomical_model_type: anatomical_model_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

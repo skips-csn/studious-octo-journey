@@ -1,0 +1,4 @@
+content:
+  field_c_p_date_range:
+    settings:
+      separator: '-'

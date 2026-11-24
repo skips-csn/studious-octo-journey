@@ -1,0 +1,4 @@
+node_modules/
+components_combined/
+.components-civictheme/
+storybook-static/

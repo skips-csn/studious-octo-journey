@@ -1,0 +1,23 @@
+uuid: 9644c6a1-ea8d-425c-b8e3-e15f80be8477
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:chat_widget:d2ee556f-86d4-41fe-8b48-3677c530622b'
+  module:
+    - block_content
+  theme:
+    - civic_sub_theme
+id: civic_sub_theme_libchatstickywidget
+theme: civic_sub_theme
+region: footer_top_1
+weight: -8
+provider: null
+plugin: 'block_content:d2ee556f-86d4-41fe-8b48-3677c530622b'
+settings:
+  id: 'block_content:d2ee556f-86d4-41fe-8b48-3677c530622b'
+  label: 'LibChat Sticky Widget'
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility: {  }

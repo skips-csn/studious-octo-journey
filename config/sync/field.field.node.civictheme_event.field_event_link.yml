@@ -1,0 +1,23 @@
+uuid: 7be07c33-1a73-4766-8b3d-f49418c11573
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_link
+    - node.type.civictheme_event
+  module:
+    - link
+id: node.civictheme_event.field_event_link
+field_name: field_event_link
+entity_type: node
+bundle: civictheme_event
+label: 'Event Link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

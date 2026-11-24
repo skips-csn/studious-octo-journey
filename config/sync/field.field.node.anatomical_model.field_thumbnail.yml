@@ -1,0 +1,29 @@
+uuid: f271f034-496f-471b-8ce1-2792cefbef25
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_thumbnail
+    - media.type.anatomy_image
+    - node.type.anatomical_model
+id: node.anatomical_model.field_thumbnail
+field_name: field_thumbnail
+entity_type: node
+bundle: anatomical_model
+label: Image
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      anatomy_image: anatomy_image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: civictheme_image
+field_type: entity_reference

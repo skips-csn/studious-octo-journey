@@ -1,0 +1,29 @@
+uuid: 9160683e-7f9e-4c7e-866b-a947e32c2a20
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_c_n_banner_background
+    - media.type.civictheme_image
+    - node.type.article
+id: node.article.field_c_n_banner_background
+field_name: field_c_n_banner_background
+entity_type: node
+bundle: article
+label: 'Banner background'
+description: 'Image displayed as an edge-to-edge banner background.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      civictheme_image: civictheme_image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

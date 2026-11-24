@@ -1,0 +1,9 @@
+uuid: cbfd78c4-2a23-45ec-961f-103e008b2d99
+langcode: en
+status: true
+dependencies: {  }
+name: Department
+vid: department
+description: 'Library staff department (circ, librarian, etc)'
+weight: 0
+new_revision: false

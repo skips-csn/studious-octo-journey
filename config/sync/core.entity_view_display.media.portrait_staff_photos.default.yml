@@ -1,0 +1,33 @@
+uuid: 0323e9ec-fb73-4856-9966-4fcc595baecc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.portrait_staff_photos.field_media_image
+    - image.style.large
+    - media.type.portrait_staff_photos
+  module:
+    - image
+id: media.portrait_staff_photos.default
+targetEntityType: media
+bundle: portrait_staff_photos
+mode: default
+content:
+  field_media_image:
+    type: image
+    label: visually_hidden
+    settings:
+      image_link: ''
+      image_style: large
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  langcode: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

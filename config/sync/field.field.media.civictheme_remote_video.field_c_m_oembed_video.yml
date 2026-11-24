@@ -1,0 +1,21 @@
+uuid: 2b4b1c05-e938-4bd2-b583-d6786885734d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_c_m_oembed_video
+    - media.type.civictheme_remote_video
+_core:
+  default_config_hash: Tej_Mh3ZZKmndqLz_8BOElAcLluavdnnN1E4xaOOSXA
+id: media.civictheme_remote_video.field_c_m_oembed_video
+field_name: field_c_m_oembed_video
+entity_type: media
+bundle: civictheme_remote_video
+label: 'Remote video URL'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

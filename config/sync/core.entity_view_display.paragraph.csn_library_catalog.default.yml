@@ -1,0 +1,25 @@
+uuid: 49fa4cbb-2a67-4f31-8802-3f03bed6cb00
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.csn_library_catalog.field_everything
+    - paragraphs.paragraphs_type.csn_library_catalog
+  module:
+    - entity_reference_revisions
+id: paragraph.csn_library_catalog.default
+targetEntityType: paragraph
+bundle: csn_library_catalog
+mode: default
+content:
+  field_everything:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

@@ -1,0 +1,24 @@
+uuid: 26f1626a-fdd7-4b87-b966-80c553f649bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.bs5_navigation_menu
+    - field.storage.block_content.field_bs5_menu
+    - filter.format.full_html
+  module:
+    - text
+id: block_content.bs5_navigation_menu.field_bs5_menu
+field_name: field_bs5_menu
+entity_type: block_content
+bundle: bs5_navigation_menu
+label: 'BS5 MENU'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text_long

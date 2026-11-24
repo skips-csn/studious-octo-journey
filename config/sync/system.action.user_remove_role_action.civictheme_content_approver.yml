@@ -1,0 +1,14 @@
+uuid: 76e77641-ba64-4a28-b999-93e04f52e7fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.civictheme_content_approver
+  module:
+    - user
+id: user_remove_role_action.civictheme_content_approver
+label: 'Remove the Content Approver role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: civictheme_content_approver

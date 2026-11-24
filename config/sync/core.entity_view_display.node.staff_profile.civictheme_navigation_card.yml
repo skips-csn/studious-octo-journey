@@ -1,0 +1,49 @@
+uuid: b06a0b80-17ba-45ad-a30d-46028d1f68b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.civictheme_navigation_card
+    - field.field.node.staff_profile.field_department
+    - field.field.node.staff_profile.field_email
+    - field.field.node.staff_profile.field_home_campus
+    - field.field.node.staff_profile.field_office
+    - field.field.node.staff_profile.field_office_phone
+    - field.field.node.staff_profile.field_return_link
+    - field.field.node.staff_profile.field_role
+    - field.field.node.staff_profile.field_role_2
+    - field.field.node.staff_profile.field_schedule_appointment
+    - node.type.staff_profile
+  module:
+    - layout_builder
+    - layout_builder_restrictions
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+  layout_builder_restrictions:
+    allowed_block_categories: {  }
+    entity_view_mode_restriction:
+      allowed_layouts: {  }
+      denylisted_blocks: {  }
+      allowlisted_blocks: {  }
+      restricted_categories: {  }
+id: node.staff_profile.civictheme_navigation_card
+targetEntityType: node
+bundle: staff_profile
+mode: civictheme_navigation_card
+content: {  }
+hidden:
+  field_department: true
+  field_email: true
+  field_home_campus: true
+  field_office: true
+  field_office_phone: true
+  field_return_link: true
+  field_role: true
+  field_role_2: true
+  field_schedule_appointment: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

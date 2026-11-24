@@ -1,0 +1,32 @@
+uuid: d2ab43da-a55e-48d9-8830-786c497e7986
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.anatomical_model.field_campus_location
+    - field.field.node.anatomical_model.field_link
+    - field.field.node.anatomical_model.field_thumbnail
+    - field.field.node.anatomical_model.field_type
+    - field.field.node.anatomical_model.layout_builder__layout
+    - node.type.anatomical_model
+  module:
+    - user
+id: node.anatomical_model.teaser
+targetEntityType: node
+bundle: anatomical_model
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_campus_location: true
+  field_link: true
+  field_thumbnail: true
+  field_type: true
+  langcode: true
+  layout_builder__layout: true
+  search_api_excerpt: true

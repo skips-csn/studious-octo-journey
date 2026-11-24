@@ -1,0 +1,13 @@
+uuid: 166cbbc0-88fd-48dc-bd3c-70b03c4f72e1
+langcode: en
+status: true
+dependencies: {  }
+id: portrait_staff_photos
+label: 'Portrait Staff Photos'
+description: ''
+source: image
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_image
+field_map: {  }

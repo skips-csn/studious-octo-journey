@@ -1,0 +1,33 @@
+uuid: 7b4cf8bf-6046-4c04-9293-bddabcebadf4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.landscape_staff_photo.field_media_image_2
+    - image.style.large
+    - media.type.landscape_staff_photo
+  module:
+    - image
+id: media.landscape_staff_photo.default
+targetEntityType: media
+bundle: landscape_staff_photo
+mode: default
+content:
+  field_media_image_2:
+    type: image
+    label: visually_hidden
+    settings:
+      image_link: ''
+      image_style: large
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  langcode: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

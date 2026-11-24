@@ -1,0 +1,10 @@
+settings:
+  plugins:
+    ckeditor5_style:
+      styles:
+        4:
+          label: Enlace
+        5:
+          label: 'No usar'
+        7:
+          label: Pequeño

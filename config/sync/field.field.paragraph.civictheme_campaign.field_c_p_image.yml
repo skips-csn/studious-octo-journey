@@ -1,0 +1,35 @@
+uuid: 9359288a-4add-4bc2-908f-ee3af15ae7f5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_c_p_image
+    - media.type.civictheme_image
+    - media.type.landscape_staff_photo
+    - media.type.portrait_staff_photos
+    - paragraphs.paragraphs_type.civictheme_campaign
+_core:
+  default_config_hash: BxddDrMZLuLrgAv5We7zCIK2uejO7N7wQlj7dKEGW8I
+id: paragraph.civictheme_campaign.field_c_p_image
+field_name: field_c_p_image
+entity_type: paragraph
+bundle: civictheme_campaign
+label: Image
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      civictheme_image: civictheme_image
+      landscape_staff_photo: landscape_staff_photo
+      portrait_staff_photos: portrait_staff_photos
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: civictheme_image
+field_type: entity_reference

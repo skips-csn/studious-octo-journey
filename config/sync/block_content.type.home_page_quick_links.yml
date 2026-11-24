@@ -1,0 +1,8 @@
+uuid: c5d1f0ce-f089-44f2-8cd9-0a2075c1ef93
+langcode: en
+status: true
+dependencies: {  }
+id: home_page_quick_links
+label: 'Home Page Quick Links'
+revision: false
+description: 'Quick Links for use only on the home page. '

@@ -1,0 +1,29 @@
+uuid: dd5b5185-aa89-4084-a297-2e044e57c359
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - options
+_core:
+  default_config_hash: zyhHEaovBYpCKncEIt7_rsHZmFb2LqDQ3R6Ynx0WhPM
+id: block_content.field_c_b_trigger_theme
+field_name: field_c_b_trigger_theme
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: light
+      label: Light
+    -
+      value: dark
+      label: Dark
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

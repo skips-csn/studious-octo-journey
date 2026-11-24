@@ -1,0 +1,67 @@
+uuid: ca9de060-c8ef-464f-bb49-aacafd7d31be
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.staff_profile.field_department
+    - field.field.node.staff_profile.field_email
+    - field.field.node.staff_profile.field_home_campus
+    - field.field.node.staff_profile.field_office
+    - field.field.node.staff_profile.field_office_phone
+    - field.field.node.staff_profile.field_return_link
+    - field.field.node.staff_profile.field_role
+    - field.field.node.staff_profile.field_role_2
+    - field.field.node.staff_profile.field_schedule_appointment
+    - node.type.staff_profile
+  module:
+    - layout_builder
+    - layout_builder_restrictions
+    - link
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+  layout_builder_restrictions:
+    allowed_block_categories: {  }
+    entity_view_mode_restriction:
+      allowed_layouts: {  }
+      denylisted_blocks: {  }
+      allowlisted_blocks: {  }
+      restricted_categories: {  }
+id: node.staff_profile.default
+targetEntityType: node
+bundle: staff_profile
+mode: default
+content:
+  field_office:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_return_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  field_department: true
+  field_email: true
+  field_home_campus: true
+  field_office_phone: true
+  field_role: true
+  field_role_2: true
+  field_schedule_appointment: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

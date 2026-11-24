@@ -1,0 +1,17 @@
+uuid: bdab5b7f-ac03-4c54-998e-d01906bc8bf3
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: K4mNGZccpjWUxZS_RDpLZJ6bKY-pXEQQXIisEVpklHQ
+name: civictheme_slider_slide
+label: 'Slider Slide'
+effects:
+  aec69fc6-711b-4bec-a8a1-37c277445d4b:
+    uuid: aec69fc6-711b-4bec-a8a1-37c277445d4b
+    id: image_scale
+    weight: 2
+    data:
+      width: 600
+      height: 600
+      upscale: true

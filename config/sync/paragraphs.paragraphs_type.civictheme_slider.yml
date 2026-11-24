@@ -1,0 +1,12 @@
+uuid: c4bc8885-5465-4613-bd25-9dc20a02766d
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Snc1-780cSwyQLyPQGOHp2Ryh_CfC3KaFtUzI2WPMdY
+id: civictheme_slider
+label: Slider
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

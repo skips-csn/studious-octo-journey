@@ -1,0 +1,10 @@
+uuid: c949b670-fa88-46d5-96f2-329fd70ae8aa
+langcode: en
+status: true
+dependencies: {  }
+id: spacer
+label: Spacer
+icon_uuid: null
+icon_default: null
+description: 'Add vertical space between components.'
+behavior_plugins: {  }

@@ -1,0 +1,8 @@
+settings:
+  allowed_values:
+    -
+      label: Heredar
+    -
+      label: Fina
+    -
+      label: Oscuro

@@ -1,0 +1,23 @@
+uuid: 693602c5-8ea9-4377-8b2a-dcf1c4da60f7
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:civictheme_mobile_navigation:b7f36176-620f-4178-aadd-9b448c610986'
+  module:
+    - block_content
+  theme:
+    - civic_sub_theme
+id: civic_sub_theme_mobile_navigation
+theme: civic_sub_theme
+region: header_middle_3
+weight: -10
+provider: null
+plugin: 'block_content:b7f36176-620f-4178-aadd-9b448c610986'
+settings:
+  id: 'block_content:b7f36176-620f-4178-aadd-9b448c610986'
+  label: 'Mobile Navigation'
+  label_display: ''
+  provider: block_content
+  view_mode: full
+visibility: {  }

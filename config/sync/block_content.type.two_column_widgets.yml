@@ -1,0 +1,8 @@
+uuid: a8ccf4dd-99e1-406c-b566-7ec74337101c
+langcode: en
+status: true
+dependencies: {  }
+id: two_column_widgets
+label: 'Catalog Hours Widgets'
+revision: false
+description: 'Two Column layout widget that contains the library catalog and library hours. ONLY for use on home page'

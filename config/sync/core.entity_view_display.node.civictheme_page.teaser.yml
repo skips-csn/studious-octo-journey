@@ -1,0 +1,168 @@
+uuid: e87e78bb-903e-4cdd-85d5-46d896c3abab
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.civictheme_page.field_author
+    - field.field.node.civictheme_page.field_c_n_banner_background
+    - field.field.node.civictheme_page.field_c_n_banner_blend_mode
+    - field.field.node.civictheme_page.field_c_n_banner_components
+    - field.field.node.civictheme_page.field_c_n_banner_components_bott
+    - field.field.node.civictheme_page.field_c_n_banner_featured_image
+    - field.field.node.civictheme_page.field_c_n_banner_hide_breadcrumb
+    - field.field.node.civictheme_page.field_c_n_banner_theme
+    - field.field.node.civictheme_page.field_c_n_banner_title
+    - field.field.node.civictheme_page.field_c_n_banner_type
+    - field.field.node.civictheme_page.field_c_n_components
+    - field.field.node.civictheme_page.field_c_n_custom_last_updated
+    - field.field.node.civictheme_page.field_c_n_hide_sidebar
+    - field.field.node.civictheme_page.field_c_n_hide_tags
+    - field.field.node.civictheme_page.field_c_n_show_last_updated
+    - field.field.node.civictheme_page.field_c_n_show_toc
+    - field.field.node.civictheme_page.field_c_n_site_section
+    - field.field.node.civictheme_page.field_c_n_summary
+    - field.field.node.civictheme_page.field_c_n_thumbnail
+    - field.field.node.civictheme_page.field_c_n_topics
+    - field.field.node.civictheme_page.field_c_n_vertical_spacing
+    - field.field.node.civictheme_page.layout_builder__layout
+    - node.type.civictheme_page
+  module:
+    - datetime
+    - entity_reference_revisions
+    - field_group
+    - layout_builder
+    - layout_builder_restrictions
+    - options
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+  layout_builder_restrictions:
+    allowed_block_categories: {  }
+    entity_view_mode_restriction:
+      allowed_layouts: {  }
+      denylisted_blocks: {  }
+      allowlisted_blocks: {  }
+      restricted_categories: {  }
+  field_group:
+    group_main_content_layout_contai:
+      children:
+        - field_c_n_topics
+      label: ''
+      parent_name: ''
+      region: content
+      weight: 8
+      format_type: html_element
+      format_settings:
+        classes: civictheme-content
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+_core:
+  default_config_hash: 3kpNEqsukFdrH-orZy-htLbSdgGZsJBY4WSvRE7Jon4
+id: node.civictheme_page.teaser
+targetEntityType: node
+bundle: civictheme_page
+mode: teaser
+content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_c_n_banner_hide_breadcrumb:
+    type: boolean
+    label: hidden
+    settings:
+      format: custom
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_c_n_banner_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_c_n_components:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_c_n_custom_last_updated:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_c_n_show_last_updated:
+    type: boolean
+    label: hidden
+    settings:
+      format: custom
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_c_n_site_section:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_c_n_topics:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 21
+    region: content
+  field_c_n_vertical_spacing:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  field_author: true
+  field_c_n_banner_background: true
+  field_c_n_banner_blend_mode: true
+  field_c_n_banner_components: true
+  field_c_n_banner_components_bott: true
+  field_c_n_banner_featured_image: true
+  field_c_n_banner_theme: true
+  field_c_n_banner_type: true
+  field_c_n_hide_sidebar: true
+  field_c_n_hide_tags: true
+  field_c_n_show_toc: true
+  field_c_n_summary: true
+  field_c_n_thumbnail: true
+  langcode: true
+  layout_builder__layout: true
+  links: true
+  search_api_excerpt: true

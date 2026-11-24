@@ -1,0 +1,23 @@
+uuid: 6b305f4d-ac75-49e5-9916-18510cc8cd04
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:civictheme_search:286ff750-a9a9-423a-8a4e-515f79fc0a8f'
+  module:
+    - block_content
+  theme:
+    - civic_sub_theme
+id: civic_sub_theme_search
+theme: civic_sub_theme
+region: header_middle_3
+weight: -8
+provider: null
+plugin: 'block_content:286ff750-a9a9-423a-8a4e-515f79fc0a8f'
+settings:
+  id: 'block_content:286ff750-a9a9-423a-8a4e-515f79fc0a8f'
+  label: Search
+  label_display: ''
+  provider: block_content
+  view_mode: full
+visibility: {  }

@@ -1,0 +1,36 @@
+uuid: a8e8f18a-7eab-4158-bee3-b04c81d52aeb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.civictheme_social_icon.field_c_p_icon
+    - field.field.paragraph.civictheme_social_icon.field_c_p_link
+    - paragraphs.paragraphs_type.civictheme_social_icon
+  module:
+    - link
+    - media_library
+_core:
+  default_config_hash: WgEFR2l7r1-KBi5MUplMfDRHYGxry2FHS0nMQxNyPSM
+id: paragraph.civictheme_social_icon.default
+targetEntityType: paragraph
+bundle: civictheme_social_icon
+mode: default
+content:
+  field_c_p_icon:
+    type: media_library_widget
+    weight: 0
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_c_p_link:
+    type: link_default
+    weight: 1
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
