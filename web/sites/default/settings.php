@@ -933,3 +933,17 @@ else {
     include __DIR__ . '/settings.ddev.php';
   }
 }
+
+// Parse Pantheon database and hash_salt credentials
+if (!empty($_SERVER['PRESSFLOW_SETTINGS'])) {
+  $pressflow_settings = json_decode($_SERVER['PRESSFLOW_SETTINGS'], TRUE);
+  if (!empty($pressflow_settings['databases'])) {
+    $databases = $pressflow_settings['databases'];
+  }
+  if (!empty($pressflow_settings['conf']['drupal_hash_salt'])) {
+    $settings['hash_salt'] = $pressflow_settings['conf']['drupal_hash_salt'];
+  }
+}
+if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
+  $settings['config_sync_directory'] = '../config/sync';
+}
