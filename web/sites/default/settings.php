@@ -947,3 +947,8 @@ if (!empty($_SERVER['PRESSFLOW_SETTINGS'])) {
 if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
   $settings['config_sync_directory'] = '../config/sync';
 }
+
+if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
+  $settings['file_temp_path'] = '/tmp';
+  $settings['file_private_path'] = 'sites/default/files/private';
+}
